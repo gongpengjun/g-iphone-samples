@@ -29,6 +29,16 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		01E2AD470F89070400AEB1DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01E2A9EA0F88BCCC00AEB1DD;
+			remoteInfo = ImageView;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		018AC6E10F7FB454008C4E7A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		018AC6E40F7FB488008C4E7A /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
@@ -213,6 +223,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				01E2AD480F89070400AEB1DD /* PBXTargetDependency */,
 			);
 			name = imageLibSample;
 			productName = imageLibSample;
@@ -271,6 +282,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01E2AD480F89070400AEB1DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01E2A9EA0F88BCCC00AEB1DD /* ImageView */;
+			targetProxy = 01E2AD470F89070400AEB1DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		01E2A9ED0F88BCCC00AEB1DD /* Debug */ = {
