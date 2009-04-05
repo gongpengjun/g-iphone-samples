@@ -1,10 +1,10 @@
 //
-//  UIImage+Extension.h
+//  FGImage.h
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (Extension) 
+@interface FGImage : UIImage
 
 + (id)imageWithDataNamed:(NSString*)imageName;
 

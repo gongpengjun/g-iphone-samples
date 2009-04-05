@@ -2,10 +2,10 @@
 //  UIImage+Extension.m
 //
 
-#import "UIImage+Extension.h"
+#import "FGImage.h"
 #import "images.h"
 
-@implementation UIImage (Extension)
+@implementation FGImage
 
 /*
  There's a little app called bin2c ( http://wiki.wxwidgets.org/Embedding_PNG_Images-Bin2c_In_C) 
@@ -20,6 +20,7 @@
 	NSString *imageArraryName = [imageName stringByReplacingOccurrencesOfString:@"." withString:@"_"];
 	unsigned char* bytes = byte_array_of_image([imageArraryName UTF8String]);
 	unsigned int   size  = byte_size_of_image([imageArraryName UTF8String]);
+	//NSLog(@"imageName:%@,arraryName:%@,bytes array:0x%X,size:%d",imageName,imageArraryName,bytes,size);
 	UIImage * image = [UIImage imageWithData:[NSData dataWithBytesNoCopy:bytes length:size]];
 	return image;
 }
