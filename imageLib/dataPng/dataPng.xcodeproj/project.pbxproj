@@ -20,13 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01457A6F0F87A89000E4D6F3 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
-		01457A700F87A89000E4D6F3 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
-		01457BDE0F885F2500E4D6F3 /* Apple_Logo_gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Apple_Logo_gif.h; path = ../Apple_Logo_gif.h; sourceTree = SOURCE_ROOT; };
-		01457BDF0F885F2500E4D6F3 /* Apple_Logo_jpg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Apple_Logo_jpg.h; path = ../Apple_Logo_jpg.h; sourceTree = SOURCE_ROOT; };
-		01457BE00F885F2500E4D6F3 /* Apple_Logo_png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Apple_Logo_png.h; path = ../Apple_Logo_png.h; sourceTree = SOURCE_ROOT; };
-		01457BF20F88602B00E4D6F3 /* images.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = images.c; sourceTree = "<group>"; };
-		01457BF30F88602B00E4D6F3 /* images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = images.h; sourceTree = "<group>"; };
+		01457A6F0F87A89000E4D6F3 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Extension.h"; path = "../dataPng/Classes/UIImage+Extension.h"; sourceTree = "<group>"; };
+		01457A700F87A89000E4D6F3 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Extension.m"; path = "../dataPng/Classes/UIImage+Extension.m"; sourceTree = "<group>"; };
+		01457BF20F88602B00E4D6F3 /* images.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = images.c; path = ../dataPng/Classes/images.c; sourceTree = "<group>"; };
+		01457BF30F88602B00E4D6F3 /* images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = images.h; path = ../dataPng/Classes/images.h; sourceTree = "<group>"; };
 		01457C750F8865B600E4D6F3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		01457C920F88675800E4D6F3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		016FA9BA0F7F9CAE004444A0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -36,6 +33,9 @@
 		018AC71F0F7FB5E2008C4E7A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "main and AppDelegate/main.m"; sourceTree = "<group>"; };
 		018AC7210F7FB5ED008C4E7A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "main and AppDelegate/AppDelegate.h"; sourceTree = "<group>"; };
 		018AC7220F7FB5ED008C4E7A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "main and AppDelegate/AppDelegate.m"; sourceTree = "<group>"; };
+		01E2A8D80F88805C00AEB1DD /* Apple_Logo_gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apple_Logo_gif.h; sourceTree = "<group>"; };
+		01E2A8D90F88805C00AEB1DD /* Apple_Logo_jpg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apple_Logo_jpg.h; sourceTree = "<group>"; };
+		01E2A8DA0F88805C00AEB1DD /* Apple_Logo_png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apple_Logo_png.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* dataPng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dataPng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -68,15 +68,26 @@
 			name = "main AppDelegate and Info";
 			sourceTree = "<group>";
 		};
+		01E2A8D40F88805C00AEB1DD /* images */ = {
+			isa = PBXGroup;
+			children = (
+				01E2A8D80F88805C00AEB1DD /* Apple_Logo_gif.h */,
+				01E2A8D90F88805C00AEB1DD /* Apple_Logo_jpg.h */,
+				01E2A8DA0F88805C00AEB1DD /* Apple_Logo_png.h */,
+				01457BF30F88602B00E4D6F3 /* images.h */,
+				01457BF20F88602B00E4D6F3 /* images.c */,
+				01457A6F0F87A89000E4D6F3 /* UIImage+Extension.h */,
+				01457A700F87A89000E4D6F3 /* UIImage+Extension.m */,
+			);
+			name = images;
+			path = ../images;
+			sourceTree = SOURCE_ROOT;
+		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				016FA9BA0F7F9CAE004444A0 /* RootViewController.h */,
 				016FA9BB0F7F9CAE004444A0 /* RootViewController.m */,
-				01457BF30F88602B00E4D6F3 /* images.h */,
-				01457BF20F88602B00E4D6F3 /* images.c */,
-				01457A6F0F87A89000E4D6F3 /* UIImage+Extension.h */,
-				01457A700F87A89000E4D6F3 /* UIImage+Extension.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -92,9 +103,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				01457BDE0F885F2500E4D6F3 /* Apple_Logo_gif.h */,
-				01457BDF0F885F2500E4D6F3 /* Apple_Logo_jpg.h */,
-				01457BE00F885F2500E4D6F3 /* Apple_Logo_png.h */,
+				01E2A8D40F88805C00AEB1DD /* images */,
 				018AC71E0F7FB5D0008C4E7A /* main AppDelegate and Info */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
