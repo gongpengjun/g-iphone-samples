@@ -16,7 +16,7 @@
 	[contentView release];
 
 	ImageView * imgView = [[ImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	//[self.view addSubview:imgView];
+	[self.view addSubview:imgView];
 	[imgView release];
 }
 
