@@ -12,23 +12,23 @@
 		01E2AB960F88C63000AEB1DD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AB950F88C63000AEB1DD /* RootViewController.m */; };
 		01E2AB990F88C63C00AEB1DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E2AB970F88C63C00AEB1DD /* Default.png */; };
 		01E2AB9A0F88C63C00AEB1DD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E2AB980F88C63C00AEB1DD /* icon.png */; };
-		01E2ABAC0F88C73F00AEB1DD /* libimageLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E2ABA50F88C6AA00AEB1DD /* libimageLib.a */; };
+		01E2AC890F88FD8400AEB1DD /* libimageLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E2AC880F88FD7B00AEB1DD /* libimageLib.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		01E2ABA40F88C6AA00AEB1DD /* PBXContainerItemProxy */ = {
+		01E2AC870F88FD7B00AEB1DD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 01E2AB9B0F88C6A900AEB1DD /* imageLib.xcodeproj */;
+			containerPortal = 01E2AC7E0F88FD7800AEB1DD /* imageLib.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libimageLib.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = imageLib;
 		};
-		01E2ABA60F88C6BF00AEB1DD /* PBXContainerItemProxy */ = {
+		01E2ACCA0F88FE5900AEB1DD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 01E2AB9B0F88C6A900AEB1DD /* imageLib.xcodeproj */;
+			containerPortal = 01E2AC7E0F88FD7800AEB1DD /* imageLib.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D /* imageLib */;
 			remoteInfo = imageLib;
@@ -45,8 +45,8 @@
 		01E2AB950F88C63000AEB1DD /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		01E2AB970F88C63C00AEB1DD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		01E2AB980F88C63C00AEB1DD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		01E2AB9B0F88C6A900AEB1DD /* imageLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = imageLib.xcodeproj; path = "../../../../../../Users/frank/workspace/g-iphone-samples/imageLib/imageLib/imageLib.xcodeproj"; sourceTree = SDKROOT; };
-		01E2ABA80F88C6ED00AEB1DD /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageView.h; path = "../../../../../../Users/frank/workspace/g-iphone-samples/imageLib/imageLib/imageLibSrc/ImageView.h"; sourceTree = SDKROOT; };
+		01E2AC7A0F88FD1100AEB1DD /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageView.h; path = ../../../imageLib/imageLibSrc/ImageView.h; sourceTree = BUILT_PRODUCTS_DIR; };
+		01E2AC7E0F88FD7800AEB1DD /* imageLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = imageLib.xcodeproj; path = ../../../imageLib/imageLib.xcodeproj; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* imageLibTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageLibTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01E2ABAC0F88C73F00AEB1DD /* libimageLib.a in Frameworks */,
+				01E2AC890F88FD8400AEB1DD /* libimageLib.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -80,10 +80,10 @@
 			name = "main AppDelegate and Info";
 			sourceTree = "<group>";
 		};
-		01E2ABA10F88C6A900AEB1DD /* Products */ = {
+		01E2AC840F88FD7B00AEB1DD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01E2ABA50F88C6AA00AEB1DD /* libimageLib.a */,
+				01E2AC880F88FD7B00AEB1DD /* libimageLib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,8 +108,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				01E2ABA80F88C6ED00AEB1DD /* ImageView.h */,
-				01E2AB9B0F88C6A900AEB1DD /* imageLib.xcodeproj */,
+				01E2AC7A0F88FD1100AEB1DD /* ImageView.h */,
+				01E2AC7E0F88FD7800AEB1DD /* imageLib.xcodeproj */,
 				018AC71E0F7FB5D0008C4E7A /* main AppDelegate and Info */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -152,7 +152,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				01E2ABA70F88C6BF00AEB1DD /* PBXTargetDependency */,
+				01E2ACCB0F88FE5900AEB1DD /* PBXTargetDependency */,
 			);
 			name = imageLibTest;
 			productName = imageLibTest;
@@ -171,8 +171,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 01E2ABA10F88C6A900AEB1DD /* Products */;
-					ProjectRef = 01E2AB9B0F88C6A900AEB1DD /* imageLib.xcodeproj */;
+					ProductGroup = 01E2AC840F88FD7B00AEB1DD /* Products */;
+					ProjectRef = 01E2AC7E0F88FD7800AEB1DD /* imageLib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -183,11 +183,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		01E2ABA50F88C6AA00AEB1DD /* libimageLib.a */ = {
+		01E2AC880F88FD7B00AEB1DD /* libimageLib.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libimageLib.a;
-			remoteRef = 01E2ABA40F88C6AA00AEB1DD /* PBXContainerItemProxy */;
+			remoteRef = 01E2AC870F88FD7B00AEB1DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -218,10 +218,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		01E2ABA70F88C6BF00AEB1DD /* PBXTargetDependency */ = {
+		01E2ACCB0F88FE5900AEB1DD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = imageLib;
-			targetProxy = 01E2ABA60F88C6BF00AEB1DD /* PBXContainerItemProxy */;
+			targetProxy = 01E2ACCA0F88FE5900AEB1DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
