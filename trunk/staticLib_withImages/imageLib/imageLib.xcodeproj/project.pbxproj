@@ -16,9 +16,6 @@
 		01E2AB620F88C55A00AEB1DD /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AB5C0F88C55A00AEB1DD /* ImageView.m */; };
 		01E2AB630F88C55A00AEB1DD /* images.c in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AB5D0F88C55A00AEB1DD /* images.c */; };
 		01E2AB640F88C55A00AEB1DD /* images.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E2AB5E0F88C55A00AEB1DD /* images.h */; };
-		01E2AB6F0F88C57A00AEB1DD /* Apple_Logo_gif.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E2AB6C0F88C57A00AEB1DD /* Apple_Logo_gif.h */; };
-		01E2AB700F88C57A00AEB1DD /* Apple_Logo_jpg.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E2AB6D0F88C57A00AEB1DD /* Apple_Logo_jpg.h */; };
-		01E2AB710F88C57A00AEB1DD /* Apple_Logo_png.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E2AB6E0F88C57A00AEB1DD /* Apple_Logo_png.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +28,6 @@
 		01E2AB5C0F88C55A00AEB1DD /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		01E2AB5D0F88C55A00AEB1DD /* images.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = images.c; sourceTree = "<group>"; };
 		01E2AB5E0F88C55A00AEB1DD /* images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = images.h; sourceTree = "<group>"; };
-		01E2AB6C0F88C57A00AEB1DD /* Apple_Logo_gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apple_Logo_gif.h; sourceTree = "<group>"; };
-		01E2AB6D0F88C57A00AEB1DD /* Apple_Logo_jpg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apple_Logo_jpg.h; sourceTree = "<group>"; };
-		01E2AB6E0F88C57A00AEB1DD /* Apple_Logo_png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apple_Logo_png.h; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* imageLib_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageLib_Prefix.pch; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libimageLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimageLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,17 +70,6 @@
 			path = imageLibSrc;
 			sourceTree = "<group>";
 		};
-		01E2AB680F88C57A00AEB1DD /* images */ = {
-			isa = PBXGroup;
-			children = (
-				01E2AB6C0F88C57A00AEB1DD /* Apple_Logo_gif.h */,
-				01E2AB6D0F88C57A00AEB1DD /* Apple_Logo_jpg.h */,
-				01E2AB6E0F88C57A00AEB1DD /* Apple_Logo_png.h */,
-			);
-			name = images;
-			path = ../images;
-			sourceTree = SOURCE_ROOT;
-		};
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +81,6 @@
 		0867D691FE84028FC02AAC07 /* imageLib */ = {
 			isa = PBXGroup;
 			children = (
-				01E2AB680F88C57A00AEB1DD /* images */,
 				01E2AB580F88C55A00AEB1DD /* imageLibSrc */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				01E2AB500F88C53700AEB1DD /* Frameworks */,
@@ -125,9 +107,6 @@
 				01E2AB5F0F88C55A00AEB1DD /* FGImage.h in Headers */,
 				01E2AB610F88C55A00AEB1DD /* ImageView.h in Headers */,
 				01E2AB640F88C55A00AEB1DD /* images.h in Headers */,
-				01E2AB6F0F88C57A00AEB1DD /* Apple_Logo_gif.h in Headers */,
-				01E2AB700F88C57A00AEB1DD /* Apple_Logo_jpg.h in Headers */,
-				01E2AB710F88C57A00AEB1DD /* Apple_Logo_png.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +177,7 @@
 				INSTALL_PATH = /usr/local/lib;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = imageLib;
+				USER_HEADER_SEARCH_PATHS = ../images;
 			};
 			name = Debug;
 		};
@@ -212,6 +192,7 @@
 				GCC_PREFIX_HEADER = imageLib_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = imageLib;
+				USER_HEADER_SEARCH_PATHS = ../images;
 			};
 			name = Release;
 		};
