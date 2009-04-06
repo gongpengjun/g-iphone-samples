@@ -38,13 +38,15 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 01CA5DD80F89A6AF005ACAC8 /* ImageTable */;
+			remoteGlobalIDString = 01CA5DD80F89A6AF005ACAC8;
 			remoteInfo = ImageTable;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		01CA5DB40F89A443005ACAC8 /* ImageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageTable.h; path = ../images/ImageTable.h; sourceTree = SOURCE_ROOT; };
+		01CA5E680F89AE20005ACAC8 /* generate_ImageTable.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generate_ImageTable.sh; sourceTree = "<group>"; };
+		01CA5E6C0F8A0CFD005ACAC8 /* ImageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageList.h; path = ../images/ImageList.h; sourceTree = SOURCE_ROOT; };
 		01E2AB510F88C53700AEB1DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		01E2AB520F88C53700AEB1DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		01E2AB530F88C53700AEB1DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,7 +87,6 @@
 		01E2AB580F88C55A00AEB1DD /* imageLibSrc */ = {
 			isa = PBXGroup;
 			children = (
-				01CA5DB40F89A443005ACAC8 /* ImageTable.h */,
 				01E2AB5E0F88C55A00AEB1DD /* images.h */,
 				01E2AB5D0F88C55A00AEB1DD /* images.c */,
 				01E2AB590F88C55A00AEB1DD /* FGImage.h */,
@@ -107,6 +108,9 @@
 		0867D691FE84028FC02AAC07 /* imageLib */ = {
 			isa = PBXGroup;
 			children = (
+				01CA5E680F89AE20005ACAC8 /* generate_ImageTable.sh */,
+				01CA5E6C0F8A0CFD005ACAC8 /* ImageList.h */,
+				01CA5DB40F89A443005ACAC8 /* ImageTable.h */,
 				01E2AB580F88C55A00AEB1DD /* imageLibSrc */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				01CA5DA30F89A2C9005ACAC8 /* Frameworks */,

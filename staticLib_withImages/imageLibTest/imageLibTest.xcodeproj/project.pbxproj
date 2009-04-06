@@ -30,7 +30,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 01E2AC7E0F88FD7800AEB1DD /* imageLib.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* imageLib */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = imageLib;
 		};
 /* End PBXContainerItemProxy section */

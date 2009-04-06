@@ -3,13 +3,15 @@
  */
 
 #include "images.h"
-#include "ImageTable.h"
+#include "ImageList.h"
 
 struct images {
 	unsigned char  image_name[256];
 	unsigned char* byte_array;
 	unsigned int   byte_size;
-} g_images[] = IMAGE_TABLE;
+} g_images[] = {
+#include "ImageTable.h"
+};
 
 #define IMAGE_NUM sizeof(g_images) / sizeof(struct images)
 
