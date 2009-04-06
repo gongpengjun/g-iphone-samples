@@ -46,7 +46,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01E2AB500F88C53700AEB1DD /* Frameworks */ = {
+		01CA5DA30F89A2C9005ACAC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				01E2AB510F88C53700AEB1DD /* UIKit.framework */,
@@ -54,8 +54,7 @@
 				01E2AB530F88C53700AEB1DD /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			path = "../../../../../../Users/frank/workspace/g-iphone-samples/imageLib/imageLib";
-			sourceTree = SDKROOT;
+			sourceTree = "<group>";
 		};
 		01E2AB580F88C55A00AEB1DD /* imageLibSrc */ = {
 			isa = PBXGroup;
@@ -83,7 +82,7 @@
 			children = (
 				01E2AB580F88C55A00AEB1DD /* imageLibSrc */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
-				01E2AB500F88C53700AEB1DD /* Frameworks */,
+				01CA5DA30F89A2C9005ACAC8 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
 			name = imageLib;
