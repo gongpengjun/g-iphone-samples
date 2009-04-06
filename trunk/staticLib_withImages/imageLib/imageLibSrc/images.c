@@ -3,22 +3,15 @@
  */
 
 #include "images.h"
+#include "ImageTable.h"
 
-//image data
-#include "Apple_Logo_gif.h"
-#include "Apple_Logo_png.h"
-#include "Apple_Logo_jpg.h"
-
-#define IMAGE_NUM 3
 struct images {
 	unsigned char  image_name[256];
 	unsigned char* byte_array;
 	unsigned int   byte_size;
-} g_images[IMAGE_NUM] = {
-	{"Apple_Logo_gif",	Apple_Logo_gif,	sizeof(Apple_Logo_gif)	},
-	{"Apple_Logo_png",	Apple_Logo_png,	sizeof(Apple_Logo_png)	},
-	{"Apple_Logo_jpg",	Apple_Logo_jpg,	sizeof(Apple_Logo_jpg)	}
-};
+} g_images[] = IMAGE_TABLE;
+
+#define IMAGE_NUM sizeof(g_images) / sizeof(struct images)
 
 unsigned char* byte_array_of_image(const char* image_name)
 {
