@@ -5,7 +5,11 @@ sed -n -e /\\.gif$/p -e /\\.png$/p -e /\\.jpg$/p < tmp/filelist > tmp/imagelist
 echo Found image files:
 cat tmp/imagelist
 echo ========
-sed s/\\./_/ < tmp/imagelist > tmp/arraylist
+sed s/-/_/g < tmp/imagelist > tmp/__imagelist
+cat tmp/__imagelist
+sed "s/^\(.*\)$/_\1/" < tmp/__imagelist > tmp/_imagelist
+cat tmp/_imagelist
+sed s/\\./_/ < tmp/_imagelist > tmp/arraylist
 sed s/$/.h/ < tmp/arraylist > tmp/headerlist
 paste tmp/imagelist tmp/headerlist > tmp/bin2clist
 cd $1

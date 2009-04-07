@@ -1,7 +1,3 @@
-# Linux Shell Scripting Tutorial v1.05r3, Summer-2002
-# rename.awk : awk script to rename file with some builtin Intelligence
-# Author : Vivek G. Gite <vivek@nixcraft.com> 
-# 
 BEGIN{
 }
 
@@ -12,7 +8,7 @@ BEGIN{
     isdir1 = "[ -d " $1 " ] "
     isdir2 = "[ -d " $2 " ] " 
 
-    scriptname = "up2low"
+    scriptname = "bin2c.sh"
     awkscriptname = "bin2c.awk"
 
     sfile = $1
@@ -49,8 +45,3 @@ BEGIN{
 #
 END{
 }
-
-#
-# ./ch.sh: vivek-tech.com to nixcraft.com referance converted using this tool
-# See the tool at http://www.nixcraft.com/uniqlinuxfeatures/tools/
-#
