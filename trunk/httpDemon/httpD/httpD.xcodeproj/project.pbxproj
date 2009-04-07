@@ -285,7 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Gong";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gong Pengjun";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -294,7 +294,7 @@
 				INFOPLIST_PREFIX_HEADER = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7FAEB4D0-CD38-4744-B426-BB581D178435";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1D83D2DD-27F3-470C-9C9E-0C34666CFC40";
 				SDKROOT = iphoneos2.2.1;
 			};
 			name = Debug;
@@ -303,7 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Frank Gong";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gong Pengjun";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -311,7 +311,7 @@
 				INFOPLIST_FILE = "main AppDelegate and Info/Info.plist";
 				INFOPLIST_PREFIX_HEADER = "";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7FAEB4D0-CD38-4744-B426-BB581D178435";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1D83D2DD-27F3-470C-9C9E-0C34666CFC40";
 				SDKROOT = iphoneos2.2.1;
 			};
 			name = Release;
