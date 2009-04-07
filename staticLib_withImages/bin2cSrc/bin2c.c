@@ -57,14 +57,14 @@ void process(const char *ifname, const char *ofname)
 	}
 	char buf[PATH_MAX], *p;
 	const char *cp;
-	if ((cp = strrchr(ifname, '/')) != NULL)
+	if ((cp = strrchr(ofname, '/')) != NULL)
 	{
 		++cp;
 	} else {
-		if ((cp = strrchr(ifname, '\\')) != NULL)
+		if ((cp = strrchr(ofname, '\\')) != NULL)
 			++cp;
 		else
-			cp = ifname;
+			cp = ofname;
 	}
 	strcpy(buf, cp);
 	for (p = buf; *p != '\0'; ++p)

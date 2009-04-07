@@ -11,7 +11,7 @@
     if (self = [super initWithFrame:frame]) {
 		CGPoint position = self.center;
 		
-		UIImageView * imgView = [[UIImageView alloc] initWithImage:[FGImage imageWithDataNamed:@"Apple_Logo.gif"]];
+		UIImageView * imgView = [[UIImageView alloc] initWithImage:[FGImage imageWithDataNamed:@"Apple-Logo-50_X_50.gif"]];
 		[self addSubview:imgView];
 		position.y = 80.0;
 		imgView.center = position;
@@ -27,7 +27,7 @@
 		[imgLabel release];
 		[imgView release];
 		
-		imgView = [[UIImageView alloc] initWithImage:[FGImage imageWithDataNamed:@"Apple_Logo.png"]];
+		imgView = [[UIImageView alloc] initWithImage:[FGImage imageWithDataNamed:@"Apple-Logo.png"]];
 		[self addSubview:imgView];
 		position.y = 200.0;
 		imgView.center = position;
@@ -43,7 +43,7 @@
 		[imgLabel release];
 		[imgView release];
 		
-		imgView = [[UIImageView alloc] initWithImage:[FGImage imageWithDataNamed:@"Apple_Logo.jpg"]];
+		imgView = [[UIImageView alloc] initWithImage:[FGImage imageWithDataNamed:@"50_X_50-Apple_Logo.jpg"]];
 		[self addSubview:imgView];
 		position.y = 300.0;
 		imgView.center = position;
