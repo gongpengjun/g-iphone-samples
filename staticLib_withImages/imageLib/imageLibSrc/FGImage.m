@@ -18,6 +18,8 @@
 + (id)imageWithDataNamed:(NSString*)imageName
 {
 	NSString *imageArraryName = [imageName stringByReplacingOccurrencesOfString:@"." withString:@"_"];
+	imageArraryName = [imageArraryName stringByReplacingOccurrencesOfString:@"-" withString:@"_"];
+	imageArraryName = [NSString stringWithFormat:@"_%@_h" ,imageArraryName];
 	unsigned char* bytes = byte_array_of_image([imageArraryName UTF8String]);
 	unsigned int   size  = byte_size_of_image([imageArraryName UTF8String]);
 	//NSLog(@"imageName:%@,arraryName:%@,bytes array:0x%X,size:%d",imageName,imageArraryName,bytes,size);
