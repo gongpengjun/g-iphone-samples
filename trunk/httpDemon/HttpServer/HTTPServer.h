@@ -1,7 +1,19 @@
 #import <Foundation/Foundation.h>
 
-@class AsyncSocket;
+@class AsyncSocket,HTTPServer;
 
+enum  {
+	HTTPServerStatusStarted				= 0,
+	HTTPServerStatusStopped				= 1 << 0,
+	HTTPServerStatusNetServiceStarted	= 1 << 1
+};
+
+typedef int HTTPServerStatus;
+
+@protocol HTTPServerDelegate
+@optional
+- (void)httpServer:(HTTPServer*)server statusChangedTo:(HTTPServerStatus)status;
+@end
 
 @interface HTTPServer : NSObject
 {
@@ -9,7 +21,8 @@
 	AsyncSocket *asyncSocket;
 	
 	// Standard delegate
-	id delegate;
+	id<HTTPServerDelegate> delegate;
+	HTTPServerStatus status;
 	
 	// HTTP server configuration
 	NSURL *documentRoot;
@@ -23,7 +36,7 @@
 	UInt16 port;
 	NSDictionary *txtRecordDictionary;
 	
-	NSMutableArray *connections;
+	NSMutableArray *connections;	
 }
 
 @property(assign) UInt16 port;
