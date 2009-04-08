@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015DD79A0F8C96B200583809 /* Internet.png in Resources */ = {isa = PBXBuildFile; fileRef = 015DD7990F8C96B200583809 /* Internet.png */; };
 		016FA9BC0F7F9CAE004444A0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016FA9BB0F7F9CAE004444A0 /* RootViewController.m */; };
 		018AC7200F7FB5E2008C4E7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC71F0F7FB5E2008C4E7A /* main.m */; };
 		018AC7230F7FB5ED008C4E7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC7220F7FB5ED008C4E7A /* AppDelegate.m */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		015DD7990F8C96B200583809 /* Internet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Internet.png; sourceTree = "<group>"; };
 		016FA9BA0F7F9CAE004444A0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		016FA9BB0F7F9CAE004444A0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		018AC6E10F7FB454008C4E7A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				015DD7990F8C96B200583809 /* Internet.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015DD79A0F8C96B200583809 /* Internet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
