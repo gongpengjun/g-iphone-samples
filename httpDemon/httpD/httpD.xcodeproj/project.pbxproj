@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		015DD79A0F8C96B200583809 /* Internet.png in Resources */ = {isa = PBXBuildFile; fileRef = 015DD7990F8C96B200583809 /* Internet.png */; };
+		015DD7B00F8C992B00583809 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 015DD7AF0F8C992B00583809 /* DetailCell.m */; };
 		016FA9BC0F7F9CAE004444A0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016FA9BB0F7F9CAE004444A0 /* RootViewController.m */; };
 		018AC7200F7FB5E2008C4E7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC71F0F7FB5E2008C4E7A /* main.m */; };
 		018AC7230F7FB5ED008C4E7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC7220F7FB5ED008C4E7A /* AppDelegate.m */; };
@@ -28,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		015DD7990F8C96B200583809 /* Internet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Internet.png; sourceTree = "<group>"; };
+		015DD7AE0F8C992B00583809 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		015DD7AF0F8C992B00583809 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		016FA9BA0F7F9CAE004444A0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		016FA9BB0F7F9CAE004444A0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		018AC6E10F7FB454008C4E7A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 			children = (
 				016FA9BA0F7F9CAE004444A0 /* RootViewController.h */,
 				016FA9BB0F7F9CAE004444A0 /* RootViewController.m */,
+				015DD7AE0F8C992B00583809 /* DetailCell.h */,
+				015DD7AF0F8C992B00583809 /* DetailCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				01EAB2E50F8B7A71000FBE41 /* HTTPResponse.m in Sources */,
 				01EAB2E60F8B7A71000FBE41 /* HTTPServer.m in Sources */,
 				01EAB2F00F8B7B81000FBE41 /* FGServerContent.m in Sources */,
+				015DD7B00F8C992B00583809 /* DetailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
