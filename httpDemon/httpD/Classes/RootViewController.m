@@ -132,28 +132,22 @@
         cell = [[[DetailCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"DetailCell"] autorelease];
 		cell.promptMode = NO;
     }
-	
+
 	NSInteger section = [indexPath section];
 	NSInteger row     = [indexPath row];
 	switch(section)
 	{
 		case 0:
 			cell.type.text = @"status";
-			if(status == HTTPServerStatusStarted)
+			if(status == HTTPServerStatusStopped)
 				cell.name.text = @"Tap \"Start\" to launch server";
 			else
 				cell.name.text = @"Tap \"Stop\" to stop server";
 			break;
 		case 1:
 			{
-				HTTPConnection * connection = nil;
 				cell.type.text = @"IP:Port";
-				if(status == HTTPServerStatusConnected)
-					connection = [httpServer.connections objectAtIndex:0];
-				if(connection)
-					cell.name.text = [NSString stringWithFormat:@"%@:%d",connection.localHost,connection.localPort];
-				else
-					cell.name.text = [NSString stringWithFormat:@"%@:%d",@"127.0.0.1",httpServer.port];
+				cell.name.text = [NSString stringWithFormat:@"%@:%d",[httpServer localIPAddress],httpServer.port];
 			}
 			break;
 		case 2:
@@ -186,10 +180,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
+	if([indexPath section] == 0)
+	{
+		if([indexPath row] == 0)
+		{
+			if(status == HTTPServerStatusStopped)
+				[self doStart];
+			else
+				[self doStop];
+			[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+		}
+	}
 }
 
 @end

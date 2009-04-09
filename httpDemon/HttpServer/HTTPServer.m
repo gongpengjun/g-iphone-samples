@@ -1,7 +1,8 @@
 #import "AsyncSocket.h"
 #import "HTTPServer.h"
 #import "HTTPConnection.h"
-
+#include <arpa/inet.h> 
+#include <netdb.h> 
 
 @implementation HTTPServer
 
@@ -344,6 +345,33 @@
 	
 	NSLog(@"Failed to Publish Service: domain(%@) type(%@) name(%@)", [ns domain], [ns type], [ns name]);
 	NSLog(@"Error Dict: %@", errorDict);
+}
+
+- (NSString *) localIPAddress
+{
+	char baseHostName[255];
+	gethostname(baseHostName, 255);
+
+	#if TARGET_OS_IPHONE_SIMULATOR
+	struct hostent *host = gethostbyname(baseHostName);
+	#elif TARGET_OS_IPHONE
+	// Adjust for iPhone -- add .local to the host name
+	char hn[255];
+	sprintf(hn, "%s.local", baseHostName);
+	struct hostent *host = gethostbyname(hn);
+	#endif
+	
+	if (host == NULL)
+	{
+		herror("resolv");
+		return NULL;
+	}
+	else {
+		struct in_addr **list = (struct in_addr **)host->h_addr_list;
+		return [NSString stringWithCString:inet_ntoa(*list[0])];
+	}
+	
+	return NULL;
 }
 
 @end

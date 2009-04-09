@@ -72,4 +72,6 @@ typedef int HTTPServerStatus;
 
 - (int)numberOfHTTPConnections;
 
+- (NSString *) localIPAddress;
+
 @end
