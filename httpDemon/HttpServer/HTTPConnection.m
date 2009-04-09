@@ -1142,6 +1142,26 @@ static NSMutableArray *recentNonces;
 	[[NSNotificationCenter defaultCenter] postNotificationName:HTTPConnectionDidDieNotification object:self];
 }
 
+- (NSString *)connectedHost
+{
+	return [asyncSocket connectedHost];
+}
+
+- (UInt16)connectedPort
+{
+	return [asyncSocket connectedPort];
+}
+
+- (NSString *)localHost
+{
+	return [asyncSocket localHost];
+}
+
+- (UInt16)localPort
+{
+	return [asyncSocket localPort];
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark AsyncSocket Delegate Methods:
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

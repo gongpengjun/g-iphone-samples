@@ -3,16 +3,17 @@
 @class AsyncSocket,HTTPServer;
 
 enum  {
-	HTTPServerStatusStarted				= 0,
-	HTTPServerStatusStopped				= 1 << 0,
-	HTTPServerStatusNetServiceStarted	= 1 << 1
+	HTTPServerStatusStopped             = 0,
+	HTTPServerStatusStarted             = 1 << 0,
+	HTTPServerStatusNetServicePublished	= 1 << 1,
+	HTTPServerStatusConnected           = 1 << 2
 };
 
 typedef int HTTPServerStatus;
 
-@protocol HTTPServerDelegate
+@protocol HTTPServerDelegate <NSObject>
 @optional
-- (void)httpServer:(HTTPServer*)server statusChangedTo:(HTTPServerStatus)status;
+- (void)httpServer:(HTTPServer*)server changeToStatus:(HTTPServerStatus)newStatus;
 @end
 
 @interface HTTPServer : NSObject
@@ -40,6 +41,7 @@ typedef int HTTPServerStatus;
 }
 
 @property(assign) UInt16 port;
+@property(readonly) NSMutableArray *connections;
 
 - (id)delegate;
 - (void)setDelegate:(id)newDelegate;

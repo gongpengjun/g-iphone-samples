@@ -3,16 +3,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class HTTPServer;
-@protocol HTTPServerDelegate;
+#import "HTTPServer.h"
 
 @interface RootViewController : UITableViewController <HTTPServerDelegate>
 {
-	HTTPServer *httpServer;
-	
 	UIBarButtonItem *startButton;
 	UIBarButtonItem *stopButton;
+
+	HTTPServerStatus status;
+	HTTPServer      *httpServer;
 }
 
 @end
