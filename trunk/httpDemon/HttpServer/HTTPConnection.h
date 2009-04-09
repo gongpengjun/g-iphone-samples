@@ -62,4 +62,10 @@
 
 - (void)die;
 
+- (NSString *)connectedHost;
+- (UInt16)connectedPort;
+
+- (NSString *)localHost;
+- (UInt16)localPort;
+
 @end

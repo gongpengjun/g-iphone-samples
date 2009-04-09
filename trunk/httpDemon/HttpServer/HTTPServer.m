@@ -5,7 +5,7 @@
 
 @implementation HTTPServer
 
-@synthesize port;
+@synthesize port,connections;
 
 /**
  * Standard Constructor.
@@ -239,12 +239,17 @@
 				[netService setTXTRecordData:[NSNetService dataFromTXTRecordDictionary:txtRecordDictionary]];
 			}
 		}
+		
+		if([delegate respondsToSelector:@selector(httpServer:changeToStatus:)])
+			[delegate httpServer:self changeToStatus:HTTPServerStatusStarted];
 	}
 	else
 	{
 		NSLog(@"Failed to start HTTP Server: %@", error);
+		if([delegate respondsToSelector:@selector(httpServer:changeToStatus:)])
+			[delegate httpServer:self changeToStatus:HTTPServerStatusStopped];
 	}
-	
+		
 	return success;
 }
 
@@ -264,6 +269,9 @@
 	
 	// Now stop all HTTP connections the server owns
 	[connections removeAllObjects];
+	
+	if([delegate respondsToSelector:@selector(httpServer:changeToStatus:)])
+		[delegate httpServer:self changeToStatus:HTTPServerStatusStopped];
 	
 	return YES;
 }
@@ -289,6 +297,9 @@
 	id newConnection = [[connectionClass alloc] initWithAsyncSocket:newSocket forServer:self];
 	[connections addObject:newConnection];
 	[newConnection release];
+	
+	if([delegate respondsToSelector:@selector(httpServer:changeToStatus:)])
+		[delegate httpServer:self changeToStatus:HTTPServerStatusConnected];
 }
 
 /**
@@ -298,6 +309,9 @@
 - (void)connectionDidDie:(NSNotification *)notification
 {
 	[connections removeObject:[notification object]];
+	if(!connections.count)
+		if([delegate respondsToSelector:@selector(httpServer:changeToStatus:)])
+			[delegate httpServer:self changeToStatus:HTTPServerStatusNetServicePublished];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -311,8 +325,13 @@
 - (void)netServiceDidPublish:(NSNetService *)ns
 {
 	// Override me to do something here...
-	
+	self.domain = [ns domain];
+	self.type   = [ns type];
+	self.name   = [ns name];
 	NSLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@)", [ns domain], [ns type], [ns name]);
+	if([delegate respondsToSelector:@selector(httpServer:changeToStatus:)])
+		[delegate httpServer:self changeToStatus:HTTPServerStatusNetServicePublished];
+		
 }
 
 /**
