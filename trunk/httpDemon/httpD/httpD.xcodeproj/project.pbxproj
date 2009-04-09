@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01245A970F8DF0A6002F8E35 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 01245A960F8DF0A6002F8E35 /* Default.png */; };
 		015DD79A0F8C96B200583809 /* Internet.png in Resources */ = {isa = PBXBuildFile; fileRef = 015DD7990F8C96B200583809 /* Internet.png */; };
 		015DD7B00F8C992B00583809 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 015DD7AF0F8C992B00583809 /* DetailCell.m */; };
 		016FA9BC0F7F9CAE004444A0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016FA9BB0F7F9CAE004444A0 /* RootViewController.m */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01245A960F8DF0A6002F8E35 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		015DD7990F8C96B200583809 /* Internet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Internet.png; sourceTree = "<group>"; };
 		015DD7AE0F8C992B00583809 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		015DD7AF0F8C992B00583809 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				015DD7990F8C96B200583809 /* Internet.png */,
+				01245A960F8DF0A6002F8E35 /* Default.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				015DD79A0F8C96B200583809 /* Internet.png in Resources */,
+				01245A970F8DF0A6002F8E35 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
