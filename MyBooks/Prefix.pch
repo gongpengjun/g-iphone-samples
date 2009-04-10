@@ -1,0 +1,14 @@
+//
+// Prefix header for all source files of the 'MyBooks' target in the 'MyBooks' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+
+    #ifndef __OPTIMIZE__
+    #define NSLog(...) NSLog(@"[%s:%d]: %@", __FILE__, __LINE__, [NSString stringWithFormat:__VA_ARGS__])
+    #else
+    #define NSLog(...) /* */
+    #endif
+#endif
