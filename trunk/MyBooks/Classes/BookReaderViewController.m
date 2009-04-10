@@ -26,7 +26,7 @@
 {
 	// the base view for this view controller
 	UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	contentView.backgroundColor = [UIColor whiteColor];
+	contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 	
 	// important for view orientation rotation
 	contentView.autoresizesSubviews = YES;
@@ -35,7 +35,7 @@
 	self.view = contentView;
 	
 	[contentView release];
-	
+
 	CGRect webFrame = [[UIScreen mainScreen] bounds];
 	myWebView = [[UIWebView alloc] initWithFrame:webFrame];
 	myWebView.backgroundColor = [UIColor whiteColor];
@@ -44,7 +44,7 @@
 	myWebView.delegate = self;
 	[self.view addSubview: myWebView];
 	
-	NSString *pdfPath = [FGDirectoryService fullPathOfFile:@"pdf/mymentorsrole.pdf"];
+	NSString *pdfPath = [FGDirectoryService fullPathOfFile:@"pdf/Persuasive Writing.pdf"];
 	NSURL *pdfUrl = [NSURL fileURLWithPath:pdfPath isDirectory:YES];
 	[myWebView loadRequest:[NSURLRequest requestWithURL:pdfUrl]];
 }
