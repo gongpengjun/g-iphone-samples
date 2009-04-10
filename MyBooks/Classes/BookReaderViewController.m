@@ -1,11 +1,24 @@
 //
-//  RootViewController.m
+//  BookReaderViewController.m
 //
 
 #import "BookReaderViewController.h"
 #import "FGDirectoryService.h"
 
+static BookReaderViewController *s_sharedBookReaderViewController = nil;
+
 @implementation BookReaderViewController
+
+@synthesize bookPath;
+
++ (id)sharedInstance
+{
+	if(!s_sharedBookReaderViewController)
+	{
+		s_sharedBookReaderViewController = [[BookReaderViewController alloc] init];
+	}
+	return s_sharedBookReaderViewController;
+}
 
 - (id)init
 {
@@ -19,6 +32,7 @@
 - (void)dealloc
 {
 	[myWebView release];
+	[bookPath release];
 	[super dealloc];
 }
 
@@ -43,10 +57,15 @@
 	myWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 	myWebView.delegate = self;
 	[self.view addSubview: myWebView];
-	
-	NSString *pdfPath = [FGDirectoryService fullPathOfFile:@"pdf/Persuasive Writing.pdf"];
-	NSURL *pdfUrl = [NSURL fileURLWithPath:pdfPath isDirectory:YES];
-	[myWebView loadRequest:[NSURLRequest requestWithURL:pdfUrl]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	if(bookPath)
+	{
+		NSURL *bookUrl = [NSURL fileURLWithPath:bookPath isDirectory:NO];
+		[myWebView loadRequest:[NSURLRequest requestWithURL:bookUrl]];
+	}	
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
