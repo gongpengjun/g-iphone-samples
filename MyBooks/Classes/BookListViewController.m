@@ -84,10 +84,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	Book *aBook = [[[BookLoader sharedInstance] books] objectAtIndex:indexPath.row];
 	BookReaderViewController *bookReaderViewController = [BookReaderViewController sharedInstance];
-	bookReaderViewController.title    = aBook.title;
-	bookReaderViewController.bookPath = [FGDirectoryService fullPathOfFile:[NSString stringWithFormat:@"%@/%@",aBook.basePath,aBook.name]];
+	bookReaderViewController.book = [[[BookLoader sharedInstance] books] objectAtIndex:indexPath.row];
 	[self.navigationController pushViewController:bookReaderViewController animated:YES];
 }
 
