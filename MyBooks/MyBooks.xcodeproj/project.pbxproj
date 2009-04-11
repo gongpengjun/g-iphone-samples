@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		011D52630F8F1EC2008B2839 /* ebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D52620F8F1EC2008B2839 /* ebook.png */; };
-		011D52AD0F8F221B008B2839 /* FGDirectoryService.m in Sources */ = {isa = PBXBuildFile; fileRef = 011D52AC0F8F221B008B2839 /* FGDirectoryService.m */; };
+		011D52AD0F8F221B008B2839 /* FGFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 011D52AC0F8F221B008B2839 /* FGFileManager.m */; };
 		011D53C30F8F31CB008B2839 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D53C20F8F31CB008B2839 /* Default.png */; };
 		011D53CF0F8F3380008B2839 /* BookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011D53CE0F8F3380008B2839 /* BookListViewController.m */; };
 		011D544E0F8F39B1008B2839 /* BookLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 011D544D0F8F39B1008B2839 /* BookLoader.m */; };
@@ -23,8 +23,8 @@
 
 /* Begin PBXFileReference section */
 		011D52620F8F1EC2008B2839 /* ebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ebook.png; sourceTree = "<group>"; };
-		011D52AB0F8F221B008B2839 /* FGDirectoryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGDirectoryService.h; sourceTree = "<group>"; };
-		011D52AC0F8F221B008B2839 /* FGDirectoryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGDirectoryService.m; sourceTree = "<group>"; };
+		011D52AB0F8F221B008B2839 /* FGFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGFileManager.h; sourceTree = "<group>"; };
+		011D52AC0F8F221B008B2839 /* FGFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGFileManager.m; sourceTree = "<group>"; };
 		011D53C20F8F31CB008B2839 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		011D53CD0F8F3380008B2839 /* BookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListViewController.h; sourceTree = "<group>"; };
 		011D53CE0F8F3380008B2839 /* BookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListViewController.m; sourceTree = "<group>"; };
@@ -62,8 +62,8 @@
 		011D52AA0F8F221B008B2839 /* FGDirectoryService */ = {
 			isa = PBXGroup;
 			children = (
-				011D52AB0F8F221B008B2839 /* FGDirectoryService.h */,
-				011D52AC0F8F221B008B2839 /* FGDirectoryService.m */,
+				011D52AB0F8F221B008B2839 /* FGFileManager.h */,
+				011D52AC0F8F221B008B2839 /* FGFileManager.m */,
 			);
 			path = FGDirectoryService;
 			sourceTree = "<group>";
@@ -210,7 +210,7 @@
 				016FA9BC0F7F9CAE004444A0 /* BookReaderViewController.m in Sources */,
 				018AC7200F7FB5E2008C4E7A /* main.m in Sources */,
 				018AC7230F7FB5ED008C4E7A /* AppDelegate.m in Sources */,
-				011D52AD0F8F221B008B2839 /* FGDirectoryService.m in Sources */,
+				011D52AD0F8F221B008B2839 /* FGFileManager.m in Sources */,
 				011D53CF0F8F3380008B2839 /* BookListViewController.m in Sources */,
 				011D544E0F8F39B1008B2839 /* BookLoader.m in Sources */,
 				011D54510F8F39BE008B2839 /* Book.m in Sources */,

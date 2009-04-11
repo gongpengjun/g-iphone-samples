@@ -4,7 +4,7 @@
 
 #import "BookListViewController.h"
 #import "BookReaderViewController.h"
-#import "FGDirectoryService.h"
+#import "FGFileManager.h"
 #import "Book.h"
 #import "BookLoader.h"
 

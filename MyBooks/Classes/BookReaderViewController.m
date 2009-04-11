@@ -4,7 +4,7 @@
 
 #import "Book.h"
 #import "BookReaderViewController.h"
-#import "FGDirectoryService.h"
+#import "FGFileManager.h"
 
 static BookReaderViewController *s_sharedBookReaderViewController = nil;
 
@@ -65,7 +65,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	if(book)
 	{
 		self.title          = book.title;
-		NSString * bookPath = [FGDirectoryService fullPathOfFile:[NSString stringWithFormat:@"%@/%@",book.basePath,book.name]];
+		NSString * bookPath = [FGFileManager fullPathOfFile:[NSString stringWithFormat:@"%@/%@",book.basePath,book.name]];
 		NSURL *bookUrl = [NSURL fileURLWithPath:bookPath isDirectory:NO];
 		[myWebView loadRequest:[NSURLRequest requestWithURL:bookUrl]];
 	}	
