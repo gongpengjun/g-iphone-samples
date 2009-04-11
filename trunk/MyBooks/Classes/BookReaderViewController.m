@@ -2,6 +2,7 @@
 //  BookReaderViewController.m
 //
 
+#import "Book.h"
 #import "BookReaderViewController.h"
 #import "FGDirectoryService.h"
 
@@ -9,7 +10,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 
 @implementation BookReaderViewController
 
-@synthesize bookPath;
+@synthesize book;
 
 + (id)sharedInstance
 {
@@ -24,7 +25,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 {
 	if(self = [super init])
 	{
-		self.title = NSLocalizedString(@"My Books", @"");
+		self.title = NSLocalizedString(@"Book", @"");
 	}
 	return self;
 }
@@ -32,7 +33,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 - (void)dealloc
 {
 	[myWebView release];
-	[bookPath release];
+	[book release];
 	[super dealloc];
 }
 
@@ -61,11 +62,18 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	if(bookPath)
+	if(book)
 	{
+		self.title          = book.title;
+		NSString * bookPath = [FGDirectoryService fullPathOfFile:[NSString stringWithFormat:@"%@/%@",book.basePath,book.name]];
 		NSURL *bookUrl = [NSURL fileURLWithPath:bookPath isDirectory:NO];
 		[myWebView loadRequest:[NSURLRequest requestWithURL:bookUrl]];
 	}	
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	self.book = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

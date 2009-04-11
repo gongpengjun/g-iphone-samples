@@ -4,14 +4,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class Book;
+
 @interface BookReaderViewController : UIViewController <UIWebViewDelegate>
 {
 	UIWebView	*myWebView;
-	NSString    *bookPath;
+	Book        *book;
 }
 
 + (id)sharedInstance;
 
-@property (nonatomic,retain) NSString *bookPath;
+@property (nonatomic,retain) Book *book;
 
 @end
