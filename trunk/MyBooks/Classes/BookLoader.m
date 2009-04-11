@@ -4,7 +4,7 @@
 
 #import "BookLoader.h"
 #import "Book.h"
-#import "FGDirectoryService.h"
+#import "FGFileManager.h"
 
 static BookLoader *s_bookLoader = nil;
 
@@ -31,7 +31,7 @@ static BookLoader *s_bookLoader = nil;
 {
 	if(self = [super init])
 	{
-		NSString * path = [FGDirectoryService fullPathOfFile:@"pdf"];
+		NSString * path = [FGFileManager fullPathOfFile:@"pdf"];
 		NSArray * fileNameArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
 		NSMutableArray *mutableBooks = [NSMutableArray arrayWithCapacity:fileNameArray.count];
 		for(NSString *fileName in fileNameArray)
