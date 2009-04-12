@@ -124,11 +124,11 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				01A2316B0F91C43E00EBB67E /* Book */,
-				01A2316F0F91C44700EBB67E /* BookReaderViewController */,
 				01A22F7F0F90EDF100EBB67E /* FGFileManager */,
 				018AC71E0F7FB5D0008C4E7A /* main AppDelegate and Info */,
 				01A230FD0F91BF5100EBB67E /* FileBrowserViewController */,
+				01A2316B0F91C43E00EBB67E /* Book */,
+				01A2316F0F91C44700EBB67E /* BookReaderViewController */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
