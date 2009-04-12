@@ -313,6 +313,9 @@
 	if(!connections.count)
 		if([delegate respondsToSelector:@selector(httpServer:changeToStatus:)])
 			[delegate httpServer:self changeToStatus:HTTPServerStatusNetServicePublished];
+	else
+		if([delegate respondsToSelector:@selector(httpServer:changeToStatus:)])
+			[delegate httpServer:self changeToStatus:HTTPServerStatusConnected];		
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

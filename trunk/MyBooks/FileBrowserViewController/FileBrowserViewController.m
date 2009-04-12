@@ -6,6 +6,7 @@
 #import "File.h"
 #import "BookReaderViewController.h"
 #import "Book.h"
+#import "BookShareViewController.h"
 
 @implementation FileBrowserViewController
 
@@ -16,6 +17,7 @@
 	[visibleExtensions release];
 	[path release];
 	[files release];
+	[shareButton release];
     [super dealloc];
 }
 
@@ -26,6 +28,11 @@
 		self.title = @"File Browser";
 		visibleExtensions = [[NSArray arrayWithObjects:@"txt", @"htm", @"html", @"webarchive", @"pdb", @"pdf", @"jpg", @"png", @"gif", nil] retain];
 		files = [[NSMutableArray alloc] init];
+		
+		shareButton		= [[UIBarButtonItem alloc] initWithTitle:@"Share"
+														style:UIBarButtonItemStyleDone
+													   target:self
+													   action:@selector(doShare)];
     }
     return self;
 }
@@ -41,6 +48,7 @@
 
 - (void)reloadFiles
 {
+	[files removeAllObjects];
 	NSFileManager * fileManager = [NSFileManager defaultManager];
 	NSArray * fileArray = [fileManager contentsOfDirectoryAtPath:path error:nil];
 	for(NSString *file in fileArray)
@@ -77,22 +85,18 @@
 	}
 }
 
-/*
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = shareButton;
 }
-*/
 
-/*
 - (void)viewWillAppear:(BOOL)animated 
 {
-    [super viewWillAppear:animated];
+	[super viewWillAppear:animated];
+	[self.tableView reloadData];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -240,6 +244,21 @@
     return YES;
 }
 */
+
+- (void)doShare
+{
+    if(!shareViewController)
+    {
+        shareViewController = [[BookShareViewController alloc] init];
+    }
+	
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration:1.0];
+	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft
+						   forView:self.navigationController.view cache:YES];	
+	[self.navigationController pushViewController:shareViewController animated:YES];
+	[UIView commitAnimations];	
+}
 
 @end
 

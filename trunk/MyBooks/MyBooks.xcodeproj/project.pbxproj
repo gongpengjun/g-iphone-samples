@@ -18,6 +18,17 @@
 		01A231560F91C27300EBB67E /* generic_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A231540F91C27300EBB67E /* generic_small.png */; };
 		01A2316E0F91C43E00EBB67E /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2316D0F91C43E00EBB67E /* Book.m */; };
 		01A231720F91C44700EBB67E /* BookReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A231710F91C44700EBB67E /* BookReaderViewController.m */; };
+		01A2323B0F91EB6100EBB67E /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2322C0F91EB6100EBB67E /* AsyncSocket.m */; };
+		01A2323C0F91EB6100EBB67E /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2322E0F91EB6100EBB67E /* DDData.m */; };
+		01A2323D0F91EB6100EBB67E /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232300F91EB6100EBB67E /* DDNumber.m */; };
+		01A2323E0F91EB6100EBB67E /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232320F91EB6100EBB67E /* DDRange.m */; };
+		01A2323F0F91EB6100EBB67E /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232340F91EB6100EBB67E /* HTTPAuthenticationRequest.m */; };
+		01A232400F91EB6100EBB67E /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232360F91EB6100EBB67E /* HTTPConnection.m */; };
+		01A232410F91EB6100EBB67E /* HTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232380F91EB6100EBB67E /* HTTPResponse.m */; };
+		01A232420F91EB6100EBB67E /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2323A0F91EB6100EBB67E /* HTTPServer.m */; };
+		01A232710F91ECC800EBB67E /* BookShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232700F91ECC800EBB67E /* BookShareViewController.m */; };
+		01A2328A0F91EF6400EBB67E /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232890F91EF6400EBB67E /* DetailCell.m */; };
+		01A232B50F91F2F700EBB67E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A232B40F91F2F700EBB67E /* CFNetwork.framework */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -43,6 +54,27 @@
 		01A2316D0F91C43E00EBB67E /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		01A231700F91C44700EBB67E /* BookReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookReaderViewController.h; sourceTree = "<group>"; };
 		01A231710F91C44700EBB67E /* BookReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookReaderViewController.m; sourceTree = "<group>"; };
+		01A2322B0F91EB6100EBB67E /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		01A2322C0F91EB6100EBB67E /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		01A2322D0F91EB6100EBB67E /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
+		01A2322E0F91EB6100EBB67E /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
+		01A2322F0F91EB6100EBB67E /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
+		01A232300F91EB6100EBB67E /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNumber.m; sourceTree = "<group>"; };
+		01A232310F91EB6100EBB67E /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRange.h; sourceTree = "<group>"; };
+		01A232320F91EB6100EBB67E /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRange.m; sourceTree = "<group>"; };
+		01A232330F91EB6100EBB67E /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
+		01A232340F91EB6100EBB67E /* HTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAuthenticationRequest.m; sourceTree = "<group>"; };
+		01A232350F91EB6100EBB67E /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPConnection.h; sourceTree = "<group>"; };
+		01A232360F91EB6100EBB67E /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPConnection.m; sourceTree = "<group>"; };
+		01A232370F91EB6100EBB67E /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponse.h; sourceTree = "<group>"; };
+		01A232380F91EB6100EBB67E /* HTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPResponse.m; sourceTree = "<group>"; };
+		01A232390F91EB6100EBB67E /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPServer.h; sourceTree = "<group>"; };
+		01A2323A0F91EB6100EBB67E /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPServer.m; sourceTree = "<group>"; };
+		01A2326F0F91ECC800EBB67E /* BookShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookShareViewController.h; sourceTree = "<group>"; };
+		01A232700F91ECC800EBB67E /* BookShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookShareViewController.m; sourceTree = "<group>"; };
+		01A232880F91EF6400EBB67E /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		01A232890F91EF6400EBB67E /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		01A232B40F91F2F700EBB67E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -57,6 +89,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				01A232B50F91F2F700EBB67E /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +146,41 @@
 			path = BookReaderViewController;
 			sourceTree = "<group>";
 		};
+		01A2322A0F91EB6100EBB67E /* HttpServer */ = {
+			isa = PBXGroup;
+			children = (
+				01A2322B0F91EB6100EBB67E /* AsyncSocket.h */,
+				01A2322C0F91EB6100EBB67E /* AsyncSocket.m */,
+				01A2322D0F91EB6100EBB67E /* DDData.h */,
+				01A2322E0F91EB6100EBB67E /* DDData.m */,
+				01A2322F0F91EB6100EBB67E /* DDNumber.h */,
+				01A232300F91EB6100EBB67E /* DDNumber.m */,
+				01A232310F91EB6100EBB67E /* DDRange.h */,
+				01A232320F91EB6100EBB67E /* DDRange.m */,
+				01A232330F91EB6100EBB67E /* HTTPAuthenticationRequest.h */,
+				01A232340F91EB6100EBB67E /* HTTPAuthenticationRequest.m */,
+				01A232350F91EB6100EBB67E /* HTTPConnection.h */,
+				01A232360F91EB6100EBB67E /* HTTPConnection.m */,
+				01A232370F91EB6100EBB67E /* HTTPResponse.h */,
+				01A232380F91EB6100EBB67E /* HTTPResponse.m */,
+				01A232390F91EB6100EBB67E /* HTTPServer.h */,
+				01A2323A0F91EB6100EBB67E /* HTTPServer.m */,
+			);
+			name = HttpServer;
+			path = ../httpDemon/HttpServer;
+			sourceTree = SOURCE_ROOT;
+		};
+		01A2326E0F91ECB300EBB67E /* BookShareViewController */ = {
+			isa = PBXGroup;
+			children = (
+				01A2326F0F91ECC800EBB67E /* BookShareViewController.h */,
+				01A232700F91ECC800EBB67E /* BookShareViewController.m */,
+				01A232880F91EF6400EBB67E /* DetailCell.h */,
+				01A232890F91EF6400EBB67E /* DetailCell.m */,
+			);
+			path = BookShareViewController;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,9 +192,11 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				01A2322A0F91EB6100EBB67E /* HttpServer */,
 				01A22F7F0F90EDF100EBB67E /* FGFileManager */,
 				018AC71E0F7FB5D0008C4E7A /* main AppDelegate and Info */,
 				01A230FD0F91BF5100EBB67E /* FileBrowserViewController */,
+				01A2326E0F91ECB300EBB67E /* BookShareViewController */,
 				01A2316B0F91C43E00EBB67E /* Book */,
 				01A2316F0F91C44700EBB67E /* BookReaderViewController */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -150,6 +220,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01A232B40F91F2F700EBB67E /* CFNetwork.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -238,6 +309,16 @@
 				01A231030F91BF5100EBB67E /* FileBrowserViewController.m in Sources */,
 				01A2316E0F91C43E00EBB67E /* Book.m in Sources */,
 				01A231720F91C44700EBB67E /* BookReaderViewController.m in Sources */,
+				01A2323B0F91EB6100EBB67E /* AsyncSocket.m in Sources */,
+				01A2323C0F91EB6100EBB67E /* DDData.m in Sources */,
+				01A2323D0F91EB6100EBB67E /* DDNumber.m in Sources */,
+				01A2323E0F91EB6100EBB67E /* DDRange.m in Sources */,
+				01A2323F0F91EB6100EBB67E /* HTTPAuthenticationRequest.m in Sources */,
+				01A232400F91EB6100EBB67E /* HTTPConnection.m in Sources */,
+				01A232410F91EB6100EBB67E /* HTTPResponse.m in Sources */,
+				01A232420F91EB6100EBB67E /* HTTPServer.m in Sources */,
+				01A232710F91ECC800EBB67E /* BookShareViewController.m in Sources */,
+				01A2328A0F91EF6400EBB67E /* DetailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
