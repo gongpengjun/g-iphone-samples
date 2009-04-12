@@ -16,4 +16,6 @@
 @property (nonatomic,retain) NSArray		*visibleExtensions;
 @property (nonatomic,retain) NSMutableArray	*files;
 
+- (void)reloadFiles;
+
 @end
