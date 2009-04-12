@@ -29,9 +29,4 @@
 	return writableFullPath;
 }
 
-+ (NSString*)fullPathOfFile:(NSString*)file
-{
-	return [[FGFileManager booksDirectory] stringByAppendingPathComponent:file];
-}
-
 @end

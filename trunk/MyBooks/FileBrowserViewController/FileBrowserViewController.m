@@ -7,10 +7,6 @@
 #import "BookReaderViewController.h"
 #import "Book.h"
 
-@interface FileBrowserViewController (Private)
-- (void)reloadFiles;
-@end
-
 @implementation FileBrowserViewController
 
 @synthesize path,visibleExtensions,files;
