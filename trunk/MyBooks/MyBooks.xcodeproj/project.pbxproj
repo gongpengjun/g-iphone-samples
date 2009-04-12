@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		011D52630F8F1EC2008B2839 /* ebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D52620F8F1EC2008B2839 /* ebook.png */; };
 		011D53C30F8F31CB008B2839 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D53C20F8F31CB008B2839 /* Default.png */; };
-		011D53CF0F8F3380008B2839 /* BookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011D53CE0F8F3380008B2839 /* BookListViewController.m */; };
-		011D544E0F8F39B1008B2839 /* BookLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 011D544D0F8F39B1008B2839 /* BookLoader.m */; };
-		011D54510F8F39BE008B2839 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 011D54500F8F39BE008B2839 /* Book.m */; };
-		016FA9BC0F7F9CAE004444A0 /* BookReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016FA9BB0F7F9CAE004444A0 /* BookReaderViewController.m */; };
 		018AC7200F7FB5E2008C4E7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC71F0F7FB5E2008C4E7A /* main.m */; };
 		018AC7230F7FB5ED008C4E7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC7220F7FB5ED008C4E7A /* AppDelegate.m */; };
 		01A22F820F90EDF100EBB67E /* FGFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A22F810F90EDF100EBB67E /* FGFileManager.m */; };
@@ -20,6 +16,8 @@
 		01A231030F91BF5100EBB67E /* FileBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A231010F91BF5100EBB67E /* FileBrowserViewController.m */; };
 		01A231550F91C27300EBB67E /* collection_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A231530F91C27300EBB67E /* collection_small.png */; };
 		01A231560F91C27300EBB67E /* generic_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A231540F91C27300EBB67E /* generic_small.png */; };
+		01A2316E0F91C43E00EBB67E /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2316D0F91C43E00EBB67E /* Book.m */; };
+		01A231720F91C44700EBB67E /* BookReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A231710F91C44700EBB67E /* BookReaderViewController.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -28,14 +26,6 @@
 /* Begin PBXFileReference section */
 		011D52620F8F1EC2008B2839 /* ebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ebook.png; sourceTree = "<group>"; };
 		011D53C20F8F31CB008B2839 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		011D53CD0F8F3380008B2839 /* BookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListViewController.h; sourceTree = "<group>"; };
-		011D53CE0F8F3380008B2839 /* BookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListViewController.m; sourceTree = "<group>"; };
-		011D544C0F8F39B1008B2839 /* BookLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookLoader.h; sourceTree = "<group>"; };
-		011D544D0F8F39B1008B2839 /* BookLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookLoader.m; sourceTree = "<group>"; };
-		011D544F0F8F39BE008B2839 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
-		011D54500F8F39BE008B2839 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
-		016FA9BA0F7F9CAE004444A0 /* BookReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookReaderViewController.h; sourceTree = "<group>"; };
-		016FA9BB0F7F9CAE004444A0 /* BookReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookReaderViewController.m; sourceTree = "<group>"; };
 		018AC6E10F7FB454008C4E7A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		018AC6E40F7FB488008C4E7A /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		018AC71F0F7FB5E2008C4E7A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "main and AppDelegate/main.m"; sourceTree = "<group>"; };
@@ -49,6 +39,10 @@
 		01A231010F91BF5100EBB67E /* FileBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileBrowserViewController.m; sourceTree = "<group>"; };
 		01A231530F91C27300EBB67E /* collection_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_small.png; sourceTree = "<group>"; };
 		01A231540F91C27300EBB67E /* generic_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generic_small.png; sourceTree = "<group>"; };
+		01A2316C0F91C43E00EBB67E /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		01A2316D0F91C43E00EBB67E /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		01A231700F91C44700EBB67E /* BookReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookReaderViewController.h; sourceTree = "<group>"; };
+		01A231710F91C44700EBB67E /* BookReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookReaderViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -101,19 +95,22 @@
 			path = FileBrowserViewController;
 			sourceTree = "<group>";
 		};
-		080E96DDFE201D6D7F000001 /* Classes */ = {
+		01A2316B0F91C43E00EBB67E /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				011D544F0F8F39BE008B2839 /* Book.h */,
-				011D54500F8F39BE008B2839 /* Book.m */,
-				011D544C0F8F39B1008B2839 /* BookLoader.h */,
-				011D544D0F8F39B1008B2839 /* BookLoader.m */,
-				011D53CD0F8F3380008B2839 /* BookListViewController.h */,
-				011D53CE0F8F3380008B2839 /* BookListViewController.m */,
-				016FA9BA0F7F9CAE004444A0 /* BookReaderViewController.h */,
-				016FA9BB0F7F9CAE004444A0 /* BookReaderViewController.m */,
+				01A2316C0F91C43E00EBB67E /* Book.h */,
+				01A2316D0F91C43E00EBB67E /* Book.m */,
 			);
-			path = Classes;
+			path = Book;
+			sourceTree = "<group>";
+		};
+		01A2316F0F91C44700EBB67E /* BookReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				01A231700F91C44700EBB67E /* BookReaderViewController.h */,
+				01A231710F91C44700EBB67E /* BookReaderViewController.m */,
+			);
+			path = BookReaderViewController;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -127,10 +124,11 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				01A2316B0F91C43E00EBB67E /* Book */,
+				01A2316F0F91C44700EBB67E /* BookReaderViewController */,
 				01A22F7F0F90EDF100EBB67E /* FGFileManager */,
 				018AC71E0F7FB5D0008C4E7A /* main AppDelegate and Info */,
 				01A230FD0F91BF5100EBB67E /* FileBrowserViewController */,
-				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -233,15 +231,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				016FA9BC0F7F9CAE004444A0 /* BookReaderViewController.m in Sources */,
 				018AC7200F7FB5E2008C4E7A /* main.m in Sources */,
 				018AC7230F7FB5ED008C4E7A /* AppDelegate.m in Sources */,
-				011D53CF0F8F3380008B2839 /* BookListViewController.m in Sources */,
-				011D544E0F8F39B1008B2839 /* BookLoader.m in Sources */,
-				011D54510F8F39BE008B2839 /* Book.m in Sources */,
 				01A22F820F90EDF100EBB67E /* FGFileManager.m in Sources */,
 				01A231020F91BF5100EBB67E /* File.m in Sources */,
 				01A231030F91BF5100EBB67E /* FileBrowserViewController.m in Sources */,
+				01A2316E0F91C43E00EBB67E /* Book.m in Sources */,
+				01A231720F91C44700EBB67E /* BookReaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
