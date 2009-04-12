@@ -4,12 +4,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class BookShareViewController;
 
 @interface FileBrowserViewController : UITableViewController 
 {
 	NSString		*path;
 	NSArray			*visibleExtensions;
 	NSMutableArray	*files;
+
+	UIBarButtonItem *shareButton;
+	BookShareViewController * shareViewController;
 }
 
 @property (nonatomic,retain) NSString		*path;
