@@ -44,7 +44,7 @@ static BookLoader *s_bookLoader = nil;
 				else
 					aBook.title = fileName;
 				aBook.name = fileName;
-				aBook.basePath = @"pdf";
+				aBook.basePath = path;
 				[mutableBooks addObject:aBook]; // Array'books' retain the object 'aBook'
 				[aBook release];
 			}

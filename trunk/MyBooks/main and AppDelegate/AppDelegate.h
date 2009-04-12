@@ -4,17 +4,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class BookListViewController;
+@class FileBrowserViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow				*window;
-	BookListViewController  *rootViewController;
-	UINavigationController	*navigationController;
+    UIWindow					*window;
+	FileBrowserViewController	*rootViewController;
+	UINavigationController		*navigationController;
 }
 
 @property (nonatomic, retain) UIWindow					*window;
 @property (nonatomic, retain) UINavigationController	*navigationController;
-@property (nonatomic, retain) BookListViewController    *rootViewController;
+@property (nonatomic, retain) FileBrowserViewController *rootViewController;
 
 @end
 

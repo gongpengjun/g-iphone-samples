@@ -2,8 +2,9 @@
 //  AppDelegate.m
 //
 
+#import "FileBrowserViewController.h"
 #import "AppDelegate.h"
-#import "BookListViewController.h"
+
 #import "FGFileManager.h"
 
 @implementation AppDelegate
@@ -25,7 +26,8 @@
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	window.backgroundColor = [UIColor groupTableViewBackgroundColor];
 		
-    rootViewController   = [[BookListViewController alloc] init];
+    rootViewController   = [[FileBrowserViewController alloc] init];
+	rootViewController.path = [FGFileManager booksDirectory];
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 	[window addSubview:[navigationController view]];
 	

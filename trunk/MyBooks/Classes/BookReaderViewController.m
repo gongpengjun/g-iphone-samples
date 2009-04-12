@@ -65,7 +65,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	if(book)
 	{
 		self.title          = book.title;
-		NSString * bookPath = [FGFileManager fullPathOfFile:[NSString stringWithFormat:@"%@/%@",book.basePath,book.name]];
+		NSString * bookPath = [book.basePath stringByAppendingPathComponent:book.name];
 		NSURL *bookUrl = [NSURL fileURLWithPath:bookPath isDirectory:NO];
 		[myWebView loadRequest:[NSURLRequest requestWithURL:bookUrl]];
 	}	
