@@ -28,7 +28,7 @@
     if (self = [super initWithStyle:UITableViewStyleGrouped]) 
 	{
 		self.title = @"File Browser";
-		visibleExtensions = [[NSArray arrayWithObjects:@"txt", @"htm", @"html", @"pdb", @"pdf", @"jpg", @"png", @"gif", nil] retain];
+		visibleExtensions = [[NSArray arrayWithObjects:@"txt", @"htm", @"html", @"webarchive", @"pdb", @"pdf", @"jpg", @"png", @"gif", nil] retain];
 		files = [[NSMutableArray alloc] init];
     }
     return self;
