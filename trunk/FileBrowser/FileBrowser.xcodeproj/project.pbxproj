@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		018AC7200F7FB5E2008C4E7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC71F0F7FB5E2008C4E7A /* main.m */; };
 		018AC7230F7FB5ED008C4E7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC7220F7FB5ED008C4E7A /* AppDelegate.m */; };
-		01A22ED80F90D95F00EBB67E /* FileBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A22ED70F90D95F00EBB67E /* FileBrowserViewController.m */; };
-		01A22EE00F90DB8B00EBB67E /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A22EDF0F90DB8B00EBB67E /* File.m */; };
 		01A230600F90F78200EBB67E /* collection_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A2305E0F90F78200EBB67E /* collection_small.png */; };
 		01A230610F90F78200EBB67E /* generic_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A2305F0F90F78200EBB67E /* generic_small.png */; };
 		01A230660F90F90100EBB67E /* Finder.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A230650F90F90100EBB67E /* Finder.png */; };
+		01A230E20F91BE8200EBB67E /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A230DF0F91BE8200EBB67E /* File.m */; };
+		01A230E30F91BE8200EBB67E /* FileBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A230E10F91BE8200EBB67E /* FileBrowserViewController.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -25,13 +25,13 @@
 		018AC71F0F7FB5E2008C4E7A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "main and AppDelegate/main.m"; sourceTree = "<group>"; };
 		018AC7210F7FB5ED008C4E7A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "main and AppDelegate/AppDelegate.h"; sourceTree = "<group>"; };
 		018AC7220F7FB5ED008C4E7A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "main and AppDelegate/AppDelegate.m"; sourceTree = "<group>"; };
-		01A22ED60F90D95F00EBB67E /* FileBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileBrowserViewController.h; sourceTree = "<group>"; };
-		01A22ED70F90D95F00EBB67E /* FileBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileBrowserViewController.m; sourceTree = "<group>"; };
-		01A22EDE0F90DB8B00EBB67E /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
-		01A22EDF0F90DB8B00EBB67E /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
 		01A2305E0F90F78200EBB67E /* collection_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_small.png; sourceTree = "<group>"; };
 		01A2305F0F90F78200EBB67E /* generic_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generic_small.png; sourceTree = "<group>"; };
 		01A230650F90F90100EBB67E /* Finder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Finder.png; sourceTree = "<group>"; };
+		01A230DE0F91BE8200EBB67E /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		01A230DF0F91BE8200EBB67E /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
+		01A230E00F91BE8200EBB67E /* FileBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileBrowserViewController.h; sourceTree = "<group>"; };
+		01A230E10F91BE8200EBB67E /* FileBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileBrowserViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* FileBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -64,15 +64,15 @@
 			name = "main AppDelegate and Info";
 			sourceTree = "<group>";
 		};
-		080E96DDFE201D6D7F000001 /* Classes */ = {
+		01A230DD0F91BE8200EBB67E /* FileBrowserViewController */ = {
 			isa = PBXGroup;
 			children = (
-				01A22EDE0F90DB8B00EBB67E /* File.h */,
-				01A22EDF0F90DB8B00EBB67E /* File.m */,
-				01A22ED60F90D95F00EBB67E /* FileBrowserViewController.h */,
-				01A22ED70F90D95F00EBB67E /* FileBrowserViewController.m */,
+				01A230DE0F91BE8200EBB67E /* File.h */,
+				01A230DF0F91BE8200EBB67E /* File.m */,
+				01A230E00F91BE8200EBB67E /* FileBrowserViewController.h */,
+				01A230E10F91BE8200EBB67E /* FileBrowserViewController.m */,
 			);
-			path = Classes;
+			path = FileBrowserViewController;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -87,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				018AC71E0F7FB5D0008C4E7A /* main AppDelegate and Info */,
-				080E96DDFE201D6D7F000001 /* Classes */,
+				01A230DD0F91BE8200EBB67E /* FileBrowserViewController */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -190,8 +190,8 @@
 			files = (
 				018AC7200F7FB5E2008C4E7A /* main.m in Sources */,
 				018AC7230F7FB5ED008C4E7A /* AppDelegate.m in Sources */,
-				01A22ED80F90D95F00EBB67E /* FileBrowserViewController.m in Sources */,
-				01A22EE00F90DB8B00EBB67E /* File.m in Sources */,
+				01A230E20F91BE8200EBB67E /* File.m in Sources */,
+				01A230E30F91BE8200EBB67E /* FileBrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
