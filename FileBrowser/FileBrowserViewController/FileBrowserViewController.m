@@ -151,15 +151,31 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
 	{
+		#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+		/*iPhone OS 2.2.1*/
+        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+		#else
+		/*iPhone OS 3.0*/
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		#endif
     }
     
 	File *aFile = [files objectAtIndex:[indexPath row]];
+	
+	#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+	cell.text = aFile.name;
+	if([aFile isDirectory])
+		cell.image = [File folderImage];
+	else
+		cell.image = [File fileImage];
+	#else
+	/*iPhone OS 3.0*/
 	cell.textLabel.text = aFile.name;
 	if([aFile isDirectory])
 		cell.imageView.image = [File folderImage];
 	else
 		cell.imageView.image = [File fileImage];
+	#endif
 	
     return cell;
 }
