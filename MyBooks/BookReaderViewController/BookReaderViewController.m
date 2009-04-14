@@ -69,9 +69,19 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	if(book)
 	{
 		self.title          = book.title;
-		NSString * bookPath = [book.basePath stringByAppendingPathComponent:book.name];
-		NSURL *bookUrl = [NSURL fileURLWithPath:bookPath isDirectory:NO];
-		[myWebView loadRequest:[NSURLRequest requestWithURL:bookUrl]];
+		if([[[book.name pathExtension] lowercaseString] isEqualToString:@"txt"])
+		{
+			NSString * bookPath = [book.basePath stringByAppendingPathComponent:book.name];
+			NSData * bookData = [NSData dataWithContentsOfFile:bookPath];
+			NSURL *baseUrl = [NSURL URLWithString: [NSString stringWithFormat:@"file:/%@//",bookPath]];
+			[myWebView loadData:bookData MIMEType:@"text/plain" textEncodingName:@"UTF-8" baseURL:baseUrl];
+		}
+		else
+		{
+			NSString * bookPath = [book.basePath stringByAppendingPathComponent:book.name];
+			NSURL *bookUrl = [NSURL fileURLWithPath:bookPath isDirectory:NO];
+			[myWebView loadRequest:[NSURLRequest requestWithURL:bookUrl]];
+		}
 	}	
 }
 
