@@ -10,6 +10,7 @@
 {
 	MyWebView	*myWebView;
 	Book        *book;
+	BOOL         naviBarHidden;
 }
 
 + (id)sharedInstance;
