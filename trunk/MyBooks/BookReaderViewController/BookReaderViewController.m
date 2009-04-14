@@ -41,7 +41,10 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 
 - (void)loadView
 {
+	#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000
+	/*iPhone OS 3.0*/
 	self.wantsFullScreenLayout = YES;
+	#endif
 	
 	// the base view for this view controller
 	UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -56,7 +59,12 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	[contentView release];
 
 	CGRect webFrame = [[UIScreen mainScreen] bounds];
+	#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000
+	/*iPhone OS 3.0*/
 	myWebView = [[MyWebView alloc] initWithFrame:webFrame];
+	#else
+	myWebView = [[UIWebView alloc] initWithFrame:webFrame];
+	#endif
 	myWebView.backgroundColor = [UIColor whiteColor];
 	myWebView.scalesPageToFit = YES;
 	myWebView.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
@@ -87,6 +95,8 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	}	
 }
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000
+/*iPhone OS 3.0*/
 - (void)viewDidAppear:(BOOL)animated
 {
 	[NSTimer scheduledTimerWithTimeInterval: 5.0 /*second*/ 
@@ -95,6 +105,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 								   userInfo: nil
 									repeats: NO];	
 }
+#endif
 
 - (void)viewDidDisappear:(BOOL)animated
 {
