@@ -26,9 +26,15 @@
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	window.backgroundColor = [UIColor groupTableViewBackgroundColor];
 		
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+	
     rootViewController   = [[FileBrowserViewController alloc] init];
 	rootViewController.path = [FGFileManager booksDirectory];
-	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+	
+	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];	
+	navigationController.navigationBar.barStyle = UIBarStyleBlack;
+	navigationController.navigationBar.translucent = YES;
+	
 	[window addSubview:[navigationController view]];
 	
     [window makeKeyAndVisible];

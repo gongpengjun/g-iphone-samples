@@ -3,8 +3,10 @@
 //
 
 #import "Book.h"
+#import "MyWebView.h"
 #import "BookReaderViewController.h"
 #import "FGFileManager.h"
+#import "AppDelegate.h"
 
 static BookReaderViewController *s_sharedBookReaderViewController = nil;
 
@@ -39,6 +41,8 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 
 - (void)loadView
 {
+	self.wantsFullScreenLayout = YES;
+	
 	// the base view for this view controller
 	UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -52,16 +56,16 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	[contentView release];
 
 	CGRect webFrame = [[UIScreen mainScreen] bounds];
-	myWebView = [[UIWebView alloc] initWithFrame:webFrame];
+	myWebView = [[MyWebView alloc] initWithFrame:webFrame];
 	myWebView.backgroundColor = [UIColor whiteColor];
 	myWebView.scalesPageToFit = YES;
-	myWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+	myWebView.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 	myWebView.delegate = self;
 	[self.view addSubview: myWebView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{
+{	
 	if(book)
 	{
 		self.title          = book.title;
@@ -106,6 +110,27 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 							 @"<html><center><font size=+5 color='red'>An error occurred:<br>%@</font></center></html>",
 							 error.localizedDescription];
 	[myWebView loadHTMLString:errorString baseURL:nil];
+}
+
+#pragma mark MyWebViewDelegate
+- (void)touchesEnded:(NSSet*)touches inWebView:(UIWebView*)sender withEvent:(UIEvent*)event;
+{
+	UITouch * touch = [touches anyObject];
+	if(touch.tapCount == 1)
+	{
+		AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+		if([[UIApplication sharedApplication] isStatusBarHidden])
+		{
+			[[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
+			appDelegate.navigationController.navigationBar.hidden = NO;
+		}
+		else
+		{
+			[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
+			appDelegate.navigationController.navigationBar.hidden = YES;
+		}
+		[self.view setNeedsLayout];
+	}
 }
 
 @end

@@ -23,7 +23,7 @@
 
 - (id)init
 {
-    if (self = [super initWithStyle:UITableViewStyleGrouped]) 
+    if (self = [super initWithStyle:UITableViewStylePlain]) 
 	{
 		self.title = @"File Browser";
 		visibleExtensions = [[NSArray arrayWithObjects:@"txt", @"htm", @"html", @"webarchive", @"pdb", @"pdf", @"jpg", @"png", @"gif", nil] retain];
@@ -93,7 +93,7 @@
 
 - (void)viewWillAppear:(BOOL)animated 
 {
-	[super viewWillAppear:animated];
+	[super viewWillAppear:animated];	
 	[self.tableView reloadData];
 }
 
