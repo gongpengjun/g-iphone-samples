@@ -4,11 +4,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class Book;
+@class Book,MyWebView;
 
 @interface BookReaderViewController : UIViewController <UIWebViewDelegate>
 {
-	UIWebView	*myWebView;
+	MyWebView	*myWebView;
 	Book        *book;
 }
 
