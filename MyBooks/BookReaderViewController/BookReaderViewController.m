@@ -77,6 +77,15 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 
 - (void)viewDidAppear:(BOOL)animated
 {
+	[NSTimer scheduledTimerWithTimeInterval: 5.0 /*second*/ 
+									 target: self
+								   selector: @selector(hideNaviBar)
+								   userInfo: nil
+									repeats: NO];	
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
 	self.book = nil;
 }
 
@@ -84,6 +93,24 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 {
 	// we support rotation in this view controller
 	return YES;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+	AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+	naviBarHidden = appDelegate.navigationController.navigationBar.hidden;
+	[UIApplication sharedApplication].statusBarHidden     = NO;
+	appDelegate.navigationController.navigationBar.hidden = NO;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+	if(naviBarHidden)
+	{
+		AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+		[UIApplication sharedApplication].statusBarHidden     = YES;
+		appDelegate.navigationController.navigationBar.hidden = YES;
+	}		
 }
 
 #pragma mark UIWebView delegate methods
@@ -118,19 +145,44 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	UITouch * touch = [touches anyObject];
 	if(touch.tapCount == 1)
 	{
-		AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-		if([[UIApplication sharedApplication] isStatusBarHidden])
-		{
-			[[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
-			appDelegate.navigationController.navigationBar.hidden = NO;
-		}
-		else
-		{
-			[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
-			appDelegate.navigationController.navigationBar.hidden = YES;
-		}
-		[self.view setNeedsLayout];
+		[self performSelector:@selector(switchNaviBar) withObject:nil afterDelay:0.2];
 	}
+	else if(touch.tapCount >= 2)
+	{
+		[NSObject cancelPreviousPerformRequestsWithTarget:self];
+	}
+}
+
+- (void)switchNaviBar
+{
+	AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+	if([[UIApplication sharedApplication] isStatusBarHidden])
+	{
+		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
+		appDelegate.navigationController.navigationBar.hidden = NO;
+	}
+	else
+	{
+		[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
+		appDelegate.navigationController.navigationBar.hidden = YES;
+		[NSTimer scheduledTimerWithTimeInterval: 5.0 /*second*/ 
+										 target: self
+									   selector: @selector(hideNaviBar)
+									   userInfo: nil
+										repeats: NO];		
+	}
+	[self.view setNeedsLayout];
+}
+
+- (void)hideNaviBar
+{
+	AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+	if(![[UIApplication sharedApplication] isStatusBarHidden])
+	{
+		[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
+		appDelegate.navigationController.navigationBar.hidden = YES;
+	}
+	[self.view setNeedsLayout];	
 }
 
 @end
