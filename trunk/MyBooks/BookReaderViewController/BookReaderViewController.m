@@ -142,6 +142,10 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 #pragma mark MyWebViewDelegate
 - (void)touchesEnded:(NSSet*)touches inWebView:(UIWebView*)sender withEvent:(UIEvent*)event;
 {
+	/*ignore multi-touch gesture*/
+	if([event allTouches].count >= 2)
+		return;
+	
 	UITouch * touch = [touches anyObject];
 	if(touch.tapCount == 1)
 	{
