@@ -183,6 +183,8 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 - (void)switchNaviBar
 {
 	AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+	if(![appDelegate.navigationController.topViewController isEqual:self])
+		return;
 	if([[UIApplication sharedApplication] isStatusBarHidden])
 	{
 		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
@@ -204,6 +206,8 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 - (void)hideNaviBar
 {
 	AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+	if(![appDelegate.navigationController.topViewController isEqual:self])
+		return;
 	if(![[UIApplication sharedApplication] isStatusBarHidden])
 	{
 		[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
