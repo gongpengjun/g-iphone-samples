@@ -189,16 +189,16 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	{
 		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
 		appDelegate.navigationController.navigationBar.hidden = NO;
+		[NSTimer scheduledTimerWithTimeInterval: 3.0 /*second*/ 
+										 target: self
+									   selector: @selector(hideNaviBar)
+									   userInfo: nil
+										repeats: NO];
 	}
 	else
 	{
 		[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
 		appDelegate.navigationController.navigationBar.hidden = YES;
-		[NSTimer scheduledTimerWithTimeInterval: 5.0 /*second*/ 
-										 target: self
-									   selector: @selector(hideNaviBar)
-									   userInfo: nil
-										repeats: NO];		
 	}
 	[self.view setNeedsLayout];
 }
