@@ -7,15 +7,18 @@
 #import "BookReaderViewController.h"
 #import "Book.h"
 #import "BookShareViewController.h"
+#import "DefaultsController.h"
+#import "AppDelegate.h"
+#import "EditViewController.h"
 
 @implementation FileBrowserViewController
 
-@synthesize path,visibleExtensions,files;
+@synthesize curPath,visibleExtensions,files;
 
 - (void)dealloc 
 {
 	[visibleExtensions release];
-	[path release];
+	[curPath release];
 	[files release];
 	[shareButton release];
     [super dealloc];
@@ -30,19 +33,19 @@
 		files = [[NSMutableArray alloc] init];
 		
 		shareButton		= [[UIBarButtonItem alloc] initWithTitle:@"Share"
-														style:UIBarButtonItemStyleDone
+														style:UIBarButtonItemStyleBordered
 													   target:self
 													   action:@selector(doShare)];
     }
     return self;
 }
 
-- (void)setPath:(NSString*)newPath
+- (void)setCurPath:(NSString*)newPath
 {
 	[newPath retain];
-	[path release];
-	path = newPath;
-	self.title = [path lastPathComponent];
+	[curPath release];
+	curPath = newPath;
+	self.title = [curPath lastPathComponent];
 	[self reloadFiles];
 }
 
@@ -50,14 +53,20 @@
 {
 	[files removeAllObjects];
 	NSFileManager * fileManager = [NSFileManager defaultManager];
-	NSArray * fileArray = [fileManager contentsOfDirectoryAtPath:path error:nil];
+	NSArray * fileArray = [fileManager contentsOfDirectoryAtPath:curPath error:nil];
+	NSString *fullpath;
 	for(NSString *file in fileArray)
 	{
 		if ([file characterAtIndex:0] == (unichar)'.') // Skip invisibles, like .DS_Store
 			continue;
 		
+		fullpath = [curPath stringByAppendingPathComponent:file];
+		DefaultsController *defaultsController = [DefaultsController sharedDefaultsController];
+		if( (NO == [defaultsController showHiddenFiles]) && [defaultsController isHiddenOfFile:fullpath] )
+				continue;
+		
 		BOOL isDir = NO;
-		if([fileManager fileExistsAtPath:[path stringByAppendingPathComponent:file] isDirectory:&isDir]) 
+		if([fileManager fileExistsAtPath:fullpath isDirectory:&isDir]) 
 		{
 			File *aFile;
 			if(isDir) 
@@ -65,6 +74,7 @@
 				aFile = [[File alloc] init];
 				aFile.name = file;
 				aFile.isDirectory = isDir;
+				aFile.parentDirectory = curPath;
 				[files addObject:aFile];
 				[aFile release];
 			} 
@@ -77,6 +87,7 @@
 					aFile = [[File alloc] init];
 					aFile.name = file;
 					aFile.isDirectory = isDir;
+					aFile.parentDirectory = curPath;
 					[files addObject:aFile];
 					[aFile release];
 				}
@@ -88,12 +99,23 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = shareButton;
+	self.tableView.allowsSelectionDuringEditing = YES;
+	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+	if([self isEqual:appDelegate.rootViewController])
+	{
+		self.navigationItem.leftBarButtonItem = shareButton;
+		self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	}
+	else
+	{
+		self.navigationItem.rightBarButtonItem = self.editButtonItem;		
+	}
 }
 
 - (void)viewWillAppear:(BOOL)animated 
 {
-	[super viewWillAppear:animated];	
+	[super viewWillAppear:animated];
+	[self reloadFiles];
 	[self.tableView reloadData];
 }
 
@@ -156,9 +178,13 @@
 		#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
 		/*iPhone OS 2.2.1*/
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.hidesAccessoryWhenEditing = NO;
 		#else
 		/*iPhone OS 3.0*/
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		#endif
     }
     
@@ -185,23 +211,34 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	File *aFile = [files objectAtIndex:indexPath.row];
-	if(aFile.isDirectory)
+	if(self.editing)
 	{
-		FileBrowserViewController *anotherViewController = [[FileBrowserViewController alloc] init];
-		anotherViewController.path = [path stringByAppendingPathComponent:aFile.name];
-		[self.navigationController pushViewController:anotherViewController animated:YES];
-		[anotherViewController release];
+		EditViewController *editViewController = [EditViewController sharedEditViewController];
+		editViewController.file = aFile;
+		[self.navigationController pushViewController:editViewController animated:YES];
 	}
 	else
 	{
-		Book *aBook = [[Book alloc] init];
-		aBook.basePath = path;
-		aBook.name = aFile.name;
-		aBook.title = [aFile.name stringByDeletingPathExtension];
-		BookReaderViewController *bookReaderViewController = [BookReaderViewController sharedInstance];
-		bookReaderViewController.book = aBook;
-		[self.navigationController pushViewController:bookReaderViewController animated:YES];
-		[aBook release];
+		if(aFile.isDirectory)
+		{
+			FileBrowserViewController *anotherViewController = [[FileBrowserViewController alloc] init];
+			anotherViewController.curPath = [curPath stringByAppendingPathComponent:aFile.name];
+			[self.navigationController pushViewController:anotherViewController animated:YES];
+			[anotherViewController release];
+		}
+		else
+		{
+			Book *aBook = [[Book alloc] init];
+			aBook.basePath = curPath;
+			aBook.name = aFile.name;
+			aBook.title = [aFile.name stringByDeletingPathExtension];
+			NSString *fullpath = [curPath stringByAppendingPathComponent:aFile.name];
+			aBook.hidden = [[DefaultsController sharedDefaultsController] isHiddenOfFile:fullpath];
+			BookReaderViewController *bookReaderViewController = [BookReaderViewController sharedInstance];
+			bookReaderViewController.book = aBook;
+			[self.navigationController pushViewController:bookReaderViewController animated:YES];
+			[aBook release];
+		}
 	}
 }
 

@@ -7,12 +7,14 @@
 
 @interface File : NSObject 
 {
-	BOOL      isDirectory;
-	NSString *name;
+	BOOL       isDirectory;
+	NSString * name;
+	NSString * parentDirectory;
 }
 
 @property (assign)           BOOL       isDirectory;
 @property (nonatomic,retain) NSString * name;
+@property (nonatomic,retain) NSString * parentDirectory;
 
 + (UIImage*)folderImage;
 + (UIImage*)fileImage;
