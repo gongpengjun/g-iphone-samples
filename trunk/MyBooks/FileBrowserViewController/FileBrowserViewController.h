@@ -6,9 +6,9 @@
 
 @class BookShareViewController;
 
-@interface FileBrowserViewController : UITableViewController 
-{
-	NSString		*path;
+@interface FileBrowserViewController : UITableViewController {
+@private
+	NSString		*curPath;
 	NSArray			*visibleExtensions;
 	NSMutableArray	*files;
 
@@ -16,7 +16,7 @@
 	BookShareViewController * shareViewController;
 }
 
-@property (nonatomic,retain) NSString		*path;
+@property (nonatomic,retain) NSString		*curPath;
 @property (nonatomic,retain) NSArray		*visibleExtensions;
 @property (nonatomic,retain) NSMutableArray	*files;
 

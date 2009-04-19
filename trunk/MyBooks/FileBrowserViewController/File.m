@@ -6,7 +6,14 @@
 
 @implementation File
 
-@synthesize isDirectory,name;
+@synthesize isDirectory,name,parentDirectory;
+
+- (void)dealloc
+{
+	[parentDirectory release];
+	[name release];
+	[super dealloc];
+}
 
 static UIImage * s_folderImage = nil;
 static UIImage * s_fileImage   = nil;

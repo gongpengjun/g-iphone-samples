@@ -6,7 +6,7 @@
 
 @implementation Book
 
-@synthesize title,name,basePath;
+@synthesize title,name,basePath,hidden;
 
 - (void)dealloc
 {
@@ -14,14 +14,6 @@
 	[name release];
 	[basePath release];
 	[super dealloc];
-}
-
-- (id)init
-{
-	if(self = [super init])
-	{
-	}
-	return self;
 }
 
 @end

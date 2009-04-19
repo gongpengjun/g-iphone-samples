@@ -31,8 +31,8 @@
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 	#endif
 	
-    rootViewController   = [[FileBrowserViewController alloc] init];
-	rootViewController.path = [FGFileManager booksDirectory];
+    rootViewController         = [[FileBrowserViewController alloc] init];
+	rootViewController.curPath = [FGFileManager booksDirectory];
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 	

@@ -30,6 +30,11 @@
 		01A232710F91ECC800EBB67E /* BookShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232700F91ECC800EBB67E /* BookShareViewController.m */; };
 		01A2328A0F91EF6400EBB67E /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232890F91EF6400EBB67E /* DetailCell.m */; };
 		01A232B50F91F2F700EBB67E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A232B40F91F2F700EBB67E /* CFNetwork.framework */; };
+		01F203800F9B4D3100393603 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F2037F0F9B4D3100393603 /* EditViewController.m */; };
+		01F2038A0F9B552900393603 /* EditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F203890F9B552900393603 /* EditableCell.m */; };
+		01F204850F9B667500393603 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F204840F9B667500393603 /* DisplayCell.m */; };
+		01F204E10F9B6D9F00393603 /* DefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F204E00F9B6D9F00393603 /* DefaultsController.m */; };
+		01F204FC0F9B6EF500393603 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01F204FB0F9B6EF500393603 /* Settings.bundle */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -78,6 +83,15 @@
 		01A232880F91EF6400EBB67E /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		01A232890F91EF6400EBB67E /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		01A232B40F91F2F700EBB67E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		01F2037E0F9B4D3100393603 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		01F2037F0F9B4D3100393603 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		01F203880F9B552900393603 /* EditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableCell.h; sourceTree = "<group>"; };
+		01F203890F9B552900393603 /* EditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableCell.m; sourceTree = "<group>"; };
+		01F204830F9B667500393603 /* DisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayCell.h; sourceTree = "<group>"; };
+		01F204840F9B667500393603 /* DisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayCell.m; sourceTree = "<group>"; };
+		01F204DF0F9B6D9F00393603 /* DefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsController.h; sourceTree = "<group>"; };
+		01F204E00F9B6D9F00393603 /* DefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsController.m; sourceTree = "<group>"; };
+		01F204FB0F9B6EF500393603 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -186,6 +200,28 @@
 			path = BookShareViewController;
 			sourceTree = "<group>";
 		};
+		01F2037D0F9B4D0000393603 /* EditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				01F2037E0F9B4D3100393603 /* EditViewController.h */,
+				01F2037F0F9B4D3100393603 /* EditViewController.m */,
+				01F204830F9B667500393603 /* DisplayCell.h */,
+				01F204840F9B667500393603 /* DisplayCell.m */,
+				01F203880F9B552900393603 /* EditableCell.h */,
+				01F203890F9B552900393603 /* EditableCell.m */,
+			);
+			path = EditViewController;
+			sourceTree = "<group>";
+		};
+		01F204DE0F9B6D9F00393603 /* DefaultsController */ = {
+			isa = PBXGroup;
+			children = (
+				01F204DF0F9B6D9F00393603 /* DefaultsController.h */,
+				01F204E00F9B6D9F00393603 /* DefaultsController.m */,
+			);
+			path = DefaultsController;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,14 +233,17 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				01F204DE0F9B6D9F00393603 /* DefaultsController */,
 				01A2322A0F91EB6100EBB67E /* HttpServer */,
 				01A22F7F0F90EDF100EBB67E /* FGFileManager */,
 				018AC71E0F7FB5D0008C4E7A /* main AppDelegate and Info */,
-				01A230FD0F91BF5100EBB67E /* FileBrowserViewController */,
 				01A2326E0F91ECB300EBB67E /* BookShareViewController */,
+				01A230FD0F91BF5100EBB67E /* FileBrowserViewController */,
 				01A2316B0F91C43E00EBB67E /* Book */,
+				01F2037D0F9B4D0000393603 /* EditViewController */,
 				01A2316F0F91C44700EBB67E /* BookReaderViewController */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				01F204FB0F9B6EF500393603 /* Settings.bundle */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -280,6 +319,7 @@
 				011D53C30F8F31CB008B2839 /* Default.png in Resources */,
 				01A231550F91C27300EBB67E /* collection_small.png in Resources */,
 				01A231560F91C27300EBB67E /* generic_small.png in Resources */,
+				01F204FC0F9B6EF500393603 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +365,10 @@
 				01A232710F91ECC800EBB67E /* BookShareViewController.m in Sources */,
 				01A2328A0F91EF6400EBB67E /* DetailCell.m in Sources */,
 				01861EDB0F943338006CC61E /* MyWebView.m in Sources */,
+				01F203800F9B4D3100393603 /* EditViewController.m in Sources */,
+				01F2038A0F9B552900393603 /* EditableCell.m in Sources */,
+				01F204850F9B667500393603 /* DisplayCell.m in Sources */,
+				01F204E10F9B6D9F00393603 /* DefaultsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
