@@ -6,7 +6,7 @@
 
 NSString * const kShowHiddenFiles  = @"kShowHiddenFiles";
 
-NSString * const kFileSpecificData = @"kFileSpecificData";
+NSString * const kFileSpecificDefaults = @"kFileSpecificDefaults";
 NSString * const kFileLock         = @"kFileLock";
 NSString * const kFileHidden       = @"kFileHidden";
 
@@ -90,6 +90,59 @@ static DefaultsController *sharedDefaultsController = nil;
 
 #pragma mark Instance method
 
+- (BOOL)defaultsExistingForFile:(NSString*)file
+{
+	BOOL ret;
+	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
+	id object = [perFileDefaults objectForKey:file];
+	ret = ( nil == object ) ? YES : NO;
+	NSLog(@"file:%@'s defaultsExisting:%d",file,ret);
+	return ret;
+}
+
+- (NSDictionary*)defaultsForFile:(NSString*)file
+{
+	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
+	NSDictionary *fileDefaults    = [perFileDefaults objectForKey:file];
+	return fileDefaults;
+}
+
+- (void)setDefaults:(NSDictionary*)fileDefaults forFile:(NSString*)file
+{
+	NSMutableDictionary *perFileDefaults = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificDefaults]];
+	[perFileDefaults setObject:fileDefaults forKey:file];
+	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
+}
+
+- (void)deleteDefaultsForFile:(NSString*)file
+{
+	NSMutableDictionary *perFileDefaults = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificDefaults]];
+	[perFileDefaults removeObjectForKey:file];
+	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
+}
+
+- (void)moveDefaultsForFile:(NSString*)fromFile toFile:(NSString*)toFile
+{
+	if(![self defaultsExistingForFile:fromFile])
+		return;
+	[self setDefaults:[self defaultsForFile:fromFile] forFile:toFile];
+	[self deleteDefaultsForFile:fromFile];
+}
+
+- (void)deleteDefaultsForFolder:(NSString*)folder
+{
+	if(![self defaultsExistingForFile:folder])
+		return;
+	// needs to delete all files' defaults in the folder
+}
+
+- (void)moveDefaultsForFolder:(NSString*)fromFolder toFolder:(NSString*)toFolder
+{
+	if(![self defaultsExistingForFile:fromFolder])
+		return;
+	// needs to check all files' defaults in the fromFolder
+}
+
 - (BOOL)showHiddenFiles
 {
 	BOOL ret = [_defaults boolForKey:kShowHiddenFiles];
@@ -99,11 +152,11 @@ static DefaultsController *sharedDefaultsController = nil;
 
 - (BOOL)isHiddenOfFile:(NSString*)file
 {
-	NSDictionary *perFileData = [_defaults objectForKey:kFileSpecificData];
-	NSDictionary *fileData    = [perFileData objectForKey:file];
-	BOOL          hidden      = [[fileData objectForKey:kFileHidden] boolValue];
+	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
+	NSDictionary *fileDefaults    = [perFileDefaults objectForKey:file];
+	BOOL          hidden      = [[fileDefaults objectForKey:kFileHidden] boolValue];
 	
-	if (fileData == nil)
+	if (fileDefaults == nil)
 		hidden = NO;
 	NSLog(@"%@ is Hidden:%d",file,hidden);
 	return hidden;
@@ -111,13 +164,13 @@ static DefaultsController *sharedDefaultsController = nil;
 
 - (void)setHidden:(BOOL)hidden forFile:(NSString*)file
 {
-	NSMutableDictionary *perFileData = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificData]];
-	NSMutableDictionary *fileData    = [NSMutableDictionary dictionaryWithDictionary:[perFileData objectForKey:file]];
+	NSMutableDictionary *perFileDefaults = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificDefaults]];
+	NSMutableDictionary *fileDefaults    = [NSMutableDictionary dictionaryWithDictionary:[perFileDefaults objectForKey:file]];
 	NSString            *hiddenStr   = [NSString stringWithFormat:@"%d", (hidden) ? 1 : 0];
 	
-	[fileData setObject:hiddenStr forKey:kFileHidden];
-	[perFileData setObject:fileData forKey:file];
-	[_defaults setObject:perFileData forKey:kFileSpecificData];
+	[fileDefaults setObject:hiddenStr forKey:kFileHidden];
+	[perFileDefaults setObject:fileDefaults forKey:file];
+	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
 }
 
 @end
