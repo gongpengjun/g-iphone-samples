@@ -19,4 +19,9 @@
 + (UIImage*)folderImage;
 + (UIImage*)fileImage;
 
++ (BOOL)deleteFile:(NSString*)filePath;
++ (BOOL)deleteFolder:(NSString*)folderPath;
+
+- (BOOL)delete;
+
 @end
