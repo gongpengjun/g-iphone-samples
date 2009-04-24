@@ -28,10 +28,7 @@ extern NSString * const kFileHidden;
 - (void)deleteDefaultsForFile:(NSString*)file;
 - (void)deleteDefaultsForFolder:(NSString*)folder;
 
-/* delete defaults for 'fromFile' and set it for 'toFile' */
 - (void)moveDefaultsForFile:(NSString*)fromFile toFile:(NSString*)toFile;
-
-/* delete defaults for 'fromFolder' and set it for 'toFolder' */
 - (void)moveDefaultsForFolder:(NSString*)fromFolder toFolder:(NSString*)toFolder;
 
 - (BOOL)showHiddenFiles;

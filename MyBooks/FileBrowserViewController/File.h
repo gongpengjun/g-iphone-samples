@@ -19,9 +19,7 @@
 + (UIImage*)folderImage;
 + (UIImage*)fileImage;
 
-+ (BOOL)deleteFile:(NSString*)filePath;
-+ (BOOL)deleteFolder:(NSString*)folderPath;
-
 - (BOOL)delete;
+- (BOOL)renameTo:(NSString*)newName;
 
 @end

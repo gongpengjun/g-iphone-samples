@@ -123,24 +123,65 @@ static DefaultsController *sharedDefaultsController = nil;
 
 - (void)moveDefaultsForFile:(NSString*)fromFile toFile:(NSString*)toFile
 {
-	if(![self defaultsExistingForFile:fromFile])
-		return;
-	[self setDefaults:[self defaultsForFile:fromFile] forFile:toFile];
-	[self deleteDefaultsForFile:fromFile];
+	if([self defaultsExistingForFile:fromFile])
+	{
+		[self setDefaults:[self defaultsForFile:fromFile] forFile:toFile];
+		[self deleteDefaultsForFile:fromFile];
+	}
 }
 
 - (void)deleteDefaultsForFolder:(NSString*)folder
 {
-	if(![self defaultsExistingForFile:folder])
-		return;
-	// needs to delete all files' defaults in the folder
+	NSFileManager * fileManager = [NSFileManager defaultManager];
+	NSArray * fileArray = [fileManager contentsOfDirectoryAtPath:folder error:nil];
+	NSString *fullpath;
+	for(NSString *file in fileArray)
+	{
+		if([file characterAtIndex:0] == (unichar)'.') // Skip invisibles, like .DS_Store
+			continue;
+		
+		BOOL isDir = NO;
+		fullpath = [folder stringByAppendingPathComponent:file];
+		if([fileManager fileExistsAtPath:fullpath isDirectory:&isDir])
+		{
+			if(isDir)
+				[self deleteDefaultsForFolder:fullpath];
+			else
+				[self deleteDefaultsForFile:fullpath];
+		}
+	}
+	
+	[self deleteDefaultsForFile:folder];
 }
 
 - (void)moveDefaultsForFolder:(NSString*)fromFolder toFolder:(NSString*)toFolder
 {
-	if(![self defaultsExistingForFile:fromFolder])
-		return;
-	// needs to check all files' defaults in the fromFolder
+	NSFileManager * fileManager = [NSFileManager defaultManager];
+	NSArray * fileArray = [fileManager contentsOfDirectoryAtPath:fromFolder error:nil];
+	NSString *oldFullPath;
+	NSString *newFullPath;
+	for(NSString *file in fileArray)
+	{
+		if ([file characterAtIndex:0] == (unichar)'.') // Skip invisibles, like .DS_Store
+			continue;
+
+		BOOL isDir = NO;
+		oldFullPath = [fromFolder stringByAppendingPathComponent:file];
+		newFullPath = [toFolder stringByAppendingPathComponent:file];
+		if([fileManager fileExistsAtPath:oldFullPath isDirectory:&isDir])
+		{
+			if(isDir)
+				[self moveDefaultsForFolder:oldFullPath toFolder:newFullPath];
+			else
+				[self moveDefaultsForFile:oldFullPath toFile:newFullPath];
+		}
+	}
+	
+	if([self defaultsExistingForFile:fromFolder])
+	{
+		[self setDefaults:[self defaultsForFile:fromFolder] forFile:toFolder];
+		[self deleteDefaultsForFile:fromFolder];
+	}
 }
 
 - (BOOL)showHiddenFiles
