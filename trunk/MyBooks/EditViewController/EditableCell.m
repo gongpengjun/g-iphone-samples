@@ -14,6 +14,7 @@
         textField = [[UITextField alloc] initWithFrame:CGRectZero];
         textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         textField.font = [UIFont systemFontOfSize:18.0];
+		textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         [self addSubview:textField];
     }
     return self;
