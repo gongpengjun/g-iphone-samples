@@ -5,6 +5,14 @@
 #import "File.h"
 #import "DefaultsController.h"
 
+@interface File(Private)
++ (BOOL)deleteFile:(NSString*)filePath;
++ (BOOL)deleteFolder:(NSString*)folderPath;
+
++ (BOOL)renameFile:(NSString*)oldFilePath toFile:(NSString*)newFilePath;
++ (BOOL)renameFolder:(NSString*)oldFolderPath toFolder:(NSString*)newFolderPath;
+@end
+
 @implementation File
 
 @synthesize isDirectory,name,parentDirectory;
@@ -34,43 +42,17 @@ static UIImage * s_fileImage   = nil;
 }
 
 + (BOOL)deleteFile:(NSString*)filePath
-{	
-	// delete the defaults for the file
+{
 	[[DefaultsController sharedDefaultsController] deleteDefaultsForFile:filePath];
-	
-	// delete the file from file system permanently
 	[[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
-	
 	return YES;
 }
 
 + (BOOL)deleteFolder:(NSString*)folderPath
-{	
-	NSFileManager * fileManager = [NSFileManager defaultManager];
-	NSArray * fileArray = [fileManager contentsOfDirectoryAtPath:folderPath error:nil];
-	NSString *fullpath;
-	for(NSString *file in fileArray)
-	{
-		if ([file characterAtIndex:0] == (unichar)'.') // Skip invisibles, like .DS_Store
-			continue;
-		
-		BOOL isDir = NO;
-		fullpath = [folderPath stringByAppendingPathComponent:file];
-		if([fileManager fileExistsAtPath:fullpath isDirectory:&isDir]) 
-		{
-			if(isDir)
-				[File deleteFolder:fullpath];
-			else
-				[File deleteFile:fullpath];
-		}
-	}
-	
-	// delete the defaults for the file
-	[[DefaultsController sharedDefaultsController] deleteDefaultsForFile:folderPath];
-	
-	// delete the file from file system permanently
+{
+	// delete the defaults for the folder recursively
+	[[DefaultsController sharedDefaultsController] deleteDefaultsForFolder:folderPath];
 	[[NSFileManager defaultManager] removeItemAtPath:folderPath error:NULL];
-	
 	return YES;
 }
 
@@ -81,6 +63,31 @@ static UIImage * s_fileImage   = nil;
 		return [File deleteFolder:fullpath];
 	else
 		return [File deleteFile:fullpath];
+}
+
++ (BOOL)renameFile:(NSString*)oldFilePath toFile:(NSString*)newFilePath
+{
+	[[DefaultsController sharedDefaultsController] moveDefaultsForFile:oldFilePath toFile:newFilePath];
+	[[NSFileManager defaultManager] moveItemAtPath:oldFilePath toPath:newFilePath error:NULL];
+	return YES;
+}
+
++ (BOOL)renameFolder:(NSString*)oldFolderPath toFolder:(NSString*)newFolderPath
+{
+	// delete the defaults for the folder recursively
+	[[DefaultsController sharedDefaultsController] moveDefaultsForFolder:oldFolderPath toFolder:newFolderPath];
+	[[NSFileManager defaultManager] moveItemAtPath:oldFolderPath toPath:newFolderPath error:NULL];
+	return YES;
+}
+
+- (BOOL)renameTo:(NSString*)newName
+{
+	NSString* oldFullpath = [parentDirectory stringByAppendingPathComponent:name];
+	NSString* newFullpath = [parentDirectory stringByAppendingPathComponent:newName];
+	if(isDirectory)
+		return [File renameFolder:oldFullpath toFolder:newFullpath];
+	else
+		return [File renameFile:oldFullpath toFile:newFullpath];
 }
 
 @end
