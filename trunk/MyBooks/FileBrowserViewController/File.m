@@ -82,12 +82,19 @@ static UIImage * s_fileImage   = nil;
 
 - (BOOL)renameTo:(NSString*)newName
 {
+	BOOL success;
 	NSString* oldFullpath = [parentDirectory stringByAppendingPathComponent:name];
 	NSString* newFullpath = [parentDirectory stringByAppendingPathComponent:newName];
+	
 	if(isDirectory)
-		return [File renameFolder:oldFullpath toFolder:newFullpath];
+		success = [File renameFolder:oldFullpath toFolder:newFullpath];
 	else
-		return [File renameFile:oldFullpath toFile:newFullpath];
+		success = [File renameFile:oldFullpath toFile:newFullpath];
+	
+	if(success)
+		self.name = newName;
+	
+	return success;
 }
 
 @end

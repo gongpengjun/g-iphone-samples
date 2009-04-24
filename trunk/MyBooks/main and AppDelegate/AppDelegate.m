@@ -4,7 +4,7 @@
 
 #import "FileBrowserViewController.h"
 #import "AppDelegate.h"
-
+#import "DefaultsController.h"
 #import "FGFileManager.h"
 
 @implementation AppDelegate
@@ -19,7 +19,7 @@
     [super dealloc];
 }
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[FGFileManager establishBooksDirectory];
 	
@@ -45,7 +45,13 @@
 	[window addSubview:[navigationController view]];
 	
     [window makeKeyAndVisible];
+	
+	return YES;
 }
 
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+	[[DefaultsController sharedDefaultsController] synchronize];
+}
 
 @end
