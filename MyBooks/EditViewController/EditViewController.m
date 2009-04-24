@@ -75,7 +75,7 @@ static EditViewController * s_sharedEditViewController = nil;
 #define kSwitchButtonHeight		27.0	
 	CGRect frame = CGRectMake(0.0, 0.0, kSwitchButtonWidth, kSwitchButtonHeight);
 	switchCtl = [[UISwitch alloc] initWithFrame:frame];
-	[switchCtl addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];	
+	//[switchCtl addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];	
 	// in case the parent view draws with a custom color or gradient, use a transparent color
 	switchCtl.backgroundColor = [UIColor clearColor];
 	
@@ -90,12 +90,18 @@ static EditViewController * s_sharedEditViewController = nil;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 	if([file isDirectory])
+	{
 		self.title = @"Edit Folder";
+		nameCell.textField.placeholder = @"New Folder Name";	
+		nameCell.textField.text = file.name;
+	}
 	else
+	{
 		self.title = @"Edit File";
+		nameCell.textField.placeholder = @"New File Name";	
+		nameCell.textField.text = [file.name stringByDeletingPathExtension];
+	}
 	
-    nameCell.textField.placeholder = @"New File Name";
-    nameCell.textField.text = file.name;
     // Starts editing in the name field and shows the keyboard
     //[nameCell.textField becomeFirstResponder];
 	
@@ -113,10 +119,57 @@ static EditViewController * s_sharedEditViewController = nil;
 	[self.tableView reloadData];
 }
 
+#define tagErrorNameAlert 999
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if(tagErrorNameAlert == alertView.tag)
+	{
+		if([file isDirectory])
+			nameCell.textField.text = file.name;
+		else
+			nameCell.textField.text = [file.name stringByDeletingPathExtension];
+	}
+}
+
 - (void)doSave
 {
+	if((nil == nameCell.textField.text) || (nameCell.textField.text.length == 0))
+	{
+		NSString* message;
+		if([file isDirectory])
+			message = @"Folder name must NOT be empty!";
+		else
+			message = @"File name must NOT be empty!";
+		
+		UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+															 message:message
+															delegate:self
+												   cancelButtonTitle:@"OK"
+												   otherButtonTitles:nil];
+		alertView.tag = tagErrorNameAlert;
+		[alertView show];
+		return;
+	}
+	
+	if([file isDirectory])
+	{
+		if(NO == [file.name isEqualToString:nameCell.textField.text])
+			[file renameTo:nameCell.textField.text];
+	}
+	else
+	{
+		if(NO == [[file.name stringByDeletingPathExtension] isEqualToString:nameCell.textField.text])
+		{
+			NSString* newName = [nameCell.textField.text stringByAppendingPathExtension:[file.name pathExtension]];
+			[file renameTo:newName];
+		}
+	}
+
 	NSString * fullpath = [file.parentDirectory stringByAppendingPathComponent:file.name];
-	[[DefaultsController sharedDefaultsController] setHidden:[switchCtl isOn] forFile:fullpath];
+	if([switchCtl isOn] != [[DefaultsController sharedDefaultsController] isHiddenOfFile:fullpath])
+		[[DefaultsController sharedDefaultsController] setHidden:[switchCtl isOn] forFile:fullpath];
+
 	[self.navigationController popViewControllerAnimated:YES];
 }
 

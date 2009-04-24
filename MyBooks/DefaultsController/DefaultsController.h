@@ -10,6 +10,7 @@
 }
 
 + (DefaultsController*)sharedDefaultsController;
+- (BOOL)synchronize;
 
 extern NSString * const kShowHiddenFiles;
 
@@ -36,5 +37,6 @@ extern NSString * const kFileHidden;
 - (BOOL)isHiddenOfFile:(NSString*)file;
 - (void)setHidden:(BOOL)hidden forFile:(NSString*)file;
 
+- (void)dumpFileSpecificDefaults:(NSString*)prefix;
 
 @end

@@ -38,6 +38,11 @@ NSString * const kFileHidden       = @"kFileHidden";
 	return self;
 }
 
+- (BOOL)synchronize
+{
+	return [_defaults synchronize];
+}
+
 static DefaultsController *sharedDefaultsController = nil;
 
 + (DefaultsController*)sharedDefaultsController
@@ -90,13 +95,21 @@ static DefaultsController *sharedDefaultsController = nil;
 
 #pragma mark Instance method
 
+- (void)dumpFileSpecificDefaults:(NSString*)prefix
+{
+	#ifndef __OPTIMIZE__
+	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
+	NSLog(@"file specific defaults(%@):\n%@",prefix,perFileDefaults);
+	#endif
+}
+
 - (BOOL)defaultsExistingForFile:(NSString*)file
 {
 	BOOL ret;
 	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
 	id object = [perFileDefaults objectForKey:file];
-	ret = ( nil == object ) ? YES : NO;
-	NSLog(@"file:%@'s defaultsExisting:%d",file,ret);
+	ret = ( nil == object ) ? NO : YES;
+	//NSLog(@"file:%@'s defaultsExisting:%d",file,ret);
 	return ret;
 }
 
@@ -125,8 +138,10 @@ static DefaultsController *sharedDefaultsController = nil;
 {
 	if([self defaultsExistingForFile:fromFile])
 	{
+		[self dumpFileSpecificDefaults:@"before moveDefaultsForFile"];
 		[self setDefaults:[self defaultsForFile:fromFile] forFile:toFile];
 		[self deleteDefaultsForFile:fromFile];
+		[self dumpFileSpecificDefaults:@"after  moveDefaultsForFile"];
 	}
 }
 
@@ -187,7 +202,7 @@ static DefaultsController *sharedDefaultsController = nil;
 - (BOOL)showHiddenFiles
 {
 	BOOL ret = [_defaults boolForKey:kShowHiddenFiles];
-	NSLog(@"option showHiddenFiles:%d",ret);
+	//NSLog(@"option showHiddenFiles:%d",ret);
 	return ret;
 }
 
@@ -199,7 +214,7 @@ static DefaultsController *sharedDefaultsController = nil;
 	
 	if (fileDefaults == nil)
 		hidden = NO;
-	NSLog(@"%@ is Hidden:%d",file,hidden);
+	//NSLog(@"%@ is Hidden:%d",file,hidden);
 	return hidden;
 }
 
@@ -209,6 +224,7 @@ static DefaultsController *sharedDefaultsController = nil;
 	NSMutableDictionary *fileDefaults    = [NSMutableDictionary dictionaryWithDictionary:[perFileDefaults objectForKey:file]];
 	NSString            *hiddenStr   = [NSString stringWithFormat:@"%d", (hidden) ? 1 : 0];
 	
+	NSLog(@"%@ setHidden:%d",file,hidden);
 	[fileDefaults setObject:hiddenStr forKey:kFileHidden];
 	[perFileDefaults setObject:fileDefaults forKey:file];
 	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];

@@ -6,7 +6,8 @@
 
 @class EditableCell,DisplayCell,File;
 
-@interface EditViewController : UITableViewController {
+@interface EditViewController : UITableViewController <UIAlertViewDelegate>
+{
 @private
 	File            * file;
 	UIBarButtonItem * saveButton;
