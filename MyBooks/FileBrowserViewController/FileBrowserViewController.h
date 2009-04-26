@@ -4,7 +4,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class BookShareViewController;
+@class BookShareViewController,File;
 
 @interface FileBrowserViewController : UITableViewController {
 @private
@@ -15,6 +15,8 @@
 	UIBarButtonItem *shareButton;
 	UIBarButtonItem *newFolderButton;
 	BookShareViewController * shareViewController;
+	
+	File            *newFile;
 }
 
 @property (nonatomic,retain) NSString		*curPath;

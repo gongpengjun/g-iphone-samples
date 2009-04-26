@@ -10,6 +10,7 @@
 #import "DefaultsController.h"
 #import "AppDelegate.h"
 #import "EditViewController.h"
+#import "NewViewController.h"
 
 @implementation FileBrowserViewController
 
@@ -325,7 +326,13 @@
 
 - (void)doNewFolder
 {
-	
+	newFile = [[File alloc] init];
+	newFile.name = nil;
+	newFile.isDirectory = YES;
+	newFile.parentDirectory = curPath;
+	NewViewController *newViewController = [NewViewController sharedNewViewController];
+	newViewController.file = newFile;
+	[self.navigationController pushViewController:newViewController animated:YES];
 }
 
 @end

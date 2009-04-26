@@ -19,6 +19,7 @@
 + (UIImage*)folderImage;
 + (UIImage*)fileImage;
 
+- (BOOL)create;
 - (BOOL)delete;
 - (BOOL)renameTo:(NSString*)newName;
 - (BOOL)moveToDirectory:(NSString*)newParentDirectory;
