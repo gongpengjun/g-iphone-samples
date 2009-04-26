@@ -2,13 +2,13 @@
 //  EditViewController.m
 //
 
-#import "File.h"
-#import "EditableCell.h"
-#import "DisplayCell.h"
 #import "EditViewController.h"
 #import "DefaultsController.h"
 #import "FolderPickerViewController.h"
 #import "FGFileManager.h"
+
+#define tagErrorNameAlert 999
+#define tagErrorPathAlert 998
 
 @implementation EditViewController
 
@@ -131,8 +131,6 @@ static EditViewController * s_sharedEditViewController = nil;
 	[self.tableView reloadData];
 }
 
-#define tagErrorNameAlert 999
-
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if(tagErrorNameAlert == alertView.tag)
@@ -142,13 +140,28 @@ static EditViewController * s_sharedEditViewController = nil;
 		else
 			nameCell.textField.text = [file.name stringByDeletingPathExtension];
 	}
+	else if(tagErrorPathAlert == alertView.tag)
+	{
+		if([file isDirectory])
+			nameCell.textField.text = file.name;
+		else
+			nameCell.textField.text = [file.name stringByDeletingPathExtension];
+
+		#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+		/*iPhone OS 2.2.1*/
+		parentCell.text = [file.parentDirectory lastPathComponent];
+		#else
+		/*iPhone OS 3.0*/
+		parentCell.textLabel.text = [file.parentDirectory lastPathComponent];
+		#endif
+	}
 }
 
-- (void)doSave
+- (BOOL)nameValidate
 {
+	NSString* message;
 	if((nil == nameCell.textField.text) || (nameCell.textField.text.length == 0))
 	{
-		NSString* message;
 		if([file isDirectory])
 			message = @"Folder name must NOT be empty!";
 		else
@@ -161,8 +174,35 @@ static EditViewController * s_sharedEditViewController = nil;
 												   otherButtonTitles:nil];
 		alertView.tag = tagErrorNameAlert;
 		[alertView show];
-		return;
+		return NO;
 	}
+	
+	if(NO == [file.parentDirectory isEqualToString:tmpParentDirectory])
+	{
+		NSString *fullpath = [tmpParentDirectory stringByAppendingPathComponent:nameCell.textField.text];
+		BOOL isDir = NO;
+		if([[NSFileManager defaultManager] fileExistsAtPath:fullpath isDirectory:&isDir] && (file.isDirectory == isDir))
+		{
+			NSString *message = [NSString stringWithFormat:@"The %@ name '%@' is already taken in '%@'. Please choose a different name.",
+								 file.isDirectory?@"folder":@"file",nameCell.textField.text,[tmpParentDirectory lastPathComponent]];
+			UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+																 message:message
+																delegate:self
+													   cancelButtonTitle:@"OK"
+													   otherButtonTitles:nil];
+			alertView.tag = tagErrorPathAlert;
+			[alertView show];
+			return NO;
+		}
+	}
+		
+	return YES;
+}
+
+- (void)doSave
+{
+	if(NO == [self nameValidate])
+		return;
 	
 	// rename
 	if([file isDirectory])
@@ -185,6 +225,7 @@ static EditViewController * s_sharedEditViewController = nil;
 		[file moveToDirectory:tmpParentDirectory];
 	}
 	
+	//property set
 	NSString * fullpath = [file.parentDirectory stringByAppendingPathComponent:file.name];
 	if([switchCtl isOn] != [[DefaultsController sharedDefaultsController] isHiddenOfFile:fullpath])
 		[[DefaultsController sharedDefaultsController] setHidden:[switchCtl isOn] forFile:fullpath];
@@ -254,8 +295,8 @@ static EditViewController * s_sharedEditViewController = nil;
 	switch(section)
 	{
 		case 0: sectionTitle = ([file isDirectory]) ? @"Folder Name" : @"File Name"; break;
-		case 1: sectionTitle = nil; break;
-		case 2: sectionTitle = @"Parent Folder"; break;
+		case 1: sectionTitle = @"Parent Folder"; break;
+		case 2: sectionTitle = nil; break;
 	}
     return sectionTitle;
 }
@@ -266,8 +307,8 @@ static EditViewController * s_sharedEditViewController = nil;
 	switch(indexPath.section)
 	{
 		case 0: cell = nameCell; break;
-		case 1: cell = hiddenCell; break;
-		case 2: cell = parentCell; break;
+		case 1: cell = parentCell; break;
+		case 2: cell = hiddenCell; break;
 	}
     return cell;
 }

@@ -32,6 +32,7 @@
 		01A2328A0F91EF6400EBB67E /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232890F91EF6400EBB67E /* DetailCell.m */; };
 		01A232B50F91F2F700EBB67E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A232B40F91F2F700EBB67E /* CFNetwork.framework */; };
 		01C2894C0FA34A0700D5D04A /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C2894B0FA34A0700D5D04A /* Folder.m */; };
+		01C28B3D0FA4754000D5D04A /* NewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28B3C0FA4754000D5D04A /* NewViewController.m */; };
 		01F203800F9B4D3100393603 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F2037F0F9B4D3100393603 /* EditViewController.m */; };
 		01F2038A0F9B552900393603 /* EditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F203890F9B552900393603 /* EditableCell.m */; };
 		01F204850F9B667500393603 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F204840F9B667500393603 /* DisplayCell.m */; };
@@ -89,6 +90,8 @@
 		01A232B40F91F2F700EBB67E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		01C2894A0FA34A0700D5D04A /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
 		01C2894B0FA34A0700D5D04A /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
+		01C28B3B0FA4754000D5D04A /* NewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewViewController.h; sourceTree = "<group>"; };
+		01C28B3C0FA4754000D5D04A /* NewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewViewController.m; sourceTree = "<group>"; };
 		01F2037E0F9B4D3100393603 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		01F2037F0F9B4D3100393603 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		01F203880F9B552900393603 /* EditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableCell.h; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 			children = (
 				01F2037E0F9B4D3100393603 /* EditViewController.h */,
 				01F2037F0F9B4D3100393603 /* EditViewController.m */,
+				01C28B3B0FA4754000D5D04A /* NewViewController.h */,
+				01C28B3C0FA4754000D5D04A /* NewViewController.m */,
 				01F204830F9B667500393603 /* DisplayCell.h */,
 				01F204840F9B667500393603 /* DisplayCell.m */,
 				01F203880F9B552900393603 /* EditableCell.h */,
@@ -389,6 +394,7 @@
 				01F204E10F9B6D9F00393603 /* DefaultsController.m in Sources */,
 				013B985D0FA2BFD9002A8D26 /* FolderPickerViewController.m in Sources */,
 				01C2894C0FA34A0700D5D04A /* Folder.m in Sources */,
+				01C28B3D0FA4754000D5D04A /* NewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

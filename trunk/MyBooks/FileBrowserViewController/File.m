@@ -136,4 +136,14 @@ static UIImage * s_fileImage   = nil;
 	return success;
 }
 
+- (BOOL)create
+{
+	NSError * error;
+	NSString *path = [parentDirectory stringByAppendingPathComponent:name];
+	return [[NSFileManager defaultManager] createDirectoryAtPath:path 
+									 withIntermediateDirectories:NO 
+													  attributes:nil 
+														   error:&error];
+}
+
 @end
