@@ -7,6 +7,8 @@
 #import "DisplayCell.h"
 #import "EditViewController.h"
 #import "DefaultsController.h"
+#import "FolderPickerViewController.h"
+#import "FGFileManager.h"
 
 @implementation EditViewController
 
@@ -48,47 +50,40 @@ static EditViewController * s_sharedEditViewController = nil;
 														style:UIBarButtonItemStyleBordered
 													   target:self
 													   action:@selector(doCancel)];
+		
+		nameCell = [[EditableCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"NameCell"];
+		
+		#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+		/*iPhone OS 2.2.1*/
+		parentCell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"ParentCell"];
+		#else
+		/*iPhone OS 3.0*/
+		parentCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ParentCell"];
+		#endif
+		parentCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		
+		hiddenCell = [[DisplayCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"HiddenCell"];
+		hiddenCell.nameLabel.text = @"Hide";
+		
+		#define kSwitchButtonWidth		94.0
+		#define kSwitchButtonHeight		27.0	
+		CGRect frame = CGRectMake(0.0, 0.0, kSwitchButtonWidth, kSwitchButtonHeight);
+		switchCtl = [[UISwitch alloc] initWithFrame:frame];
+		//[switchCtl addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];	
+		// in case the parent view draws with a custom color or gradient, use a transparent color
+		switchCtl.backgroundColor = [UIColor clearColor];
+		
+		hiddenCell.view = switchCtl;
 	}
 	return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem  = cancelButton;
-    self.navigationItem.rightBarButtonItem = saveButton;
-	
-	nameCell = [[EditableCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"NameCell"];
-	
-	#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
-	/*iPhone OS 2.2.1*/
-	parentCell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"ParentCell"];
-	#else
-	/*iPhone OS 3.0*/
-	parentCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ParentCell"];
-	#endif
-	parentCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	
-	hiddenCell = [[DisplayCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"HiddenCell"];
-	hiddenCell.nameLabel.text = @"Hidden";
-	
-#define kSwitchButtonWidth		94.0
-#define kSwitchButtonHeight		27.0	
-	CGRect frame = CGRectMake(0.0, 0.0, kSwitchButtonWidth, kSwitchButtonHeight);
-	switchCtl = [[UISwitch alloc] initWithFrame:frame];
-	//[switchCtl addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];	
-	// in case the parent view draws with a custom color or gradient, use a transparent color
-	switchCtl.backgroundColor = [UIColor clearColor];
-	
-	hiddenCell.view = switchCtl;
-}
-
-- (void)switchAction:(id)sender
+- (void)setFile:(File*)newFile
 {
-	NSLog(@"switchAction: value = %d", [sender isOn]);
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+	[newFile retain];
+	[file release];
+	file = newFile;
+	
 	if([file isDirectory])
 	{
 		self.title = @"Edit Folder";
@@ -116,6 +111,23 @@ static EditViewController * s_sharedEditViewController = nil;
 	NSString * fullpath = [file.parentDirectory stringByAppendingPathComponent:file.name];
 	switchCtl.on = [[DefaultsController sharedDefaultsController] isHiddenOfFile:fullpath];
 	
+	tmpParentDirectory = file.parentDirectory;
+}
+
+- (void)viewDidLoad 
+{
+    [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem  = cancelButton;
+    self.navigationItem.rightBarButtonItem = saveButton;
+}
+
+- (void)switchAction:(id)sender
+{
+	NSLog(@"switchAction: value = %d", [sender isOn]);
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];	
 	[self.tableView reloadData];
 }
 
@@ -152,6 +164,7 @@ static EditViewController * s_sharedEditViewController = nil;
 		return;
 	}
 	
+	// rename
 	if([file isDirectory])
 	{
 		if(NO == [file.name isEqualToString:nameCell.textField.text])
@@ -166,6 +179,12 @@ static EditViewController * s_sharedEditViewController = nil;
 		}
 	}
 
+	//move
+	if(![file.parentDirectory isEqualToString:tmpParentDirectory])
+	{
+		[file moveToDirectory:tmpParentDirectory];
+	}
+	
 	NSString * fullpath = [file.parentDirectory stringByAppendingPathComponent:file.name];
 	if([switchCtl isOn] != [[DefaultsController sharedDefaultsController] isHiddenOfFile:fullpath])
 		[[DefaultsController sharedDefaultsController] setHidden:[switchCtl isOn] forFile:fullpath];
@@ -219,7 +238,7 @@ static EditViewController * s_sharedEditViewController = nil;
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 
@@ -254,10 +273,12 @@ static EditViewController * s_sharedEditViewController = nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
+	
+    FolderPickerViewController *folderPicker = [FolderPickerViewController sharedPicker];
+	folderPicker.rootFolder		= [FGFileManager booksDirectory];
+	folderPicker.pickedFolder	= tmpParentDirectory;
+	folderPicker.delegate       = self;
+	[self.navigationController pushViewController:folderPicker animated:YES];
 }
 
 
@@ -299,6 +320,31 @@ static EditViewController * s_sharedEditViewController = nil;
     return YES;
 }
 */
+
+#pragma mark FolderPickerViewControllerDelegate
+- (BOOL)folderPicker:(FolderPickerViewController*)picker shouldShowFolder:(NSString*)folderPath
+{
+	return YES;
+}
+
+- (BOOL)folderPicker:(FolderPickerViewController*)picker canPickFolder:(NSString*)folderPath
+{
+	BOOL canPick = YES;
+	if(file.isDirectory)
+	{
+		if([file.parentDirectory isEqualToString:folderPath])
+			canPick = YES;
+		else
+			canPick = ![folderPath hasPrefix:[file.parentDirectory stringByAppendingPathComponent:file.name]];
+	}
+	return canPick;
+}
+
+- (void)folderPicker:(FolderPickerViewController*)picker pickedFolder:(NSString*)pickedFolder
+{
+	tmpParentDirectory = pickedFolder;
+	parentCell.textLabel.text = [tmpParentDirectory lastPathComponent];
+}
 
 @end
 
