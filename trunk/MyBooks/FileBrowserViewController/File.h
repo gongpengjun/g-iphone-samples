@@ -21,5 +21,6 @@
 
 - (BOOL)delete;
 - (BOOL)renameTo:(NSString*)newName;
+- (BOOL)moveToDirectory:(NSString*)newParentDirectory;
 
 @end

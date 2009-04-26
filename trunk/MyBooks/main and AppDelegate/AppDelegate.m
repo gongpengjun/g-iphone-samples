@@ -2,10 +2,11 @@
 //  AppDelegate.m
 //
 
-#import "FileBrowserViewController.h"
 #import "AppDelegate.h"
 #import "DefaultsController.h"
 #import "FGFileManager.h"
+#import "FileBrowserViewController.h"
+#import "FolderPickerViewController.h"
 
 @implementation AppDelegate
 
@@ -31,8 +32,10 @@
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 	#endif
 	
-    rootViewController         = [[FileBrowserViewController alloc] init];
-	rootViewController.curPath = [FGFileManager booksDirectory];
+    FileBrowserViewController *aFileBrowser  = [[FileBrowserViewController alloc] init];
+	aFileBrowser.curPath		= [FGFileManager booksDirectory];
+	self.rootViewController = aFileBrowser;
+	[aFileBrowser release];
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 	

@@ -3,10 +3,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FolderPickerViewController.h"
 
 @class EditableCell,DisplayCell,File;
 
-@interface EditViewController : UITableViewController <UIAlertViewDelegate>
+@interface EditViewController : UITableViewController <	UIAlertViewDelegate,
+														FolderPickerViewControllerDelegate >
 {
 @private
 	File            * file;
@@ -16,6 +18,8 @@
     UITableViewCell * parentCell;
     DisplayCell     * hiddenCell;
 	UISwitch        * switchCtl;
+
+	NSString        * tmpParentDirectory;
 }
 
 + (EditViewController*)sharedEditViewController;

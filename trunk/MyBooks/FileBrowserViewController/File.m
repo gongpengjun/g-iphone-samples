@@ -97,4 +97,43 @@ static UIImage * s_fileImage   = nil;
 	return success;
 }
 
++ (BOOL)moveFile:(NSString*)fileName fromFolder:(NSString*)oldParentDirectory toFolder:(NSString*)newParentDirectory
+{
+	NSString* oldFilePath = [oldParentDirectory stringByAppendingPathComponent:fileName];
+	NSString* newFilePath = [newParentDirectory stringByAppendingPathComponent:fileName];
+	[[DefaultsController sharedDefaultsController] dumpFileSpecificDefaults:@"Before moveFile"];
+	[[DefaultsController sharedDefaultsController] moveDefaultsForFile:oldFilePath toFile:newFilePath];
+	[[DefaultsController sharedDefaultsController] dumpFileSpecificDefaults:@"After  moveFile"];
+	[[NSFileManager defaultManager] moveItemAtPath:oldFilePath toPath:newFilePath error:NULL];
+	return YES;
+}
+
++ (BOOL)moveFolder:(NSString*)folderName fromFolder:(NSString*)oldParentDirectory toFolder:(NSString*)newParentDirectory
+{
+	NSString* oldFolderPath = [oldParentDirectory stringByAppendingPathComponent:folderName];
+	NSString* newFolderPath = [newParentDirectory stringByAppendingPathComponent:folderName];
+	
+	[[DefaultsController sharedDefaultsController] moveDefaultsForFolder:oldFolderPath toFolder:newFolderPath];
+	[[NSFileManager defaultManager] moveItemAtPath:oldFolderPath toPath:newFolderPath error:NULL];
+	return YES;
+}
+
+- (BOOL)moveToDirectory:(NSString*)newParentDirectory
+{
+	BOOL success = YES;
+	
+	if([parentDirectory isEqualToString:newParentDirectory])
+		return success;
+	
+	if(isDirectory)
+		success = [File moveFolder:name fromFolder:parentDirectory toFolder:newParentDirectory];
+	else
+		success = [File moveFile:name fromFolder:parentDirectory toFolder:newParentDirectory];
+	
+	if(success)
+		self.parentDirectory = newParentDirectory;
+	
+	return success;
+}
+
 @end
