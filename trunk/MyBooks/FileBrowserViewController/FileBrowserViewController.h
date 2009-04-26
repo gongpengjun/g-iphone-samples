@@ -13,6 +13,7 @@
 	NSMutableArray	*files;
 
 	UIBarButtonItem *shareButton;
+	UIBarButtonItem *newFolderButton;
 	BookShareViewController * shareViewController;
 }
 

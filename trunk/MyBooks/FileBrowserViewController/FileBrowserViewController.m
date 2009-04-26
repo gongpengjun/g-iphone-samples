@@ -21,6 +21,7 @@
 	[curPath release];
 	[files release];
 	[shareButton release];
+	[newFolderButton release];
     [super dealloc];
 }
 
@@ -36,6 +37,10 @@
 														style:UIBarButtonItemStyleBordered
 													   target:self
 													   action:@selector(doShare)];
+		newFolderButton = [[UIBarButtonItem alloc] initWithTitle:@"New Folder"
+														  style:UIBarButtonItemStyleBordered
+														 target:self
+														 action:@selector(doNewFolder)];
     }
     return self;
 }
@@ -110,11 +115,18 @@
 	{
 		self.navigationItem.rightBarButtonItem = self.editButtonItem;		
 	}
+	
+	self.toolbarItems = [NSArray arrayWithObject:newFolderButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated 
 {
 	[super viewWillAppear:animated];
+	if(self.editing)
+	{
+		self.navigationController.toolbarHidden = NO;
+		self.navigationController.toolbar.barStyle = UIBarStyleBlack;
+	}
 	[self reloadFiles];
 	[self.tableView reloadData];
 }
@@ -124,11 +136,12 @@
     [super viewDidAppear:animated];
 }
 */
-/*
+
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
+	self.navigationController.toolbarHidden = YES;
 }
-*/
+
 /*
 - (void)viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
@@ -152,7 +165,6 @@
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
-
 
 #pragma mark Table view methods
 
@@ -243,6 +255,20 @@
 }
 
 #pragma mark Editing (delete)
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated 
+{
+    [super setEditing:editing animated:animated];
+	if(editing)
+	{
+		self.navigationController.toolbarHidden = NO;
+		self.navigationController.toolbar.barStyle = UIBarStyleBlack;
+	}
+	else
+	{
+		self.navigationController.toolbarHidden = YES;
+	}
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath 
 {
 	return YES;
@@ -295,6 +321,11 @@
 						   forView:self.navigationController.view cache:YES];	
 	[self.navigationController pushViewController:shareViewController animated:YES];
 	[UIView commitAnimations];	
+}
+
+- (void)doNewFolder
+{
+	
 }
 
 @end
