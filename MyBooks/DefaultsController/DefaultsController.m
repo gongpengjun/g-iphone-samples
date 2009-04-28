@@ -4,7 +4,8 @@
 
 #import "DefaultsController.h"
 
-NSString * const kShowHiddenFiles  = @"kShowHiddenFiles";
+NSString * const kShowHiddenFiles     = @"kShowHiddenFiles";
+NSString * const kShowUnreadableFiles = @"kShowUnreadableFiles";
 
 NSString * const kFileSpecificDefaults = @"kFileSpecificDefaults";
 NSString * const kFileLock         = @"kFileLock";
@@ -203,6 +204,13 @@ static DefaultsController *sharedDefaultsController = nil;
 {
 	BOOL ret = [_defaults boolForKey:kShowHiddenFiles];
 	//NSLog(@"option showHiddenFiles:%d",ret);
+	return ret;
+}
+
+- (BOOL)showUnreadableFiles
+{
+	BOOL ret = [_defaults boolForKey:kShowUnreadableFiles];
+	//NSLog(@"option kShowUnreadableFiles:%d",ret);
 	return ret;
 }
 

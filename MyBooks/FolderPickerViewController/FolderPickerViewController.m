@@ -49,16 +49,17 @@ static FolderPickerViewController *s_sharedFolderPickerViewController = nil;
 
 - (void)loadFoldersInFolder:(NSString*)parentFolder parentFolderLevel:(NSUInteger)parentLevel
 {
+	DefaultsController *defaultsController = [DefaultsController sharedDefaultsController];
 	NSFileManager * fileManager = [NSFileManager defaultManager];
 	NSArray * fileArray = [fileManager contentsOfDirectoryAtPath:parentFolder error:nil];
 	NSString *fullpath;
 	for(NSString *file in fileArray)
 	{
-		if ([file characterAtIndex:0] == (unichar)'.') // Skip invisibles, like .DS_Store
-			continue;
+		if(NO == [defaultsController showUnreadableFiles])
+			if ([file characterAtIndex:0] == (unichar)'.') // Skip invisibles, like .DS_Store
+				continue;
 		
 		fullpath = [parentFolder stringByAppendingPathComponent:file];
-		DefaultsController *defaultsController = [DefaultsController sharedDefaultsController];
 		if( (NO == [defaultsController showHiddenFiles]) && [defaultsController isHiddenOfFile:fullpath] )
 			continue;
 		

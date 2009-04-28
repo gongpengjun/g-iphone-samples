@@ -14,6 +14,9 @@
 
 extern NSString * const kShowHiddenFiles;
 
+extern NSString * const kShowUnreadableFiles;
+
+
 /* Key used to retrieve the dictionary that contains all books' specific dictionary
  * every key of the dictionary is a file/folder full path 
  */
@@ -33,6 +36,7 @@ extern NSString * const kFileHidden;
 - (void)moveDefaultsForFolder:(NSString*)fromFolder toFolder:(NSString*)toFolder;
 
 - (BOOL)showHiddenFiles;
+- (BOOL)showUnreadableFiles;
 
 - (BOOL)isHiddenOfFile:(NSString*)file;
 - (void)setHidden:(BOOL)hidden forFile:(NSString*)file;

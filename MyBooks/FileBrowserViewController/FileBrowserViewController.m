@@ -57,17 +57,18 @@
 
 - (void)reloadFiles
 {
+	DefaultsController *defaultsController = [DefaultsController sharedDefaultsController];
 	[files removeAllObjects];
 	NSFileManager * fileManager = [NSFileManager defaultManager];
 	NSArray * fileArray = [fileManager contentsOfDirectoryAtPath:curPath error:nil];
 	NSString *fullpath;
 	for(NSString *file in fileArray)
 	{
-		if ([file characterAtIndex:0] == (unichar)'.') // Skip invisibles, like .DS_Store
-			continue;
+		if(NO == [defaultsController showUnreadableFiles])
+			if ([file characterAtIndex:0] == (unichar)'.') // Skip invisibles, like .DS_Store
+				continue;
 		
 		fullpath = [curPath stringByAppendingPathComponent:file];
-		DefaultsController *defaultsController = [DefaultsController sharedDefaultsController];
 		if( (NO == [defaultsController showHiddenFiles]) && [defaultsController isHiddenOfFile:fullpath] )
 				continue;
 		
@@ -88,7 +89,7 @@
 			{
 				NSAssert(visibleExtensions,@"Please set visibleExtensions before setPath.");
 				NSString *extension = [[file pathExtension] lowercaseString];
-				if ([visibleExtensions containsObject:extension]) 
+				if ([defaultsController showUnreadableFiles] || [visibleExtensions containsObject:extension]) 
 				{
 					aFile = [[File alloc] init];
 					aFile.name = file;
@@ -231,7 +232,7 @@
 		[self.navigationController pushViewController:editViewController animated:YES];
 	}
 	else
-	{
+	{			
 		if(aFile.isDirectory)
 		{
 			FileBrowserViewController *anotherViewController = [[FileBrowserViewController alloc] init];
@@ -241,16 +242,29 @@
 		}
 		else
 		{
-			Book *aBook = [[Book alloc] init];
-			aBook.basePath = curPath;
-			aBook.name = aFile.name;
-			aBook.title = [aFile.name stringByDeletingPathExtension];
-			NSString *fullpath = [curPath stringByAppendingPathComponent:aFile.name];
-			aBook.hidden = [[DefaultsController sharedDefaultsController] isHiddenOfFile:fullpath];
-			BookReaderViewController *bookReaderViewController = [BookReaderViewController sharedInstance];
-			bookReaderViewController.book = aBook;
-			[self.navigationController pushViewController:bookReaderViewController animated:YES];
-			[aBook release];
+			NSString *extension = [[aFile.name pathExtension] lowercaseString];
+			if ([visibleExtensions containsObject:extension])
+			{	
+				Book *aBook = [[Book alloc] init];
+				aBook.basePath = curPath;
+				aBook.name = aFile.name;
+				aBook.title = [aFile.name stringByDeletingPathExtension];
+				NSString *fullpath = [curPath stringByAppendingPathComponent:aFile.name];
+				aBook.hidden = [[DefaultsController sharedDefaultsController] isHiddenOfFile:fullpath];
+				BookReaderViewController *bookReaderViewController = [BookReaderViewController sharedInstance];
+				bookReaderViewController.book = aBook;
+				[self.navigationController pushViewController:bookReaderViewController animated:YES];
+				[aBook release];
+			}
+			else
+			{
+				UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+																	 message:@"This type of file can not be open by this Application."
+																	delegate:self
+														   cancelButtonTitle:@"OK"
+														   otherButtonTitles:nil];
+				[alertView show];				
+			}
 		}
 	}
 }
