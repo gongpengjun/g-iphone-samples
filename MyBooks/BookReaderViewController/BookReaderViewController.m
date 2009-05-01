@@ -10,9 +10,13 @@
 
 static BookReaderViewController *s_sharedBookReaderViewController = nil;
 
+@interface BookReaderViewController (Private)
+- (void)correctNavigationBarPosition;
+@end
+
 @implementation BookReaderViewController
 
-@synthesize book;
+@synthesize book,naviHideTimer;
 
 + (id)sharedInstance
 {
@@ -36,6 +40,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 {
 	[myWebView release];
 	[book release];
+	[naviHideTimer release];
 	[super dealloc];
 }
 
@@ -99,16 +104,18 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 /*iPhone OS 3.0*/
 - (void)viewDidAppear:(BOOL)animated
 {
-	[NSTimer scheduledTimerWithTimeInterval: 5.0 /*second*/ 
-									 target: self
-								   selector: @selector(hideNaviBar)
-								   userInfo: nil
-									repeats: NO];	
+	self.naviHideTimer = [NSTimer scheduledTimerWithTimeInterval: 5.0 /*second*/ 
+														  target: self
+														selector: @selector(hideNaviBar)
+														userInfo: nil
+														 repeats: NO];
 }
 #endif
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+	if(naviHideTimer && [naviHideTimer isValid])
+		[naviHideTimer invalidate];
 	self.book = nil;
 }
 
@@ -118,22 +125,9 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	return YES;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-	AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-	naviBarHidden = appDelegate.navigationController.navigationBar.hidden;
-	[UIApplication sharedApplication].statusBarHidden     = NO;
-	appDelegate.navigationController.navigationBar.hidden = NO;
-}
-
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-	if(naviBarHidden)
-	{
-		AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-		[UIApplication sharedApplication].statusBarHidden     = YES;
-		appDelegate.navigationController.navigationBar.hidden = YES;
-	}		
+	[self correctNavigationBarPosition];
 }
 
 #pragma mark UIWebView delegate methods
@@ -180,6 +174,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	}
 }
 
+#pragma mark Navigation bar management
 - (void)switchNaviBar
 {
 	AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
@@ -189,18 +184,20 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	{
 		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO];
 		appDelegate.navigationController.navigationBar.hidden = NO;
-		[NSTimer scheduledTimerWithTimeInterval: 3.0 /*second*/ 
-										 target: self
-									   selector: @selector(hideNaviBar)
-									   userInfo: nil
-										repeats: NO];
+		if(naviHideTimer && [naviHideTimer isValid])
+			[naviHideTimer invalidate];
+		self.naviHideTimer = [NSTimer scheduledTimerWithTimeInterval: 5.0 /*second*/ 
+															  target: self
+															selector: @selector(hideNaviBar)
+															userInfo: nil
+															 repeats: NO];
 	}
 	else
 	{
 		[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
 		appDelegate.navigationController.navigationBar.hidden = YES;
 	}
-	[self.view setNeedsLayout];
+	[self correctNavigationBarPosition];
 }
 
 - (void)hideNaviBar
@@ -213,7 +210,25 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 		[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
 		appDelegate.navigationController.navigationBar.hidden = YES;
 	}
-	[self.view setNeedsLayout];	
+	[self correctNavigationBarPosition];
+}
+
+- (void)correctNavigationBarPosition
+{
+	AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+	UINavigationBar * navigationBar = appDelegate.navigationController.navigationBar;
+	
+	NSLog(@"before correct navigation bar %@: frame (x=%f,y=%f),(w=%f,h=%f)", (navigationBar.hidden ? @"hide" : @"show"),
+		  navigationBar.frame.origin.x,navigationBar.frame.origin.y,navigationBar.frame.size.width,navigationBar.frame.size.height);
+	
+	CGRect frame = navigationBar.frame;
+	frame.origin.y = 20.0;
+	navigationBar.frame = frame;
+	
+	[[UIApplication sharedApplication] setStatusBarHidden:navigationBar.hidden animated:NO];
+	
+	NSLog(@"after  correct navigation bar %@: frame (x=%f,y=%f),(w=%f,h=%f)", (navigationBar.hidden ? @"hide" : @"show"),
+		  navigationBar.frame.origin.x,navigationBar.frame.origin.y,navigationBar.frame.size.width,navigationBar.frame.size.height);
 }
 
 @end
