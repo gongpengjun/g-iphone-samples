@@ -7,14 +7,18 @@
 
 @interface File : NSObject 
 {
-	BOOL       isDirectory;
 	NSString * name;
 	NSString * parentDirectory;
+	BOOL       isDirectory;
+	BOOL       locked;
 }
 
-@property (assign)           BOOL       isDirectory;
 @property (nonatomic,retain) NSString * name;
 @property (nonatomic,retain) NSString * parentDirectory;
+@property (nonatomic,assign) BOOL       isDirectory;
+@property (nonatomic,assign) BOOL       locked;
+
+- (id)initWithParentDirectory:(NSString*)parentDir name:(NSString*)fileName;
 
 + (UIImage*)folderImage;
 + (UIImage*)fileImage;

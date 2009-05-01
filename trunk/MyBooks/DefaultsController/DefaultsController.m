@@ -8,8 +8,13 @@ NSString * const kShowHiddenFiles     = @"kShowHiddenFiles";
 NSString * const kShowUnreadableFiles = @"kShowUnreadableFiles";
 
 NSString * const kFileSpecificDefaults = @"kFileSpecificDefaults";
-NSString * const kFileLock         = @"kFileLock";
-NSString * const kFileHidden       = @"kFileHidden";
+NSString * const kFileLocked		   = @"kFileLocked";
+NSString * const kFileHidden		   = @"kFileHidden";
+NSString * const kAutoPasswordInterval		   = @"kAutoPasswordInterval";
+
+@interface DefaultsController (Private)
+- (void)initLockedFileCount;
+@end
 
 @implementation DefaultsController
 
@@ -20,6 +25,7 @@ NSString * const kFileHidden       = @"kFileHidden";
 	if(self = [super init]) 
 	{
 		_defaults = [[NSUserDefaults standardUserDefaults] retain];
+		[self initLockedFileCount];
 		
 		/* read defaults in Settings.bundle to 'Registration Domain' in-memory-only */
 		NSString *settingsPath = [[NSBundle mainBundle] pathForResource:@"Root" ofType:@"plist" inDirectory:@"Settings.bundle"];
@@ -130,6 +136,8 @@ static DefaultsController *sharedDefaultsController = nil;
 
 - (void)deleteDefaultsForFile:(NSString*)file
 {
+	if([self isLockedOfFile:file])
+		_lockedFileCount--;
 	NSMutableDictionary *perFileDefaults = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificDefaults]];
 	[perFileDefaults removeObjectForKey:file];
 	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
@@ -141,6 +149,8 @@ static DefaultsController *sharedDefaultsController = nil;
 	{
 		[self dumpFileSpecificDefaults:@"before moveDefaultsForFile"];
 		[self setDefaults:[self defaultsForFile:fromFile] forFile:toFile];
+		if([self isLockedOfFile:toFile])
+			_lockedFileCount++;
 		[self deleteDefaultsForFile:fromFile];
 		[self dumpFileSpecificDefaults:@"after  moveDefaultsForFile"];
 	}
@@ -193,11 +203,7 @@ static DefaultsController *sharedDefaultsController = nil;
 		}
 	}
 	
-	if([self defaultsExistingForFile:fromFolder])
-	{
-		[self setDefaults:[self defaultsForFile:fromFolder] forFile:toFolder];
-		[self deleteDefaultsForFile:fromFolder];
-	}
+	[self moveDefaultsForFile:fromFolder toFile:toFolder];
 }
 
 - (BOOL)showHiddenFiles
@@ -232,10 +238,121 @@ static DefaultsController *sharedDefaultsController = nil;
 	NSMutableDictionary *fileDefaults    = [NSMutableDictionary dictionaryWithDictionary:[perFileDefaults objectForKey:file]];
 	NSString            *hiddenStr   = [NSString stringWithFormat:@"%d", (hidden) ? 1 : 0];
 	
-	NSLog(@"%@ setHidden:%d",file,hidden);
+	//NSLog(@"%@ setHidden:%d",file,hidden);
 	[fileDefaults setObject:hiddenStr forKey:kFileHidden];
 	[perFileDefaults setObject:fileDefaults forKey:file];
 	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
 }
+
+- (BOOL)isLockedOfFile:(NSString*)file
+{
+	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
+	NSDictionary *fileDefaults    = [perFileDefaults objectForKey:file];
+	BOOL          locked          = [[fileDefaults objectForKey:kFileLocked] boolValue];
+	
+	if (fileDefaults == nil)
+		locked = NO;
+	NSLog(@"%@ is Locked:%d",file,locked);
+	return locked;
+}
+
+- (void)setLocked:(BOOL)locked forFile:(NSString*)file
+{
+	if(locked == [self isLockedOfFile:file])
+		return;
+	
+	NSMutableDictionary *perFileDefaults = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificDefaults]];
+	NSMutableDictionary *fileDefaults    = [NSMutableDictionary dictionaryWithDictionary:[perFileDefaults objectForKey:file]];
+	NSString            *lockedStr       = [NSString stringWithFormat:@"%d", (locked) ? 1 : 0];
+	
+	NSLog(@"%@ setLocked:%d",file,locked);
+	[fileDefaults setObject:lockedStr forKey:kFileLocked];
+	[perFileDefaults setObject:fileDefaults forKey:file];
+	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
+	
+	if(locked)
+		_lockedFileCount++;
+	else
+		_lockedFileCount--;
+}
+
+- (void)initLockedFileCount
+{
+	_lockedFileCount = 0;
+	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
+	NSLog(@"file specific defaults:\n%@",perFileDefaults);
+
+	NSEnumerator *enumerator = [perFileDefaults objectEnumerator];
+	NSDictionary *fileDefaults;	
+	while ((fileDefaults = [enumerator nextObject])) 
+	{
+		NSLog(@"fileDefaults:%@",fileDefaults);
+		if([[fileDefaults objectForKey:kFileLocked] boolValue])
+			_lockedFileCount++;
+	}
+	NSLog(@"locked file count:%d",_lockedFileCount);
+}
+
+- (NSUInteger)lockedFileCount
+{
+	if(_lockedFileCount < 0)
+	{		
+		[self initLockedFileCount];
+	}
+	return _lockedFileCount;
+}
+
+- (void)autoPasswordTimerLaunch
+{	
+	NSTimeInterval autoPasswordInterval = [_defaults doubleForKey:kAutoPasswordInterval];
+	
+	NSLog([NSString stringWithFormat:@"auto password interval:%1.1f seconds",autoPasswordInterval]);
+	
+	if(autoPasswordInterval >= 300)
+	{
+		_autoPasswordValid = YES;
+		_autoPasswordTimer = [NSTimer scheduledTimerWithTimeInterval:autoPasswordInterval
+															  target: self
+															selector: @selector(autoPasswordTimerAction:)
+															userInfo: nil
+															 repeats: NO];
+	}
+	else
+	{
+		_autoPasswordValid = NO;
+	}
+}
+
+- (void)autoPasswordTimerSuspend
+{
+	_autoPasswordValid = NO;
+	
+	if(_autoPasswordTimer && [_autoPasswordTimer isValid])
+	{
+		[_autoPasswordTimer invalidate];
+		_autoPasswordTimer = nil;
+	}
+}
+
+- (void)autoPasswordTimerAction:(id)timer
+{
+	_autoPasswordValid = NO;
+}
+
+- (BOOL)autoPasswordValid
+{
+	return _autoPasswordValid;
+}
+
+- (void)autoPasswordEnable
+{
+	[self autoPasswordTimerLaunch];
+}
+
+- (void)autoPasswordDisable
+{
+	[self autoPasswordTimerSuspend];
+}
+
 
 @end

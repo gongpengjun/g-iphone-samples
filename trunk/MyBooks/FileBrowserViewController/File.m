@@ -24,6 +24,35 @@
 	[super dealloc];
 }
 
+- (id)init
+{
+	NSAssert(0,@"class File don't support -init method, use -initWithParentDirectory:name: instead.");
+	return self;
+}
+
+- (id)initWithParentDirectory:(NSString*)parentDir name:(NSString*)fileName
+{
+	if(self = [super init])
+	{
+		self.parentDirectory = parentDir;
+		self.name = fileName;
+		
+		//initialize 'isDirectory' & 'locked'
+		if(!parentDirectory||!name)
+		{
+			isDirectory = YES;
+			locked = NO;
+		}
+		else
+		{
+			NSString* fullpath = [parentDirectory stringByAppendingPathComponent:name];
+			[[NSFileManager defaultManager] fileExistsAtPath:fullpath isDirectory:&isDirectory];
+			locked = [[DefaultsController sharedDefaultsController] isLockedOfFile:fullpath];
+		}
+	}
+	return self;
+}
+
 static UIImage * s_folderImage = nil;
 static UIImage * s_fileImage   = nil;
 
@@ -145,5 +174,18 @@ static UIImage * s_fileImage   = nil;
 													  attributes:nil 
 														   error:&error];
 }
+
+- (BOOL)locked
+{
+	return locked;
+}
+
+- (void)setLocked:(BOOL)lock
+{
+	locked = lock;
+	NSString *fullpath = [parentDirectory stringByAppendingPathComponent:name];
+	[[DefaultsController sharedDefaultsController] setLocked:locked forFile:fullpath];
+}
+
 
 @end

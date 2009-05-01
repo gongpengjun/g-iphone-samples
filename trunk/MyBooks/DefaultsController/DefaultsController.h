@@ -7,6 +7,9 @@
 @interface DefaultsController : NSObject {
 @private	
 	NSUserDefaults *_defaults;
+	NSInteger       _lockedFileCount;
+	BOOL            _autoPasswordValid;
+	NSTimer        *_autoPasswordTimer;
 }
 
 + (DefaultsController*)sharedDefaultsController;
@@ -24,8 +27,9 @@ extern NSString * const kFileSpecificDefaults;
 
 /* Keys used in each book specific dictionary which is the retrieved value data for a specific file/folder */
 extern NSString * const kFileEncoding;
-extern NSString * const kFileLock;
+extern NSString * const kFileLocked;
 extern NSString * const kFileHidden;
+extern NSString * const kAutoPasswordInterval;
 
 - (BOOL)defaultsExistingForFile:(NSString*)file;
 
@@ -40,6 +44,16 @@ extern NSString * const kFileHidden;
 
 - (BOOL)isHiddenOfFile:(NSString*)file;
 - (void)setHidden:(BOOL)hidden forFile:(NSString*)file;
+
+- (BOOL)isLockedOfFile:(NSString*)file;
+- (void)setLocked:(BOOL)locked forFile:(NSString*)file;
+
+- (NSUInteger)lockedFileCount;
+
+- (void)autoPasswordEnable;
+- (void)autoPasswordDisable;
+- (BOOL)autoPasswordValid;
+
 
 - (void)dumpFileSpecificDefaults:(NSString*)prefix;
 

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		011D52630F8F1EC2008B2839 /* ebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D52620F8F1EC2008B2839 /* ebook.png */; };
 		011D53C30F8F31CB008B2839 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D53C20F8F31CB008B2839 /* Default.png */; };
+		013B11FF0FA97A5600625F62 /* PasswordKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 013B11FE0FA97A5600625F62 /* PasswordKeeper.m */; };
+		013B12030FA97A7200625F62 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 013B12010FA97A7200625F62 /* locked.png */; };
+		013B12040FA97A7200625F62 /* unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = 013B12020FA97A7200625F62 /* unlocked.png */; };
 		013B985D0FA2BFD9002A8D26 /* FolderPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 013B985C0FA2BFD9002A8D26 /* FolderPickerViewController.m */; };
 		01861EDB0F943338006CC61E /* MyWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01861EDA0F943338006CC61E /* MyWebView.m */; };
 		018AC7200F7FB5E2008C4E7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC71F0F7FB5E2008C4E7A /* main.m */; };
@@ -46,6 +49,10 @@
 /* Begin PBXFileReference section */
 		011D52620F8F1EC2008B2839 /* ebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ebook.png; sourceTree = "<group>"; };
 		011D53C20F8F31CB008B2839 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		013B11FD0FA97A5600625F62 /* PasswordKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordKeeper.h; sourceTree = "<group>"; };
+		013B11FE0FA97A5600625F62 /* PasswordKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordKeeper.m; sourceTree = "<group>"; };
+		013B12010FA97A7200625F62 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
+		013B12020FA97A7200625F62 /* unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlocked.png; sourceTree = "<group>"; };
 		013B985B0FA2BFD9002A8D26 /* FolderPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderPickerViewController.h; sourceTree = "<group>"; };
 		013B985C0FA2BFD9002A8D26 /* FolderPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderPickerViewController.m; sourceTree = "<group>"; };
 		01861ED90F943338006CC61E /* MyWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebView.h; sourceTree = "<group>"; };
@@ -55,6 +62,7 @@
 		018AC71F0F7FB5E2008C4E7A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "main and AppDelegate/main.m"; sourceTree = "<group>"; };
 		018AC7210F7FB5ED008C4E7A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "main and AppDelegate/AppDelegate.h"; sourceTree = "<group>"; };
 		018AC7220F7FB5ED008C4E7A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "main and AppDelegate/AppDelegate.m"; sourceTree = "<group>"; };
+		018B31B00FAAAB950049AC5E /* UIAlertView+textField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+textField.h"; sourceTree = "<group>"; };
 		01A22F800F90EDF100EBB67E /* FGFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGFileManager.h; sourceTree = "<group>"; };
 		01A22F810F90EDF100EBB67E /* FGFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGFileManager.m; sourceTree = "<group>"; };
 		01A230FE0F91BF5100EBB67E /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
@@ -122,6 +130,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		013B11FC0FA97A5600625F62 /* PasswordKeeper */ = {
+			isa = PBXGroup;
+			children = (
+				013B11FD0FA97A5600625F62 /* PasswordKeeper.h */,
+				013B11FE0FA97A5600625F62 /* PasswordKeeper.m */,
+			);
+			path = PasswordKeeper;
+			sourceTree = "<group>";
+		};
+		013B12000FA97A7200625F62 /* password_images */ = {
+			isa = PBXGroup;
+			children = (
+				013B12010FA97A7200625F62 /* locked.png */,
+				013B12020FA97A7200625F62 /* unlocked.png */,
+			);
+			path = password_images;
+			sourceTree = "<group>";
+		};
 		013B985A0FA2BFBC002A8D26 /* FolderPickerViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +183,7 @@
 		01A230FD0F91BF5100EBB67E /* FileBrowserViewController */ = {
 			isa = PBXGroup;
 			children = (
+				018B31B00FAAAB950049AC5E /* UIAlertView+textField.h */,
 				01A230FE0F91BF5100EBB67E /* File.h */,
 				01A230FF0F91BF5100EBB67E /* File.m */,
 				01A231000F91BF5100EBB67E /* FileBrowserViewController.h */,
@@ -255,6 +282,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				013B11FC0FA97A5600625F62 /* PasswordKeeper */,
 				01F204DE0F9B6D9F00393603 /* DefaultsController */,
 				01A2322A0F91EB6100EBB67E /* HttpServer */,
 				01A22F7F0F90EDF100EBB67E /* FGFileManager */,
@@ -276,6 +304,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				013B12000FA97A7200625F62 /* password_images */,
 				01A231530F91C27300EBB67E /* collection_small.png */,
 				01A231540F91C27300EBB67E /* generic_small.png */,
 				011D52620F8F1EC2008B2839 /* ebook.png */,
@@ -343,6 +372,8 @@
 				01A231550F91C27300EBB67E /* collection_small.png in Resources */,
 				01A231560F91C27300EBB67E /* generic_small.png in Resources */,
 				01F204FC0F9B6EF500393603 /* Settings.bundle in Resources */,
+				013B12030FA97A7200625F62 /* locked.png in Resources */,
+				013B12040FA97A7200625F62 /* unlocked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +426,7 @@
 				013B985D0FA2BFD9002A8D26 /* FolderPickerViewController.m in Sources */,
 				01C2894C0FA34A0700D5D04A /* Folder.m in Sources */,
 				01C28B3D0FA4754000D5D04A /* NewViewController.m in Sources */,
+				013B11FF0FA97A5600625F62 /* PasswordKeeper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
