@@ -16,6 +16,7 @@
 		01861EDB0F943338006CC61E /* MyWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01861EDA0F943338006CC61E /* MyWebView.m */; };
 		018AC7200F7FB5E2008C4E7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC71F0F7FB5E2008C4E7A /* main.m */; };
 		018AC7230F7FB5ED008C4E7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC7220F7FB5ED008C4E7A /* AppDelegate.m */; };
+		018B337D0FAB10650049AC5E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018B337C0FAB10650049AC5E /* Security.framework */; };
 		01A22F820F90EDF100EBB67E /* FGFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A22F810F90EDF100EBB67E /* FGFileManager.m */; };
 		01A231020F91BF5100EBB67E /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A230FF0F91BF5100EBB67E /* File.m */; };
 		01A231030F91BF5100EBB67E /* FileBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A231010F91BF5100EBB67E /* FileBrowserViewController.m */; };
@@ -63,6 +64,7 @@
 		018AC7210F7FB5ED008C4E7A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "main and AppDelegate/AppDelegate.h"; sourceTree = "<group>"; };
 		018AC7220F7FB5ED008C4E7A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "main and AppDelegate/AppDelegate.m"; sourceTree = "<group>"; };
 		018B31B00FAAAB950049AC5E /* UIAlertView+textField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+textField.h"; sourceTree = "<group>"; };
+		018B337C0FAB10650049AC5E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		01A22F800F90EDF100EBB67E /* FGFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGFileManager.h; sourceTree = "<group>"; };
 		01A22F810F90EDF100EBB67E /* FGFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGFileManager.m; sourceTree = "<group>"; };
 		01A230FE0F91BF5100EBB67E /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				01A232B50F91F2F700EBB67E /* CFNetwork.framework in Frameworks */,
+				018B337D0FAB10650049AC5E /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +319,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				018B337C0FAB10650049AC5E /* Security.framework */,
 				01A232B40F91F2F700EBB67E /* CFNetwork.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
