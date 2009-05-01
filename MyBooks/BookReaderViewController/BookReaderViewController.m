@@ -125,8 +125,19 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	return YES;
 }
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+	if(naviHideTimer && [naviHideTimer isValid])
+		[naviHideTimer invalidate];
+}
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
+	self.naviHideTimer = [NSTimer scheduledTimerWithTimeInterval: 5.0 /*second*/ 
+														  target: self
+														selector: @selector(hideNaviBar)
+														userInfo: nil
+														 repeats: NO];
 	[self correctNavigationBarPosition];
 }
 
