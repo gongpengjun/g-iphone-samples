@@ -342,11 +342,6 @@
 	[alertView release];
 }
 
-- (BOOL)passwordRight:(NSString*)inputPassword
-{
-	return [inputPassword isEqualToString:[[PasswordKeeper sharedPasswordKeeper] fetchPassword]];
-}
-
 - (void)doPasswordVerify:(NSString*)inputPassword
 {
 	if(FGPasswordTargetLock == pwdTarget)
@@ -361,7 +356,7 @@
 	}
 	else
 	{	
-		if(NO == [self passwordRight:inputPassword])
+		if(NO == [inputPassword isEqualToString:[[PasswordKeeper sharedPasswordKeeper] fetchPassword]])
 			goto ERROR;
 	}
 	
@@ -414,6 +409,7 @@ ERROR:
 		{
 			default:
 			case 0: /*Cancel*/
+				[self.tableView deselectRowAtIndexPath:curIndexPath animated:YES];
 				pwdTarget = FGPasswordTargetNone;
 				pwdAlertTitle = nil;
 				pwdAlertMessage = nil;
