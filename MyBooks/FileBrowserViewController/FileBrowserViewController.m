@@ -318,7 +318,7 @@
 	switch(pwdTarget)
 	{
 		case FGPasswordTargetLock:
-			[alertView addButtonWithTitle:@"Lock"];
+			[alertView addButtonWithTitle:@"Set"];
 			break;
 		case FGPasswordTargetLockConfirm:
 			[alertView addButtonWithTitle:@"Confirm"];
