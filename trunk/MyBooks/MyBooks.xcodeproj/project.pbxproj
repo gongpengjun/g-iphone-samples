@@ -37,6 +37,8 @@
 		01A232B50F91F2F700EBB67E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A232B40F91F2F700EBB67E /* CFNetwork.framework */; };
 		01C2894C0FA34A0700D5D04A /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C2894B0FA34A0700D5D04A /* Folder.m */; };
 		01C28B3D0FA4754000D5D04A /* NewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28B3C0FA4754000D5D04A /* NewViewController.m */; };
+		01E6B5D80FB194F5008D47E7 /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E6B5D60FB194F5008D47E7 /* Folder.png */; };
+		01E6B5D90FB194F5008D47E7 /* SmallFolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E6B5D70FB194F5008D47E7 /* SmallFolder.png */; };
 		01F203800F9B4D3100393603 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F2037F0F9B4D3100393603 /* EditViewController.m */; };
 		01F2038A0F9B552900393603 /* EditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F203890F9B552900393603 /* EditableCell.m */; };
 		01F204850F9B667500393603 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F204840F9B667500393603 /* DisplayCell.m */; };
@@ -102,6 +104,8 @@
 		01C2894B0FA34A0700D5D04A /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
 		01C28B3B0FA4754000D5D04A /* NewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewViewController.h; sourceTree = "<group>"; };
 		01C28B3C0FA4754000D5D04A /* NewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewViewController.m; sourceTree = "<group>"; };
+		01E6B5D60FB194F5008D47E7 /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Folder.png; path = FolderPickerViewController/Folder.png; sourceTree = "<group>"; };
+		01E6B5D70FB194F5008D47E7 /* SmallFolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SmallFolder.png; path = FolderPickerViewController/SmallFolder.png; sourceTree = "<group>"; };
 		01F2037E0F9B4D3100393603 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		01F2037F0F9B4D3100393603 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		01F203880F9B552900393603 /* EditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableCell.h; sourceTree = "<group>"; };
@@ -307,6 +311,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				01E6B5D60FB194F5008D47E7 /* Folder.png */,
+				01E6B5D70FB194F5008D47E7 /* SmallFolder.png */,
 				013B12000FA97A7200625F62 /* password_images */,
 				01A231530F91C27300EBB67E /* collection_small.png */,
 				01A231540F91C27300EBB67E /* generic_small.png */,
@@ -378,6 +384,8 @@
 				01F204FC0F9B6EF500393603 /* Settings.bundle in Resources */,
 				013B12030FA97A7200625F62 /* locked.png in Resources */,
 				013B12040FA97A7200625F62 /* unlocked.png in Resources */,
+				01E6B5D80FB194F5008D47E7 /* Folder.png in Resources */,
+				01E6B5D90FB194F5008D47E7 /* SmallFolder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

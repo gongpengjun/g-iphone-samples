@@ -16,6 +16,10 @@
 @property (nonatomic,retain) NSString * name;			// folder name
 @property (nonatomic,retain) NSString * parentFolder;	// absolute path
 
++ (UIImage*)folderImage;
++ (UIImage*)smallFolderImage;
+
+
 - (NSString *)description;
 
 @end

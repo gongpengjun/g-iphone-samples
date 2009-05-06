@@ -216,6 +216,11 @@ static FolderPickerViewController *s_sharedFolderPickerViewController = nil;
 	cell.textLabel.text = aFolder.name;
 	cell.indentationLevel = aFolder.level;
 	
+	if(aFolder.level <= 0)
+		cell.imageView.image = [Folder folderImage];
+	else
+		cell.imageView.image = [Folder smallFolderImage];
+	
     if (indexPath.row == pickedIndex)
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	else
