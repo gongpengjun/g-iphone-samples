@@ -61,6 +61,12 @@
 	[self back];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	[self doStart];
+}
+
 - (void)reloadFiles
 {
 	AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
