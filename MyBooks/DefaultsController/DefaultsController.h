@@ -10,6 +10,8 @@
 	NSInteger       _lockedFileCount;
 	BOOL            _autoPasswordValid;
 	NSTimer        *_autoPasswordTimer;
+	NSString       *_DocumentsPath;
+	NSUInteger      _DocumentsPathLength;
 }
 
 + (DefaultsController*)sharedDefaultsController;
@@ -26,6 +28,14 @@ extern NSString * const kShowUnreadableFiles;
 extern NSString * const kFileSpecificDefaults;
 
 /* Keys used in each book specific dictionary which is the retrieved value data for a specific file/folder */
+/*
+ IMPORTANT: use relative path to Documents as key
+ 
+ Use the following method to convert between fullPath and relativePath:
+ NSString* rPath = [fPath substringFromIndex:_DocumentsPathLength];
+ NSString* fPath = [_DocumentsPath stringByAppendingString:rPath];
+ 
+ */
 extern NSString * const kFileEncoding;
 extern NSString * const kFileLocked;
 extern NSString * const kFileHidden;

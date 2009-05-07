@@ -10,7 +10,7 @@ NSString * const kShowUnreadableFiles = @"kShowUnreadableFiles";
 NSString * const kFileSpecificDefaults = @"kFileSpecificDefaults";
 NSString * const kFileLocked		   = @"kFileLocked";
 NSString * const kFileHidden		   = @"kFileHidden";
-NSString * const kAutoPasswordInterval		   = @"kAutoPasswordInterval";
+NSString * const kAutoPasswordInterval = @"kAutoPasswordInterval";
 
 @interface DefaultsController (Private)
 - (void)initLockedFileCount;
@@ -39,8 +39,14 @@ NSString * const kAutoPasswordInterval		   = @"kAutoPasswordInterval";
 			if(!key || !defaultValue)
 				continue;
 			[defaultDefaults setObject:defaultValue forKey:key];
-		}		
+		}
 		[[NSUserDefaults standardUserDefaults] registerDefaults:defaultDefaults];
+		
+		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+		_DocumentsPath = [paths objectAtIndex:0];
+		[_DocumentsPath retain];
+		_DocumentsPathLength = _DocumentsPath.length;
+		NSLog(@"Documents path: %@",_DocumentsPath);
 	}
 	return self;
 }
@@ -112,34 +118,38 @@ static DefaultsController *sharedDefaultsController = nil;
 
 - (BOOL)defaultsExistingForFile:(NSString*)file
 {
+	NSString* rPath = [file substringFromIndex:_DocumentsPathLength];
 	BOOL ret;
 	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
-	id object = [perFileDefaults objectForKey:file];
+	id object = [perFileDefaults objectForKey:rPath];
 	ret = ( nil == object ) ? NO : YES;
-	//NSLog(@"file:%@'s defaultsExisting:%d",file,ret);
+	//NSLog(@"file:%@'s defaultsExisting:%d",rPath,ret);
 	return ret;
 }
 
 - (NSDictionary*)defaultsForFile:(NSString*)file
 {
+	NSString* rPath = [file substringFromIndex:_DocumentsPathLength];
 	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
-	NSDictionary *fileDefaults    = [perFileDefaults objectForKey:file];
+	NSDictionary *fileDefaults    = [perFileDefaults objectForKey:rPath];
 	return fileDefaults;
 }
 
 - (void)setDefaults:(NSDictionary*)fileDefaults forFile:(NSString*)file
 {
+	NSString* rPath = [file substringFromIndex:_DocumentsPathLength];
 	NSMutableDictionary *perFileDefaults = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificDefaults]];
-	[perFileDefaults setObject:fileDefaults forKey:file];
+	[perFileDefaults setObject:fileDefaults forKey:rPath];
 	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
 }
 
 - (void)deleteDefaultsForFile:(NSString*)file
 {
+	NSString* rPath = [file substringFromIndex:_DocumentsPathLength];
 	if([self isLockedOfFile:file])
 		_lockedFileCount--;
 	NSMutableDictionary *perFileDefaults = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificDefaults]];
-	[perFileDefaults removeObjectForKey:file];
+	[perFileDefaults removeObjectForKey:rPath];
 	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
 }
 
@@ -222,52 +232,56 @@ static DefaultsController *sharedDefaultsController = nil;
 
 - (BOOL)isHiddenOfFile:(NSString*)file
 {
+	NSString* rPath = [file substringFromIndex:_DocumentsPathLength];
 	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
-	NSDictionary *fileDefaults    = [perFileDefaults objectForKey:file];
-	BOOL          hidden      = [[fileDefaults objectForKey:kFileHidden] boolValue];
+	NSDictionary *fileDefaults    = [perFileDefaults objectForKey:rPath];
+	BOOL          hidden          = [[fileDefaults objectForKey:kFileHidden] boolValue];
 	
 	if (fileDefaults == nil)
 		hidden = NO;
-	//NSLog(@"%@ is Hidden:%d",file,hidden);
+	//NSLog(@"%@ is Hidden:%d",rPath,hidden);
 	return hidden;
 }
 
 - (void)setHidden:(BOOL)hidden forFile:(NSString*)file
 {
+	NSString* rPath = [file substringFromIndex:_DocumentsPathLength];
 	NSMutableDictionary *perFileDefaults = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificDefaults]];
-	NSMutableDictionary *fileDefaults    = [NSMutableDictionary dictionaryWithDictionary:[perFileDefaults objectForKey:file]];
+	NSMutableDictionary *fileDefaults    = [NSMutableDictionary dictionaryWithDictionary:[perFileDefaults objectForKey:rPath]];
 	NSString            *hiddenStr   = [NSString stringWithFormat:@"%d", (hidden) ? 1 : 0];
 	
-	//NSLog(@"%@ setHidden:%d",file,hidden);
+	//NSLog(@"%@ setHidden:%d",rPath,hidden);
 	[fileDefaults setObject:hiddenStr forKey:kFileHidden];
-	[perFileDefaults setObject:fileDefaults forKey:file];
+	[perFileDefaults setObject:fileDefaults forKey:rPath];
 	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
 }
 
 - (BOOL)isLockedOfFile:(NSString*)file
 {
+	NSString* rPath = [file substringFromIndex:_DocumentsPathLength];
 	NSDictionary *perFileDefaults = [_defaults objectForKey:kFileSpecificDefaults];
-	NSDictionary *fileDefaults    = [perFileDefaults objectForKey:file];
+	NSDictionary *fileDefaults    = [perFileDefaults objectForKey:rPath];
 	BOOL          locked          = [[fileDefaults objectForKey:kFileLocked] boolValue];
 	
 	if (fileDefaults == nil)
 		locked = NO;
-	NSLog(@"%@ is Locked:%d",file,locked);
+	NSLog(@"%@ is Locked:%d",rPath,locked);
 	return locked;
 }
 
 - (void)setLocked:(BOOL)locked forFile:(NSString*)file
 {
+	NSString* rPath = [file substringFromIndex:_DocumentsPathLength];
 	if(locked == [self isLockedOfFile:file])
 		return;
 	
 	NSMutableDictionary *perFileDefaults = [NSMutableDictionary dictionaryWithDictionary:[_defaults objectForKey:kFileSpecificDefaults]];
-	NSMutableDictionary *fileDefaults    = [NSMutableDictionary dictionaryWithDictionary:[perFileDefaults objectForKey:file]];
+	NSMutableDictionary *fileDefaults    = [NSMutableDictionary dictionaryWithDictionary:[perFileDefaults objectForKey:rPath]];
 	NSString            *lockedStr       = [NSString stringWithFormat:@"%d", (locked) ? 1 : 0];
 	
-	NSLog(@"%@ setLocked:%d",file,locked);
+	NSLog(@"%@ setLocked:%d",rPath,locked);
 	[fileDefaults setObject:lockedStr forKey:kFileLocked];
-	[perFileDefaults setObject:fileDefaults forKey:file];
+	[perFileDefaults setObject:fileDefaults forKey:rPath];
 	[_defaults setObject:perFileDefaults forKey:kFileSpecificDefaults];
 	
 	if(locked)
