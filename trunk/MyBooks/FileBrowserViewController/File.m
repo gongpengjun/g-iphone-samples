@@ -53,21 +53,64 @@
 	return self;
 }
 
-static UIImage * s_folderImage = nil;
-static UIImage * s_fileImage   = nil;
+static UIImage * s_genericFolderImage = nil;
+static UIImage * s_genericFileImage   = nil;
 
-+ (UIImage*)folderImage
++ (UIImage*)genericFolderImage
 {
-	if(!s_folderImage)
-		s_folderImage = [[UIImage imageNamed:@"SmallFolder.png"] retain];
-	return s_folderImage;
+	if(!s_genericFolderImage)
+		s_genericFolderImage = [[UIImage imageNamed:@"genericFolderIcon_32_X_32.png"] retain];
+	return s_genericFolderImage;
 }
 
-+ (UIImage*)fileImage
++ (UIImage*)genericFileImage
 {
-	if(!s_fileImage)
-		s_fileImage = [[UIImage imageNamed:@"generic_small.png"] retain];
-	return s_fileImage;
+	if(!s_genericFileImage)
+		s_genericFileImage = [[UIImage imageNamed:@"genericDocumentIcon_32_X_32.png"] retain];
+	return s_genericFileImage;
+}
+
+static NSDictionary * s_fileImagesDictionary = nil;
+
++ (UIImage*)fileImageForExtension:(NSString*)extension
+{
+	if(!s_fileImagesDictionary)
+	{
+		s_fileImagesDictionary =  [NSDictionary dictionaryWithObjectsAndKeys:
+									[UIImage imageNamed:@"txt_32_X_32.png"],		@"txt",
+									[UIImage imageNamed:@"rtf_32_X_32.png"],		@"rtf",
+									[UIImage imageNamed:@"html_32_X_32.png"],		@"htm",								   
+									[UIImage imageNamed:@"html_32_X_32.png"],		@"html",
+								   	[UIImage imageNamed:@"html_32_X_32.png"],		@"webarchive",
+									[UIImage imageNamed:@"genericPDF_32_X_32.png"], @"pdf",
+									[UIImage imageNamed:@"genericPDF_32_X_32.png"], @"jpg",
+									[UIImage imageNamed:@"genericPDF_32_X_32.png"],	@"png",
+									[UIImage imageNamed:@"genericPDF_32_X_32.png"],	@"gif",
+									[UIImage imageNamed:@"diskImage_32_X_32.png"],	@"dmg",
+									[UIImage imageNamed:@"archive_32_X_32.png"],	@"zip",
+									[UIImage imageNamed:@"word_32_X_32.png"],		@"doc",
+									[UIImage imageNamed:@"word_32_X_32.png"],		@"docx",
+									[UIImage imageNamed:@"excel_32_X_32.png"],		@"xls",
+								   nil];
+		[s_fileImagesDictionary retain];
+	}
+	
+	return [s_fileImagesDictionary objectForKey:extension];
+}
+
+- (UIImage*)fileImage
+{
+	if(isDirectory)
+	{
+		return [File genericFolderImage];
+	}
+	else
+	{
+		UIImage *retImage;
+		NSString *extension = [[self.name pathExtension] lowercaseString];
+		retImage = [File fileImageForExtension:extension];
+		return retImage ? retImage : [File genericFileImage];
+	}
 }
 
 + (BOOL)deleteFile:(NSString*)filePath
