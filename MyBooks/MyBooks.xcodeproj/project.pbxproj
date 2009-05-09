@@ -33,7 +33,6 @@
 		01A232410F91EB6100EBB67E /* HTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232380F91EB6100EBB67E /* HTTPResponse.m */; };
 		01A232420F91EB6100EBB67E /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2323A0F91EB6100EBB67E /* HTTPServer.m */; };
 		01A232710F91ECC800EBB67E /* BookShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232700F91ECC800EBB67E /* BookShareViewController.m */; };
-		01A2328A0F91EF6400EBB67E /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A232890F91EF6400EBB67E /* DetailCell.m */; };
 		01A232B50F91F2F700EBB67E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A232B40F91F2F700EBB67E /* CFNetwork.framework */; };
 		01C2894C0FA34A0700D5D04A /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C2894B0FA34A0700D5D04A /* Folder.m */; };
 		01C28B3D0FA4754000D5D04A /* NewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28B3C0FA4754000D5D04A /* NewViewController.m */; };
@@ -97,8 +96,6 @@
 		01A2323A0F91EB6100EBB67E /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPServer.m; sourceTree = "<group>"; };
 		01A2326F0F91ECC800EBB67E /* BookShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookShareViewController.h; sourceTree = "<group>"; };
 		01A232700F91ECC800EBB67E /* BookShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookShareViewController.m; sourceTree = "<group>"; };
-		01A232880F91EF6400EBB67E /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
-		01A232890F91EF6400EBB67E /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		01A232B40F91F2F700EBB67E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		01C2894A0FA34A0700D5D04A /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
 		01C2894B0FA34A0700D5D04A /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
@@ -248,8 +245,6 @@
 			children = (
 				01A2326F0F91ECC800EBB67E /* BookShareViewController.h */,
 				01A232700F91ECC800EBB67E /* BookShareViewController.m */,
-				01A232880F91EF6400EBB67E /* DetailCell.h */,
-				01A232890F91EF6400EBB67E /* DetailCell.m */,
 			);
 			path = BookShareViewController;
 			sourceTree = "<group>";
@@ -404,7 +399,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -rf \"My Books\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/\"";
+			shellScript = "cp -rf \"My Books\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/\"\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/My Books\" -name \".svn\" -exec rm -r {} \\;\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/My Books\" -name \".*\" -exec rm -r {} \\;";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -429,7 +424,6 @@
 				01A232410F91EB6100EBB67E /* HTTPResponse.m in Sources */,
 				01A232420F91EB6100EBB67E /* HTTPServer.m in Sources */,
 				01A232710F91ECC800EBB67E /* BookShareViewController.m in Sources */,
-				01A2328A0F91EF6400EBB67E /* DetailCell.m in Sources */,
 				01861EDB0F943338006CC61E /* MyWebView.m in Sources */,
 				01F203800F9B4D3100393603 /* EditViewController.m in Sources */,
 				01F2038A0F9B552900393603 /* EditableCell.m in Sources */,

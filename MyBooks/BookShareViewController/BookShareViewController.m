@@ -5,7 +5,6 @@
 #import "BookShareViewController.h"
 #import "FGFileManager.h"
 #import "HTTPConnection.h"
-#import "DetailCell.h"
 #import "FileBrowserViewController.h"
 #import "AppDelegate.h"
 
@@ -127,10 +126,10 @@
 	NSInteger section = 1;
 	switch(status)
 	{
-		case HTTPServerStatusStopped:             section = 1; break;
-		case HTTPServerStatusStarted:             section = 2; break;
-		case HTTPServerStatusNetServicePublished: section = 4; break;
-		case HTTPServerStatusConnected:           section = 4; break;
+		case HTTPServerStatusStopped:             section = 0; break;
+		case HTTPServerStatusStarted:             section = 3; break;
+		case HTTPServerStatusNetServicePublished: section = 3; break;
+		case HTTPServerStatusConnected:           section = 3; break;
 	}
     return section;
 }
@@ -140,10 +139,9 @@
 	NSString *sectionTitle;
 	switch(section)
 	{
-		case 0: sectionTitle = @"Server Status"; break;
-		case 1: sectionTitle = @"Server Address"; break;
-		case 2: sectionTitle = @"Remote Addresses"; break;
-		case 3: sectionTitle = @"Bonjour Service"; break;
+		case 0: sectionTitle = @"Launch your favorite web browser (Safari,FireFox,Internet Explorer etc) on your desktop computer or laptop.\n\nEnter the following address to upload and download books."; break;
+		case 1: sectionTitle = @"OR"; break;
+		case 2: sectionTitle = @"Note:\nYour desktop coumputer or laptop must be in the same Wireless LAN with your iPhone/iPod touch."; break;
 	}
     return sectionTitle;
 }
@@ -155,78 +153,36 @@
 	{
 		case 0: rows = 1; break;
 		case 1: rows = 1; break;
-		case 2: rows = [httpServer numberOfHTTPConnections]; break;
-		case 3: rows = 3; break;
+		case 2: rows = 0; break;
 	}
     return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:@"DetailCell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell"];
     if (cell == nil) {
-        cell = [[[DetailCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"DetailCell"] autorelease];
-		cell.promptMode = NO;
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DetailCell"] autorelease];
+		cell.textLabel.adjustsFontSizeToFitWidth = YES;
     }
 	
 	NSInteger section = [indexPath section];
-	NSInteger row     = [indexPath row];
 	switch(section)
 	{
 		case 0:
-			cell.type.text = @"status";
-			if(status == HTTPServerStatusStopped)
-				cell.name.text = @"Tap \"Start\" to launch server";
-			else
-				cell.name.text = @"Tap \"Stop\" to stop server";
+			cell.textLabel.text = [NSString stringWithFormat:@"http://%@:%d",[httpServer localIPAddress],httpServer.port];
 			break;
 		case 1:
-		{
-			cell.type.text = @"IP:Port";
-			cell.name.text = [NSString stringWithFormat:@"%@:%d",[httpServer localIPAddress],httpServer.port];
-		}
+			{
+			NSString * bonjourServer = [httpServer.name stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+			cell.textLabel.text = [NSString stringWithFormat:@"http://%@.local:%d",bonjourServer,httpServer.port];
+			}
 			break;
-		case 2:
-		{
-			cell.type.text = @"IP:Port";
-			HTTPConnection * connection = [httpServer.connections objectAtIndex:row];
-			cell.name.text = [NSString stringWithFormat:@"%@:%d",connection.connectedHost,connection.connectedPort];
-		}
-			break;
-		case 3:
-			switch(row)
-		{
-			case 0: 
-				cell.type.text = @"domain";
-				cell.name.text = httpServer.domain;
-				break;
-			case 1: 
-				cell.type.text = @"type";
-				cell.name.text = httpServer.type;
-				break;
-			case 2: 
-				cell.type.text = @"name";
-				cell.name.text = httpServer.name;
-				break;
-		}
+		default:
+			cell = nil;
 			break;
 	}
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-	if([indexPath section] == 0)
-	{
-		if([indexPath row] == 0)
-		{
-			if(status == HTTPServerStatusStopped)
-				[self doStart];
-			else
-				[self doStop];
-			[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-		}
-	}
 }
 
 - (void)didReceiveMemoryWarning 
@@ -234,12 +190,6 @@
     [super didReceiveMemoryWarning];
 	[httpServer release];
 	httpServer = nil;
-}
-
-- (void)viewDidUnload 
-{
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
 }
 
 @end
