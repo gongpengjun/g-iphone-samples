@@ -20,7 +20,6 @@
 		01A22F820F90EDF100EBB67E /* FGFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A22F810F90EDF100EBB67E /* FGFileManager.m */; };
 		01A231020F91BF5100EBB67E /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A230FF0F91BF5100EBB67E /* File.m */; };
 		01A231030F91BF5100EBB67E /* FileBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A231010F91BF5100EBB67E /* FileBrowserViewController.m */; };
-		01A231550F91C27300EBB67E /* collection_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A231530F91C27300EBB67E /* collection_small.png */; };
 		01A231560F91C27300EBB67E /* generic_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A231540F91C27300EBB67E /* generic_small.png */; };
 		01A2316E0F91C43E00EBB67E /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2316D0F91C43E00EBB67E /* Book.m */; };
 		01A231720F91C44700EBB67E /* BookReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A231710F91C44700EBB67E /* BookReaderViewController.m */; };
@@ -72,7 +71,6 @@
 		01A230FF0F91BF5100EBB67E /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
 		01A231000F91BF5100EBB67E /* FileBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileBrowserViewController.h; sourceTree = "<group>"; };
 		01A231010F91BF5100EBB67E /* FileBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileBrowserViewController.m; sourceTree = "<group>"; };
-		01A231530F91C27300EBB67E /* collection_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_small.png; sourceTree = "<group>"; };
 		01A231540F91C27300EBB67E /* generic_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generic_small.png; sourceTree = "<group>"; };
 		01A2316C0F91C43E00EBB67E /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		01A2316D0F91C43E00EBB67E /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 				01E6B5D60FB194F5008D47E7 /* Folder.png */,
 				01E6B5D70FB194F5008D47E7 /* SmallFolder.png */,
 				013B12000FA97A7200625F62 /* password_images */,
-				01A231530F91C27300EBB67E /* collection_small.png */,
 				01A231540F91C27300EBB67E /* generic_small.png */,
 				011D52620F8F1EC2008B2839 /* ebook.png */,
 				011D53C20F8F31CB008B2839 /* Default.png */,
@@ -374,7 +371,6 @@
 			files = (
 				011D52630F8F1EC2008B2839 /* ebook.png in Resources */,
 				011D53C30F8F31CB008B2839 /* Default.png in Resources */,
-				01A231550F91C27300EBB67E /* collection_small.png in Resources */,
 				01A231560F91C27300EBB67E /* generic_small.png in Resources */,
 				01F204FC0F9B6EF500393603 /* Settings.bundle in Resources */,
 				013B12030FA97A7200625F62 /* locked.png in Resources */,
