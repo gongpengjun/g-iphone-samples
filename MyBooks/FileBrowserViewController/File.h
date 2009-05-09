@@ -20,8 +20,10 @@
 
 - (id)initWithParentDirectory:(NSString*)parentDir name:(NSString*)fileName;
 
-+ (UIImage*)folderImage;
-+ (UIImage*)fileImage;
++ (UIImage*)genericFolderImage;
++ (UIImage*)genericFileImage;
+
+- (UIImage*)fileImage;
 
 - (BOOL)create;
 - (BOOL)delete;

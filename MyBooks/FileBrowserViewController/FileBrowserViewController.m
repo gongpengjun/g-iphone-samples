@@ -174,17 +174,11 @@
 	
 	#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
 	cell.text = aFile.name;
-	if([aFile isDirectory])
-		cell.image = [File folderImage];
-	else
-		cell.image = [File fileImage];
+	cell.image = [aFile fileImage];
 	#else
 	/*iPhone OS 3.0*/
 	cell.textLabel.text = aFile.name;
-	if([aFile isDirectory])
-		cell.imageView.image = [File folderImage];
-	else
-		cell.imageView.image = [File fileImage];
+	cell.imageView.image = [aFile fileImage];
 	#endif
 	
 	UIImage *image = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
