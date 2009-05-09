@@ -141,7 +141,7 @@
 	{
 		case 0: sectionTitle = @"Launch your favorite web browser (Safari,FireFox,Internet Explorer etc) on your desktop computer or laptop.\n\nEnter the following address to upload and download books."; break;
 		case 1: sectionTitle = @"OR"; break;
-		case 2: sectionTitle = @"Note:\nYour desktop coumputer or laptop must be in the same Wireless LAN with your iPhone/iPod touch."; break;
+		case 2: sectionTitle = @"Note:\nYour desktop coumputer or laptop must join the same Wi-Fi network with your iPhone/iPod touch."; break;
 	}
     return sectionTitle;
 }

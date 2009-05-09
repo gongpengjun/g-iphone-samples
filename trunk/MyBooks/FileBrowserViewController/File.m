@@ -59,7 +59,7 @@ static UIImage * s_fileImage   = nil;
 + (UIImage*)folderImage
 {
 	if(!s_folderImage)
-		s_folderImage = [[UIImage imageNamed:@"collection_small.png"] retain];
+		s_folderImage = [[UIImage imageNamed:@"SmallFolder.png"] retain];
 	return s_folderImage;
 }
 
