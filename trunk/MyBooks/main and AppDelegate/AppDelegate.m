@@ -25,11 +25,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[self performSelectorOnMainThread:@selector(doApplicationLoad:) withObject:application waitUntilDone:NO];
-	
 	progressIndicatorWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
-	CGRect frame = CGRectMake(140,300,40,40);
+	CGRect frame = CGRectMake(140,220,40,40);
 	progressIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:frame];
 	[progressIndicatorView startAnimating];
 	progressIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
@@ -42,6 +40,8 @@
 	[progressIndicatorWindow addSubview:splashImageView];
 	[splashImageView addSubview:progressIndicatorView];
 	[progressIndicatorWindow makeKeyAndVisible];
+	
+	[self performSelectorOnMainThread:@selector(doApplicationLoad:) withObject:application waitUntilDone:NO];
 	
 	return YES;
 }
@@ -74,7 +74,7 @@
 	[window addSubview:[navigationController view]];
 	
 	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationDuration:0.1];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:progressIndicatorWindow cache:YES];
 	
