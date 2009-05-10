@@ -79,6 +79,7 @@ static NSDictionary * s_fileImagesDictionary = nil;
 		s_fileImagesDictionary =  [NSDictionary dictionaryWithObjectsAndKeys:
 									[UIImage imageNamed:@"txt_32_X_32.png"],		@"txt",
 									[UIImage imageNamed:@"rtf_32_X_32.png"],		@"rtf",
+								    [UIImage imageNamed:@"rtf_32_X_32.png"],		@"rtfd",
 									[UIImage imageNamed:@"html_32_X_32.png"],		@"htm",								   
 									[UIImage imageNamed:@"html_32_X_32.png"],		@"html",
 								   	[UIImage imageNamed:@"html_32_X_32.png"],		@"webarchive",
@@ -91,6 +92,7 @@ static NSDictionary * s_fileImagesDictionary = nil;
 									[UIImage imageNamed:@"word_32_X_32.png"],		@"doc",
 									[UIImage imageNamed:@"word_32_X_32.png"],		@"docx",
 									[UIImage imageNamed:@"excel_32_X_32.png"],		@"xls",
+								    [UIImage imageNamed:@"excel_32_X_32.png"],		@"xlsx",
 								   nil];
 		[s_fileImagesDictionary retain];
 	}
