@@ -17,10 +17,36 @@
 	[rootViewController release];
 	[navigationController release];
     [window release];
+	
+	[progressIndicatorWindow release];
+	[progressIndicatorView release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+	[self performSelectorOnMainThread:@selector(doApplicationLoad:) withObject:application waitUntilDone:NO];
+	
+	progressIndicatorWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
+	CGRect frame = CGRectMake(140,300,40,40);
+	progressIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:frame];
+	[progressIndicatorView startAnimating];
+	progressIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+	[progressIndicatorView sizeToFit];
+	progressIndicatorView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
+											  UIViewAutoresizingFlexibleRightMargin |
+											  UIViewAutoresizingFlexibleTopMargin |
+											  UIViewAutoresizingFlexibleBottomMargin);
+	UIImageView *splashImageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default.png"]] autorelease];
+	[progressIndicatorWindow addSubview:splashImageView];
+	[splashImageView addSubview:progressIndicatorView];
+	[progressIndicatorWindow makeKeyAndVisible];
+	
+	return YES;
+}
+
+- (void)doApplicationLoad:(UIApplication *)application
 {
 	[FGFileManager establishBooksDirectory];
 	
@@ -47,9 +73,18 @@
 	
 	[window addSubview:[navigationController view]];
 	
-    [window makeKeyAndVisible];
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:progressIndicatorWindow cache:YES];
 	
-	return YES;
+	[progressIndicatorView stopAnimating];
+	[progressIndicatorView removeFromSuperview];
+	progressIndicatorWindow.frame = CGRectZero;
+	progressIndicatorWindow.hidden = YES;
+	[window makeKeyAndVisible];
+	
+	[UIView commitAnimations];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
