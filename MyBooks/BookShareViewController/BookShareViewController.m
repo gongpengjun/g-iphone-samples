@@ -126,7 +126,7 @@
 	NSInteger section = 1;
 	switch(status)
 	{
-		case HTTPServerStatusStopped:             section = 0; break;
+		case HTTPServerStatusStopped:             section = 1; break;
 		case HTTPServerStatusStarted:             section = 3; break;
 		case HTTPServerStatusNetServicePublished: section = 3; break;
 		case HTTPServerStatusConnected:           section = 3; break;
@@ -162,20 +162,32 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell"];
     if (cell == nil) {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DetailCell"] autorelease];
 		cell.textLabel.adjustsFontSizeToFitWidth = YES;
+#else
+		cell = [[[UITableViewCell alloc] initWithFrame:self.view.bounds reuseIdentifier:@"DetailCell"] autorelease];
+#endif
     }
 	
 	NSInteger section = [indexPath section];
 	switch(section)
 	{
 		case 0:
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000
 			cell.textLabel.text = [NSString stringWithFormat:@"http://%@:%d",[httpServer localIPAddress],httpServer.port];
+#else
+			cell.text = [NSString stringWithFormat:@"http://%@:%d",[httpServer localIPAddress],httpServer.port];
+#endif
 			break;
 		case 1:
 			{
 			NSString * bonjourServer = [httpServer.name stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000
 			cell.textLabel.text = [NSString stringWithFormat:@"http://%@.local:%d",bonjourServer,httpServer.port];
+#else
+			cell.text = [NSString stringWithFormat:@"http://%@.local:%d",bonjourServer,httpServer.port];
+#endif
 			}
 			break;
 		default:

@@ -209,17 +209,28 @@ static FolderPickerViewController *s_sharedFolderPickerViewController = nil;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000		
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+#else
+		cell = [[[UITableViewCell alloc] initWithFrame:self.view.bounds reuseIdentifier:@"CellIdentifier"] autorelease];
+#endif
     }
     
 	Folder *aFolder = [folders objectAtIndex:indexPath.row];
-	cell.textLabel.text = aFolder.name;
 	cell.indentationLevel = aFolder.level;
-	
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000	
+	cell.textLabel.text = aFolder.name;
 	if(aFolder.level <= 0)
 		cell.imageView.image = [Folder folderImage];
 	else
 		cell.imageView.image = [Folder smallFolderImage];
+#else
+	cell.text = aFolder.name;
+	if(aFolder.level <= 0)
+		cell.image = [Folder folderImage];
+	else
+		cell.image = [Folder smallFolderImage];
+#endif
 	
     if (indexPath.row == pickedIndex)
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
