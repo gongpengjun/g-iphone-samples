@@ -384,7 +384,11 @@ static EditViewController * s_sharedEditViewController = nil;
 - (void)folderPicker:(FolderPickerViewController*)picker pickedFolder:(NSString*)pickedFolder
 {
 	tmpParentDirectory = pickedFolder;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000	
 	parentCell.textLabel.text = [tmpParentDirectory lastPathComponent];
+#else
+	parentCell.text = [tmpParentDirectory lastPathComponent];
+#endif
 }
 
 @end

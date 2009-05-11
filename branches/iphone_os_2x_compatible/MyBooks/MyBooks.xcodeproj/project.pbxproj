@@ -526,7 +526,7 @@
 				INFOPLIST_PREFIX_HEADER = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphonesimulator2.2.1;
 			};
 			name = Debug;
 		};

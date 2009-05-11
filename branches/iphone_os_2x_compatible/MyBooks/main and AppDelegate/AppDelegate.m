@@ -23,7 +23,11 @@
     [super dealloc];
 }
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+- (void)applicationDidFinishLaunching:(UIApplication *)application
+#else
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+#endif
 {
 	progressIndicatorWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
@@ -42,8 +46,9 @@
 	[progressIndicatorWindow makeKeyAndVisible];
 	
 	[self performSelectorOnMainThread:@selector(doApplicationLoad:) withObject:application waitUntilDone:NO];
-	
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000	
 	return YES;
+#endif
 }
 
 - (void)doApplicationLoad:(UIApplication *)application

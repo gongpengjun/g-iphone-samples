@@ -28,9 +28,17 @@
 - (void)unlockFileAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
+
 @implementation FileBrowserViewController
 
 @synthesize curPath,visibleExtensions,files,curIndexPath;
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+@synthesize toolbarItems,tableView;
+//CGRectMake( 0.0, 372.0,  320.0,  44.0 )
+//CGRectMake( 0.0, 236.0,  480.0,  32.0 )
+static CGRect s_footerBarFrame = { 0.0, 372.0,  320.0,  44.0 };
+#endif
 
 - (void)dealloc 
 {
@@ -42,12 +50,21 @@
 	[pwdAlertTitle release];
 	[pwdAlertMessage release];
 	[curIndexPath release];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+	[toolbarItems release];
+	[toolbar release];
+	[tableView release];
+#endif
     [super dealloc];
 }
 
 - (id)init
 {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+    if (self = [super init]) 
+#else
     if (self = [super initWithStyle:UITableViewStylePlain]) 
+#endif
 	{
 		self.title = @"File Browser";
 		visibleExtensions = [[NSArray arrayWithObjects:@"txt", @"htm", @"html", @"webarchive", @"pdb", @"pdf", @"jpg", @"png", @"gif", nil] retain];
@@ -61,9 +78,32 @@
 														  style:UIBarButtonItemStyleBordered
 														 target:self
 														 action:@selector(doNewFolder)];
+		self.toolbarItems = [NSArray arrayWithObject:newFolderButton];
     }
     return self;
 }
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+- (void)loadView
+{
+	//[super loadView];
+	CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
+	UIView *contentView = [[UIView alloc] initWithFrame:appFrame];
+	[contentView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+	self.view = contentView;
+	[contentView release];
+	
+	appFrame.origin.y = 0;
+    UITableView *aTableView = [[UITableView alloc] initWithFrame:appFrame style:UITableViewStylePlain];
+	aTableView.delegate = self;
+	aTableView.dataSource = self;
+    aTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+	[aTableView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+	self.tableView = aTableView;
+	[self.view addSubview:aTableView];
+	[aTableView release];
+}
+#endif
 
 - (void)viewDidLoad 
 {
@@ -79,18 +119,35 @@
 	{
 		self.navigationItem.rightBarButtonItem = self.editButtonItem;		
 	}
-	
-	self.toolbarItems = [NSArray arrayWithObject:newFolderButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated 
 {
 	[super viewWillAppear:animated];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+	if(!toolbar)
+	{
+		toolbar = [[UIToolbar alloc] initWithFrame:s_footerBarFrame];
+		toolbar.barStyle = UIBarStyleBlackOpaque;
+		[self.view addSubview:toolbar];
+		[toolbar setItems:toolbarItems animated:animated];
+	}
+	
+	if(self.editing)
+	{
+		toolbar.hidden = NO;
+	}
+	else
+	{
+		toolbar.hidden = YES;
+	}
+#else
 	if(self.editing)
 	{
 		self.navigationController.toolbarHidden = NO;
 		self.navigationController.toolbar.barStyle = UIBarStyleBlack;
 	}
+#endif
 	[self reloadFiles];
 	[self.tableView reloadData];
 }
@@ -104,7 +161,11 @@
 - (void)viewWillDisappear:(BOOL)animated 
 {
 	[super viewWillDisappear:animated];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+	if(toolbar) toolbar.hidden = YES;
+#else
 	self.navigationController.toolbarHidden = YES;
+#endif
 }
 
 /*
@@ -116,9 +177,22 @@
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+	if(UIInterfaceOrientationIsPortrait(interfaceOrientation))
+		s_footerBarFrame = CGRectMake( 0.0, 372.0,  320.0,  44.0 );
+	else
+		s_footerBarFrame = CGRectMake( 0.0, 236.0,  480.0,  32.0 );
+#endif
     // Return YES for supported orientations
     return YES;
 }
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+	if(toolbar) toolbar.frame = s_footerBarFrame;
+}
+#endif
 
 - (void)didReceiveMemoryWarning 
 {
@@ -154,7 +228,7 @@
 {    
     static NSString *CellIdentifier = @"Cell";
 	
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
 	{
 		#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
@@ -192,12 +266,26 @@
 	// set the button's target to this table view controller so we can interpret touch events and map that to a NSIndexSet
 	[button addTarget:self action:@selector(checkButtonTapped:event:) forControlEvents:UIControlEventTouchUpInside];
 	button.backgroundColor = [UIColor clearColor];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000
 	cell.editingAccessoryView = button;
 	
 	if(aFile.locked)
 		cell.accessoryView = button;
 	else
 		cell.accessoryView = nil;
+#else
+	if(self.editing)
+	{
+		cell.accessoryView = button;
+	}
+	else
+	{
+		if(aFile.locked)
+			cell.accessoryView = button;
+		else
+			cell.accessoryView = nil;
+	}
+#endif
 		
     return cell;
 }
@@ -221,6 +309,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
+	[self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 	File *aFile = [files objectAtIndex:indexPath.row];
 	if(self.editing)
 	{
@@ -238,6 +327,31 @@
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated 
 {
     [super setEditing:editing animated:animated];
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30000
+	if(!toolbar)
+	{
+		toolbar = [[UIToolbar alloc] initWithFrame:s_footerBarFrame];
+		toolbar.barStyle = UIBarStyleBlackOpaque;
+		[self.view addSubview:toolbar];
+		[toolbar setItems:toolbarItems animated:animated];
+	}
+	
+	if(editing)
+	{
+		toolbar.hidden = NO;
+		toolbar.frame = s_footerBarFrame;
+		CGRect tableViewFrame = self.view.bounds;
+		tableViewFrame.size.height -= s_footerBarFrame.size.height;
+		self.tableView.frame = tableViewFrame;
+	}
+	else
+	{
+		toolbar.hidden = YES;
+		self.tableView.frame = self.view.bounds;
+	}
+	[self.tableView reloadData];
+#else
 	if(editing)
 	{
 		self.navigationController.toolbarHidden = NO;
@@ -247,6 +361,7 @@
 	{
 		self.navigationController.toolbarHidden = YES;
 	}
+#endif
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -642,7 +757,11 @@ ERROR:
 	aFile.locked ^= YES;
 	
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000	
 	UIButton *button = (UIButton *) (self.editing ? cell.editingAccessoryView : cell.accessoryView);
+#else
+	UIButton *button = (UIButton *) (cell.accessoryView);
+#endif
 	UIImage *newImage = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
 	[button setBackgroundImage:newImage forState:UIControlStateNormal];
 	if(aFile.locked)
