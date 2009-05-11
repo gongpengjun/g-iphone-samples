@@ -11,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>ebook</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.gongpengjun.freeapp.${PRODUCT_NAME:identifier}</string>
+	<string>com.smartapp.mybooks</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
