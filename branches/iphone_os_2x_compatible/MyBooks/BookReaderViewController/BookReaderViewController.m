@@ -125,6 +125,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 	return YES;
 }
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
 	if(naviHideTimer && [naviHideTimer isValid])
@@ -140,6 +141,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 														 repeats: NO];
 	[self correctNavigationBarPosition];
 }
+#endif
 
 #pragma mark UIWebView delegate methods
 
@@ -188,6 +190,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 #pragma mark Navigation bar management
 - (void)switchNaviBar
 {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30000
 	AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
 	if(![appDelegate.navigationController.topViewController isEqual:self])
 		return;
@@ -209,6 +212,7 @@ static BookReaderViewController *s_sharedBookReaderViewController = nil;
 		appDelegate.navigationController.navigationBar.hidden = YES;
 	}
 	[self correctNavigationBarPosition];
+#endif
 }
 
 - (void)hideNaviBar
