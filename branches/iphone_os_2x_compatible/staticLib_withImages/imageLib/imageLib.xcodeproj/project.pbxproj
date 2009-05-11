@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		01CA5DD80F89A6AF005ACAC8 /* ImageTable */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 01CA5DDD0F89A72F005ACAC8 /* Build configuration list for PBXAggregateTarget "ImageTable" */;
+			buildPhases = (
+				01CA5DD70F89A6AF005ACAC8 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = ImageTable;
+			productName = ImageTable;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		01CA5DB50F89A443005ACAC8 /* ImageTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 01CA5DB40F89A443005ACAC8 /* ImageTable.h */; };
+		01E2AB540F88C53700AEB1DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E2AB510F88C53700AEB1DD /* UIKit.framework */; };
+		01E2AB550F88C53700AEB1DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E2AB520F88C53700AEB1DD /* Foundation.framework */; };
+		01E2AB560F88C53700AEB1DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E2AB530F88C53700AEB1DD /* CoreGraphics.framework */; };
+		01E2AB5F0F88C55A00AEB1DD /* FGImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E2AB590F88C55A00AEB1DD /* FGImage.h */; };
+		01E2AB600F88C55A00AEB1DD /* FGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AB5A0F88C55A00AEB1DD /* FGImage.m */; };
+		01E2AB610F88C55A00AEB1DD /* ImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E2AB5B0F88C55A00AEB1DD /* ImageView.h */; };
+		01E2AB620F88C55A00AEB1DD /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AB5C0F88C55A00AEB1DD /* ImageView.m */; };
+		01E2AB630F88C55A00AEB1DD /* images.c in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AB5D0F88C55A00AEB1DD /* images.c */; };
+		01E2AB640F88C55A00AEB1DD /* images.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E2AB5E0F88C55A00AEB1DD /* images.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01CA5DDB0F89A710005ACAC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01CA5DD80F89A6AF005ACAC8;
+			remoteInfo = ImageTable;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01CA5DB40F89A443005ACAC8 /* ImageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageTable.h; path = ../images/ImageTable.h; sourceTree = SOURCE_ROOT; };
+		01CA5E680F89AE20005ACAC8 /* generate_ImageTable.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generate_ImageTable.sh; sourceTree = "<group>"; };
+		01CA5E6C0F8A0CFD005ACAC8 /* ImageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageList.h; path = ../images/ImageList.h; sourceTree = SOURCE_ROOT; };
+		01E2AB510F88C53700AEB1DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		01E2AB520F88C53700AEB1DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		01E2AB530F88C53700AEB1DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		01E2AB590F88C55A00AEB1DD /* FGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGImage.h; sourceTree = "<group>"; };
+		01E2AB5A0F88C55A00AEB1DD /* FGImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGImage.m; sourceTree = "<group>"; };
+		01E2AB5B0F88C55A00AEB1DD /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
+		01E2AB5C0F88C55A00AEB1DD /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
+		01E2AB5D0F88C55A00AEB1DD /* images.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = images.c; sourceTree = "<group>"; };
+		01E2AB5E0F88C55A00AEB1DD /* images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = images.h; sourceTree = "<group>"; };
+		32DBCF5E0370ADEE00C91783 /* imageLib_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageLib_Prefix.pch; sourceTree = "<group>"; };
+		D2AAC07E0554694100DB518D /* libimageLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimageLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01E2AB540F88C53700AEB1DD /* UIKit.framework in Frameworks */,
+				01E2AB550F88C53700AEB1DD /* Foundation.framework in Frameworks */,
+				01E2AB560F88C53700AEB1DD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01CA5DA30F89A2C9005ACAC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01E2AB510F88C53700AEB1DD /* UIKit.framework */,
+				01E2AB520F88C53700AEB1DD /* Foundation.framework */,
+				01E2AB530F88C53700AEB1DD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		01E2AB580F88C55A00AEB1DD /* imageLibSrc */ = {
+			isa = PBXGroup;
+			children = (
+				01E2AB5E0F88C55A00AEB1DD /* images.h */,
+				01E2AB5D0F88C55A00AEB1DD /* images.c */,
+				01E2AB590F88C55A00AEB1DD /* FGImage.h */,
+				01E2AB5A0F88C55A00AEB1DD /* FGImage.m */,
+				01E2AB5B0F88C55A00AEB1DD /* ImageView.h */,
+				01E2AB5C0F88C55A00AEB1DD /* ImageView.m */,
+			);
+			path = imageLibSrc;
+			sourceTree = "<group>";
+		};
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libimageLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* imageLib */ = {
+			isa = PBXGroup;
+			children = (
+				01CA5E680F89AE20005ACAC8 /* generate_ImageTable.sh */,
+				01CA5E6C0F8A0CFD005ACAC8 /* ImageList.h */,
+				01CA5DB40F89A443005ACAC8 /* ImageTable.h */,
+				01E2AB580F88C55A00AEB1DD /* imageLibSrc */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				01CA5DA30F89A2C9005ACAC8 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = imageLib;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* imageLib_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01E2AB5F0F88C55A00AEB1DD /* FGImage.h in Headers */,
+				01E2AB610F88C55A00AEB1DD /* ImageView.h in Headers */,
+				01E2AB640F88C55A00AEB1DD /* images.h in Headers */,
+				01CA5DB50F89A443005ACAC8 /* ImageTable.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* imageLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "imageLib" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01CA5DDC0F89A710005ACAC8 /* PBXTargetDependency */,
+			);
+			name = imageLib;
+			productName = imageLib;
+			productReference = D2AAC07E0554694100DB518D /* libimageLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "imageLib" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* imageLib */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01CA5DD80F89A6AF005ACAC8 /* ImageTable */,
+				D2AAC07D0554694100DB518D /* imageLib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01CA5DD70F89A6AF005ACAC8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n./generate_ImageTable.sh\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01E2AB600F88C55A00AEB1DD /* FGImage.m in Sources */,
+				01E2AB620F88C55A00AEB1DD /* ImageView.m in Sources */,
+				01E2AB630F88C55A00AEB1DD /* images.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01CA5DDC0F89A710005ACAC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01CA5DD80F89A6AF005ACAC8 /* ImageTable */;
+			targetProxy = 01CA5DDB0F89A710005ACAC8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01CA5DD90F89A6AF005ACAC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = ImageTable;
+			};
+			name = Debug;
+		};
+		01CA5DDA0F89A6AF005ACAC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = ImageTable;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = imageLib_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = imageLib;
+				USER_HEADER_SEARCH_PATHS = ../images;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = imageLib_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = imageLib;
+				USER_HEADER_SEARCH_PATHS = ../images;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.2.1;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.2.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01CA5DDD0F89A72F005ACAC8 /* Build configuration list for PBXAggregateTarget "ImageTable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01CA5DD90F89A6AF005ACAC8 /* Debug */,
+				01CA5DDA0F89A6AF005ACAC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "imageLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "imageLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
