@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		011D52630F8F1EC2008B2839 /* ebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D52620F8F1EC2008B2839 /* ebook.png */; };
 		013B11FF0FA97A5600625F62 /* PasswordKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 013B11FE0FA97A5600625F62 /* PasswordKeeper.m */; };
 		013B12030FA97A7200625F62 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 013B12010FA97A7200625F62 /* locked.png */; };
 		013B12040FA97A7200625F62 /* unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = 013B12020FA97A7200625F62 /* unlocked.png */; };
@@ -16,7 +15,6 @@
 		018AC7200F7FB5E2008C4E7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC71F0F7FB5E2008C4E7A /* main.m */; };
 		018AC7230F7FB5ED008C4E7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 018AC7220F7FB5ED008C4E7A /* AppDelegate.m */; };
 		018B337D0FAB10650049AC5E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018B337C0FAB10650049AC5E /* Security.framework */; };
-		019AEC830FB91F9300032477 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 019AEC820FB91F9300032477 /* Default.png */; };
 		01A22F820F90EDF100EBB67E /* FGFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A22F810F90EDF100EBB67E /* FGFileManager.m */; };
 		01A231020F91BF5100EBB67E /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A230FF0F91BF5100EBB67E /* File.m */; };
 		01A231030F91BF5100EBB67E /* FileBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A231010F91BF5100EBB67E /* FileBrowserViewController.m */; };
@@ -36,6 +34,8 @@
 		01C28B3D0FA4754000D5D04A /* NewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28B3C0FA4754000D5D04A /* NewViewController.m */; };
 		01E6B5D80FB194F5008D47E7 /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E6B5D60FB194F5008D47E7 /* Folder.png */; };
 		01E6B5D90FB194F5008D47E7 /* SmallFolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E6B5D70FB194F5008D47E7 /* SmallFolder.png */; };
+		01EA20620FB966F6007F7380 /* pocket_folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 01EA20610FB966F6007F7380 /* pocket_folder.png */; };
+		01EA20870FB96965007F7380 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 01EA20860FB96965007F7380 /* Default.png */; };
 		01F203800F9B4D3100393603 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F2037F0F9B4D3100393603 /* EditViewController.m */; };
 		01F2038A0F9B552900393603 /* EditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F203890F9B552900393603 /* EditableCell.m */; };
 		01F204850F9B667500393603 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F204840F9B667500393603 /* DisplayCell.m */; };
@@ -59,7 +59,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		011D52620F8F1EC2008B2839 /* ebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ebook.png; sourceTree = "<group>"; };
 		013B11FD0FA97A5600625F62 /* PasswordKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordKeeper.h; sourceTree = "<group>"; };
 		013B11FE0FA97A5600625F62 /* PasswordKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordKeeper.m; sourceTree = "<group>"; };
 		013B12010FA97A7200625F62 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
@@ -76,7 +75,6 @@
 		018B31B00FAAAB950049AC5E /* UIAlertView+textField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+textField.h"; sourceTree = "<group>"; };
 		018B337C0FAB10650049AC5E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		019AEC700FB91DF000032477 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
-		019AEC820FB91F9300032477 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		01A22F800F90EDF100EBB67E /* FGFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGFileManager.h; sourceTree = "<group>"; };
 		01A22F810F90EDF100EBB67E /* FGFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGFileManager.m; sourceTree = "<group>"; };
 		01A230FE0F91BF5100EBB67E /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
@@ -112,6 +110,8 @@
 		01C28B3C0FA4754000D5D04A /* NewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewViewController.m; sourceTree = "<group>"; };
 		01E6B5D60FB194F5008D47E7 /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Folder.png; path = FolderPickerViewController/Folder.png; sourceTree = "<group>"; };
 		01E6B5D70FB194F5008D47E7 /* SmallFolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SmallFolder.png; path = FolderPickerViewController/SmallFolder.png; sourceTree = "<group>"; };
+		01EA20610FB966F6007F7380 /* pocket_folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pocket_folder.png; sourceTree = "<group>"; };
+		01EA20860FB96965007F7380 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		01F2037E0F9B4D3100393603 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		01F2037F0F9B4D3100393603 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		01F203880F9B552900393603 /* EditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableCell.h; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		01F407900FB55954009E06D6 /* rtf_32_X_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rtf_32_X_32.png; sourceTree = "<group>"; };
 		01F407910FB55954009E06D6 /* txt_32_X_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = txt_32_X_32.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* PocketBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* PocketFolder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketFolder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -187,7 +187,6 @@
 		018AC71E0F7FB5D0008C4E7A /* main AppDelegate and Info */ = {
 			isa = PBXGroup;
 			children = (
-				018AC6E10F7FB454008C4E7A /* Info.plist */,
 				018AC6E40F7FB488008C4E7A /* Prefix.pch */,
 				018AC71F0F7FB5E2008C4E7A /* main.m */,
 				018AC7210F7FB5ED008C4E7A /* AppDelegate.h */,
@@ -316,7 +315,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* PocketBooks.app */,
+				1D6058910D05DD3D006BFB54 /* PocketFolder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				019AEC700FB91DF000032477 /* Configuration.h */,
+				018AC6E10F7FB454008C4E7A /* Info.plist */,
 				013B11FC0FA97A5600625F62 /* PasswordKeeper */,
 				01F204DE0F9B6D9F00393603 /* DefaultsController */,
 				01A2322A0F91EB6100EBB67E /* HttpServer */,
@@ -351,8 +351,8 @@
 				01E6B5D60FB194F5008D47E7 /* Folder.png */,
 				01E6B5D70FB194F5008D47E7 /* SmallFolder.png */,
 				013B12000FA97A7200625F62 /* password_images */,
-				011D52620F8F1EC2008B2839 /* ebook.png */,
-				019AEC820FB91F9300032477 /* Default.png */,
+				01EA20610FB966F6007F7380 /* pocket_folder.png */,
+				01EA20860FB96965007F7380 /* Default.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -372,9 +372,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* PocketBooks */ = {
+		1D6058900D05DD3D006BFB54 /* PocketFolder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "PocketBooks" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "PocketFolder" */;
 			buildPhases = (
 				011D52890F8F1F4A008B2839 /* Run Script copy Books */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
@@ -385,9 +385,9 @@
 			);
 			dependencies = (
 			);
-			name = PocketBooks;
+			name = PocketFolder;
 			productName = MyBooks;
-			productReference = 1D6058910D05DD3D006BFB54 /* PocketBooks.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* PocketFolder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -402,7 +402,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* PocketBooks */,
+				1D6058900D05DD3D006BFB54 /* PocketFolder */,
 			);
 		};
 /* End PBXProject section */
@@ -412,7 +412,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				011D52630F8F1EC2008B2839 /* ebook.png in Resources */,
 				01F204FC0F9B6EF500393603 /* Settings.bundle in Resources */,
 				013B12030FA97A7200625F62 /* locked.png in Resources */,
 				013B12040FA97A7200625F62 /* unlocked.png in Resources */,
@@ -430,7 +429,8 @@
 				01F407A20FB55954009E06D6 /* html_32_X_32.png in Resources */,
 				01F407A40FB55954009E06D6 /* rtf_32_X_32.png in Resources */,
 				01F407A50FB55954009E06D6 /* txt_32_X_32.png in Resources */,
-				019AEC830FB91F9300032477 /* Default.png in Resources */,
+				01EA20620FB966F6007F7380 /* pocket_folder.png in Resources */,
+				01EA20870FB96965007F7380 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +449,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -rf \"Pocket Books\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/\"\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Books\" -name \".svn\" -exec rm -r {} \\;\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Books\" -name \".*\" -exec rm -r {} \\;";
+			shellScript = "cp -rf \"Pocket Folder\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/\"\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Folder\" -name \".svn\" -exec rm -r {} \\;\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Folder\" -name \".*\" -exec rm -r {} \\;";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -501,7 +501,7 @@
 				INFOPLIST_FILE = "main AppDelegate and Info/Info.plist";
 				INFOPLIST_PREFIX_HEADER = "";
 				PREBINDING = NO;
-				PRODUCT_NAME = PocketBooks;
+				PRODUCT_NAME = PocketFolder;
 				SDKROOT = iphonesimulator3.0;
 			};
 			name = Distribution;
@@ -514,7 +514,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = PocketBooks;
+				PRODUCT_NAME = PocketFolder;
 			};
 			name = Distribution;
 		};
@@ -528,7 +528,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = PocketBooks;
+				PRODUCT_NAME = PocketFolder;
 			};
 			name = Debug;
 		};
@@ -540,7 +540,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = PocketBooks;
+				PRODUCT_NAME = PocketFolder;
 			};
 			name = Release;
 		};
@@ -557,7 +557,7 @@
 				INFOPLIST_PREFIX_HEADER = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				PRODUCT_NAME = PocketBooks;
+				PRODUCT_NAME = PocketFolder;
 				SDKROOT = iphonesimulator2.2.1;
 			};
 			name = Debug;
@@ -574,7 +574,7 @@
 				INFOPLIST_FILE = "main AppDelegate and Info/Info.plist";
 				INFOPLIST_PREFIX_HEADER = "";
 				PREBINDING = NO;
-				PRODUCT_NAME = PocketBooks;
+				PRODUCT_NAME = PocketFolder;
 				SDKROOT = iphonesimulator3.0;
 			};
 			name = Release;
@@ -582,7 +582,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "PocketBooks" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "PocketFolder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
