@@ -12,11 +12,11 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [paths objectAtIndex:0];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *writableFullPath = [docPath stringByAppendingPathComponent:@"Pocket Books"];
+    NSString *writableFullPath = [docPath stringByAppendingPathComponent:@"Pocket Folder"];
     if (![fileManager fileExistsAtPath:writableFullPath]) 
 	{
 		NSString *defaultFullPath = [[[NSBundle mainBundle] resourcePath] 
-									 stringByAppendingPathComponent:@"Pocket Books"];
+									 stringByAppendingPathComponent:@"Pocket Folder"];
 		[fileManager copyItemAtPath:defaultFullPath toPath:writableFullPath error:&error];
 	}
 }
@@ -25,7 +25,7 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [paths objectAtIndex:0];
-    NSString *writableFullPath = [docPath stringByAppendingPathComponent:@"Pocket Books"];
+    NSString *writableFullPath = [docPath stringByAppendingPathComponent:@"Pocket Folder"];
 	return writableFullPath;
 }
 

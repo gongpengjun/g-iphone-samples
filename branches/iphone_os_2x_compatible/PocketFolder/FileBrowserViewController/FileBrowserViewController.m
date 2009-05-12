@@ -601,7 +601,7 @@ ERROR:
 		else
 		{		
 			pwdTarget = FGPasswordTargetUnlock;
-			pwdAlertTitle = @"PocketBooks Password";
+			pwdAlertTitle = @"PocketFolder Password";
 			pwdAlertMessage = nil;
 			self.curIndexPath = indexPath;
 			[self showPasswordDialog];
@@ -636,7 +636,7 @@ ERROR:
 		else
 		{		
 			pwdTarget = FGPasswordTargetOpen;
-			pwdAlertTitle = @"PocketBooks Password";
+			pwdAlertTitle = @"PocketFolder Password";
 			pwdAlertMessage = nil;
 			self.curIndexPath = indexPath;
 			[self showPasswordDialog];
@@ -654,7 +654,7 @@ ERROR:
 	if(aFile.locked)
 	{
 		pwdTarget = FGPasswordTargetDelete;
-		pwdAlertTitle = @"PocketBooks Password";
+		pwdAlertTitle = @"PocketFolder Password";
 		pwdAlertMessage = nil;
 		self.curIndexPath = indexPath;
 		[self showPasswordDialog];
