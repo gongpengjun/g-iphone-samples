@@ -14,6 +14,8 @@
 #import "UIAlertView+textField.h"
 #import "PasswordKeeper.h"
 
+#import "Configuration.h"
+
 @interface FileBrowserViewController (Private)
 - (void)doShare;
 - (void)doNewFolder;
@@ -109,6 +111,7 @@ static CGRect s_footerBarFrame = { 0.0, 372.0,  320.0,  44.0 };
 {
     [super viewDidLoad];
 	self.tableView.allowsSelectionDuringEditing = YES;
+#if !GENERATE_SPLASH_SCREEN	
 	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 	if([self isEqual:appDelegate.rootViewController])
 	{
@@ -119,6 +122,7 @@ static CGRect s_footerBarFrame = { 0.0, 372.0,  320.0,  44.0 };
 	{
 		self.navigationItem.rightBarButtonItem = self.editButtonItem;		
 	}
+#endif
 }
 
 - (void)viewWillAppear:(BOOL)animated 
@@ -148,7 +152,10 @@ static CGRect s_footerBarFrame = { 0.0, 372.0,  320.0,  44.0 };
 		self.navigationController.toolbar.barStyle = UIBarStyleBlack;
 	}
 #endif
+	
+#if !GENERATE_SPLASH_SCREEN
 	[self reloadFiles];
+#endif
 	[self.tableView reloadData];
 }
 
@@ -594,7 +601,7 @@ ERROR:
 		else
 		{		
 			pwdTarget = FGPasswordTargetUnlock;
-			pwdAlertTitle = @"MyBooks Password";
+			pwdAlertTitle = @"PocketBooks Password";
 			pwdAlertMessage = nil;
 			self.curIndexPath = indexPath;
 			[self showPasswordDialog];
@@ -629,7 +636,7 @@ ERROR:
 		else
 		{		
 			pwdTarget = FGPasswordTargetOpen;
-			pwdAlertTitle = @"MyBooks Password";
+			pwdAlertTitle = @"PocketBooks Password";
 			pwdAlertMessage = nil;
 			self.curIndexPath = indexPath;
 			[self showPasswordDialog];
@@ -647,7 +654,7 @@ ERROR:
 	if(aFile.locked)
 	{
 		pwdTarget = FGPasswordTargetDelete;
-		pwdAlertTitle = @"MyBooks Password";
+		pwdAlertTitle = @"PocketBooks Password";
 		pwdAlertMessage = nil;
 		self.curIndexPath = indexPath;
 		[self showPasswordDialog];
@@ -665,7 +672,9 @@ ERROR:
 	[curPath release];
 	curPath = newPath;
 	self.title = [curPath lastPathComponent];
+#if !GENERATE_SPLASH_SCREEN
 	[self reloadFiles];
+#endif
 }
 
 - (void)reloadFiles
