@@ -35,7 +35,8 @@ ChatViewController * _sharedInteractViewController = nil;
 	_reponseLabel                   = [[UILabel alloc] initWithFrame:CGRectMake(10,0,300,30)];
 	_reponseLabel.textAlignment		= UITextAlignmentCenter;
 	_reponseLabel.opaque            = NO;
-	_reponseLabel.backgroundColor   = nil;
+	_reponseLabel.backgroundColor   = [UIColor whiteColor];
+	_reponseLabel.text				= @"reponse";
 	[self.view addSubview:_reponseLabel];
 	
 	_requestTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(10,35,300,25)];
