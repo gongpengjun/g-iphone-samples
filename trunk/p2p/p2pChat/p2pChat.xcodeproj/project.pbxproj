@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		016F800B0FC14DBC006DC45D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 016F800A0FC14DBC006DC45D /* libz.dylib */; };
+		016F80540FC14DD3006DC45D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016F80530FC14DD3006DC45D /* CFNetwork.framework */; };
+		016F80A10FC14E06006DC45D /* BLIP_57X57.png in Resources */ = {isa = PBXBuildFile; fileRef = 016F806E0FC14E06006DC45D /* BLIP_57X57.png */; };
+		016F80A20FC14E06006DC45D /* BLIP Overview.txt in Resources */ = {isa = PBXBuildFile; fileRef = 016F80700FC14E06006DC45D /* BLIP Overview.txt */; };
+		016F80A30FC14E06006DC45D /* BLIP.png in Resources */ = {isa = PBXBuildFile; fileRef = 016F80720FC14E06006DC45D /* BLIP.png */; };
+		016F80A40FC14E06006DC45D /* BLIPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80740FC14E06006DC45D /* BLIPConnection.m */; };
+		016F80A50FC14E06006DC45D /* BLIPDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80760FC14E06006DC45D /* BLIPDispatcher.m */; };
+		016F80A60FC14E06006DC45D /* BLIPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80780FC14E06006DC45D /* BLIPMessage.m */; };
+		016F80A70FC14E06006DC45D /* BLIPProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F807A0FC14E06006DC45D /* BLIPProperties.m */; };
+		016F80A80FC14E06006DC45D /* BLIPReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F807C0FC14E06006DC45D /* BLIPReader.m */; };
+		016F80A90FC14E06006DC45D /* BLIPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F807E0FC14E06006DC45D /* BLIPRequest.m */; };
+		016F80AA0FC14E06006DC45D /* BLIPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F807F0FC14E06006DC45D /* BLIPTest.m */; };
+		016F80AB0FC14E06006DC45D /* BLIPWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80810FC14E06006DC45D /* BLIPWriter.m */; };
+		016F80AC0FC14E06006DC45D /* IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80840FC14E06006DC45D /* IPAddress.m */; };
+		016F80AD0FC14E06006DC45D /* TCPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80860FC14E06006DC45D /* TCPConnection.m */; };
+		016F80AE0FC14E06006DC45D /* TCPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80880FC14E06006DC45D /* TCPEndpoint.m */; };
+		016F80AF0FC14E06006DC45D /* TCPListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F808A0FC14E06006DC45D /* TCPListener.m */; };
+		016F80B00FC14E06006DC45D /* TCPStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F808C0FC14E06006DC45D /* TCPStream.m */; };
+		016F80B10FC14E06006DC45D /* TCPWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F808E0FC14E06006DC45D /* TCPWriter.m */; };
+		016F80B20FC14E06006DC45D /* CollectionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80920FC14E06006DC45D /* CollectionUtils.m */; };
+		016F80B30FC14E06006DC45D /* ExceptionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80940FC14E06006DC45D /* ExceptionUtils.m */; };
+		016F80B40FC14E06006DC45D /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80980FC14E06006DC45D /* GTMNSData+zlib.m */; };
+		016F80B50FC14E06006DC45D /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F809A0FC14E06006DC45D /* Logging.m */; };
+		016F80B70FC14E06006DC45D /* Target.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F809E0FC14E06006DC45D /* Target.m */; };
+		016F80B80FC14E06006DC45D /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80A00FC14E06006DC45D /* Test.m */; };
+		01B4D9A90FC2EFE000B224CA /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B4D9A60FC2EFE000B224CA /* ChatViewController.m */; };
+		01B4D9AA0FC2EFE000B224CA /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B4D9A80FC2EFE000B224CA /* UserListViewController.m */; };
+		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		016F800A0FC14DBC006DC45D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		016F80530FC14DD3006DC45D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		016F806E0FC14E06006DC45D /* BLIP_57X57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BLIP_57X57.png; path = ../BLIP/BLIP_57X57.png; sourceTree = SOURCE_ROOT; };
+		016F80700FC14E06006DC45D /* BLIP Overview.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "BLIP Overview.txt"; path = "../BLIP/MYNetwork/BLIP Overview.txt"; sourceTree = SOURCE_ROOT; };
+		016F80710FC14E06006DC45D /* BLIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLIP.h; path = ../BLIP/MYNetwork/BLIP.h; sourceTree = SOURCE_ROOT; };
+		016F80720FC14E06006DC45D /* BLIP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BLIP.png; path = ../BLIP/MYNetwork/BLIP.png; sourceTree = SOURCE_ROOT; };
+		016F80730FC14E06006DC45D /* BLIPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLIPConnection.h; path = ../BLIP/MYNetwork/BLIPConnection.h; sourceTree = SOURCE_ROOT; };
+		016F80740FC14E06006DC45D /* BLIPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLIPConnection.m; path = ../BLIP/MYNetwork/BLIPConnection.m; sourceTree = SOURCE_ROOT; };
+		016F80750FC14E06006DC45D /* BLIPDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLIPDispatcher.h; path = ../BLIP/MYNetwork/BLIPDispatcher.h; sourceTree = SOURCE_ROOT; };
+		016F80760FC14E06006DC45D /* BLIPDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLIPDispatcher.m; path = ../BLIP/MYNetwork/BLIPDispatcher.m; sourceTree = SOURCE_ROOT; };
+		016F80770FC14E06006DC45D /* BLIPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLIPMessage.h; path = ../BLIP/MYNetwork/BLIPMessage.h; sourceTree = SOURCE_ROOT; };
+		016F80780FC14E06006DC45D /* BLIPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLIPMessage.m; path = ../BLIP/MYNetwork/BLIPMessage.m; sourceTree = SOURCE_ROOT; };
+		016F80790FC14E06006DC45D /* BLIPProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLIPProperties.h; path = ../BLIP/MYNetwork/BLIPProperties.h; sourceTree = SOURCE_ROOT; };
+		016F807A0FC14E06006DC45D /* BLIPProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLIPProperties.m; path = ../BLIP/MYNetwork/BLIPProperties.m; sourceTree = SOURCE_ROOT; };
+		016F807B0FC14E06006DC45D /* BLIPReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLIPReader.h; path = ../BLIP/MYNetwork/BLIPReader.h; sourceTree = SOURCE_ROOT; };
+		016F807C0FC14E06006DC45D /* BLIPReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLIPReader.m; path = ../BLIP/MYNetwork/BLIPReader.m; sourceTree = SOURCE_ROOT; };
+		016F807D0FC14E06006DC45D /* BLIPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLIPRequest.h; path = ../BLIP/MYNetwork/BLIPRequest.h; sourceTree = SOURCE_ROOT; };
+		016F807E0FC14E06006DC45D /* BLIPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLIPRequest.m; path = ../BLIP/MYNetwork/BLIPRequest.m; sourceTree = SOURCE_ROOT; };
+		016F807F0FC14E06006DC45D /* BLIPTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLIPTest.m; path = ../BLIP/MYNetwork/BLIPTest.m; sourceTree = SOURCE_ROOT; };
+		016F80800FC14E06006DC45D /* BLIPWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLIPWriter.h; path = ../BLIP/MYNetwork/BLIPWriter.h; sourceTree = SOURCE_ROOT; };
+		016F80810FC14E06006DC45D /* BLIPWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLIPWriter.m; path = ../BLIP/MYNetwork/BLIPWriter.m; sourceTree = SOURCE_ROOT; };
+		016F80820FC14E06006DC45D /* BLIP_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLIP_Internal.h; path = ../BLIP/MYNetwork/BLIP_Internal.h; sourceTree = SOURCE_ROOT; };
+		016F80830FC14E06006DC45D /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPAddress.h; path = ../BLIP/MYNetwork/IPAddress.h; sourceTree = SOURCE_ROOT; };
+		016F80840FC14E06006DC45D /* IPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPAddress.m; path = ../BLIP/MYNetwork/IPAddress.m; sourceTree = SOURCE_ROOT; };
+		016F80850FC14E06006DC45D /* TCPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCPConnection.h; path = ../BLIP/MYNetwork/TCPConnection.h; sourceTree = SOURCE_ROOT; };
+		016F80860FC14E06006DC45D /* TCPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCPConnection.m; path = ../BLIP/MYNetwork/TCPConnection.m; sourceTree = SOURCE_ROOT; };
+		016F80870FC14E06006DC45D /* TCPEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCPEndpoint.h; path = ../BLIP/MYNetwork/TCPEndpoint.h; sourceTree = SOURCE_ROOT; };
+		016F80880FC14E06006DC45D /* TCPEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCPEndpoint.m; path = ../BLIP/MYNetwork/TCPEndpoint.m; sourceTree = SOURCE_ROOT; };
+		016F80890FC14E06006DC45D /* TCPListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCPListener.h; path = ../BLIP/MYNetwork/TCPListener.h; sourceTree = SOURCE_ROOT; };
+		016F808A0FC14E06006DC45D /* TCPListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCPListener.m; path = ../BLIP/MYNetwork/TCPListener.m; sourceTree = SOURCE_ROOT; };
+		016F808B0FC14E06006DC45D /* TCPStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCPStream.h; path = ../BLIP/MYNetwork/TCPStream.h; sourceTree = SOURCE_ROOT; };
+		016F808C0FC14E06006DC45D /* TCPStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCPStream.m; path = ../BLIP/MYNetwork/TCPStream.m; sourceTree = SOURCE_ROOT; };
+		016F808D0FC14E06006DC45D /* TCPWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCPWriter.h; path = ../BLIP/MYNetwork/TCPWriter.h; sourceTree = SOURCE_ROOT; };
+		016F808E0FC14E06006DC45D /* TCPWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCPWriter.m; path = ../BLIP/MYNetwork/TCPWriter.m; sourceTree = SOURCE_ROOT; };
+		016F808F0FC14E06006DC45D /* TCP_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCP_Internal.h; path = ../BLIP/MYNetwork/TCP_Internal.h; sourceTree = SOURCE_ROOT; };
+		016F80910FC14E06006DC45D /* CollectionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionUtils.h; path = ../BLIP/MYUtilities/CollectionUtils.h; sourceTree = SOURCE_ROOT; };
+		016F80920FC14E06006DC45D /* CollectionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionUtils.m; path = ../BLIP/MYUtilities/CollectionUtils.m; sourceTree = SOURCE_ROOT; };
+		016F80930FC14E06006DC45D /* ExceptionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExceptionUtils.h; path = ../BLIP/MYUtilities/ExceptionUtils.h; sourceTree = SOURCE_ROOT; };
+		016F80940FC14E06006DC45D /* ExceptionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExceptionUtils.m; path = ../BLIP/MYUtilities/ExceptionUtils.m; sourceTree = SOURCE_ROOT; };
+		016F80960FC14E06006DC45D /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = ../BLIP/MYUtilities/GoogleToolboxSubset/GTMDefines.h; sourceTree = SOURCE_ROOT; };
+		016F80970FC14E06006DC45D /* GTMNSData+zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "../BLIP/MYUtilities/GoogleToolboxSubset/GTMNSData+zlib.h"; sourceTree = SOURCE_ROOT; };
+		016F80980FC14E06006DC45D /* GTMNSData+zlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "../BLIP/MYUtilities/GoogleToolboxSubset/GTMNSData+zlib.m"; sourceTree = SOURCE_ROOT; };
+		016F80990FC14E06006DC45D /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logging.h; path = ../BLIP/MYUtilities/Logging.h; sourceTree = SOURCE_ROOT; };
+		016F809A0FC14E06006DC45D /* Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Logging.m; path = ../BLIP/MYUtilities/Logging.m; sourceTree = SOURCE_ROOT; };
+		016F809C0FC14E06006DC45D /* MYUtilities_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MYUtilities_Prefix.pch; path = ../BLIP/MYUtilities/MYUtilities_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		016F809D0FC14E06006DC45D /* Target.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target.h; path = ../BLIP/MYUtilities/Target.h; sourceTree = SOURCE_ROOT; };
+		016F809E0FC14E06006DC45D /* Target.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target.m; path = ../BLIP/MYUtilities/Target.m; sourceTree = SOURCE_ROOT; };
+		016F809F0FC14E06006DC45D /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test.h; path = ../BLIP/MYUtilities/Test.h; sourceTree = SOURCE_ROOT; };
+		016F80A00FC14E06006DC45D /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = ../BLIP/MYUtilities/Test.m; sourceTree = SOURCE_ROOT; };
+		01B4D9A50FC2EFE000B224CA /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		01B4D9A60FC2EFE000B224CA /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		01B4D9A70FC2EFE000B224CA /* UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
+		01B4D9A80FC2EFE000B224CA /* UserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* p2pChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = p2pChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* p2pChat_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2pChat_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* p2pChat-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "p2pChat-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				016F800B0FC14DBC006DC45D /* libz.dylib in Frameworks */,
+				016F80540FC14DD3006DC45D /* CFNetwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		016F806D0FC14E06006DC45D /* BLIP */ = {
+			isa = PBXGroup;
+			children = (
+				016F806F0FC14E06006DC45D /* MYNetwork */,
+				016F80900FC14E06006DC45D /* MYUtilities */,
+			);
+			name = BLIP;
+			path = ../BLIP;
+			sourceTree = SOURCE_ROOT;
+		};
+		016F806F0FC14E06006DC45D /* MYNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				016F80700FC14E06006DC45D /* BLIP Overview.txt */,
+				016F80710FC14E06006DC45D /* BLIP.h */,
+				016F80720FC14E06006DC45D /* BLIP.png */,
+				016F80730FC14E06006DC45D /* BLIPConnection.h */,
+				016F80740FC14E06006DC45D /* BLIPConnection.m */,
+				016F80750FC14E06006DC45D /* BLIPDispatcher.h */,
+				016F80760FC14E06006DC45D /* BLIPDispatcher.m */,
+				016F80770FC14E06006DC45D /* BLIPMessage.h */,
+				016F80780FC14E06006DC45D /* BLIPMessage.m */,
+				016F80790FC14E06006DC45D /* BLIPProperties.h */,
+				016F807A0FC14E06006DC45D /* BLIPProperties.m */,
+				016F807B0FC14E06006DC45D /* BLIPReader.h */,
+				016F807C0FC14E06006DC45D /* BLIPReader.m */,
+				016F807D0FC14E06006DC45D /* BLIPRequest.h */,
+				016F807E0FC14E06006DC45D /* BLIPRequest.m */,
+				016F807F0FC14E06006DC45D /* BLIPTest.m */,
+				016F80800FC14E06006DC45D /* BLIPWriter.h */,
+				016F80810FC14E06006DC45D /* BLIPWriter.m */,
+				016F80820FC14E06006DC45D /* BLIP_Internal.h */,
+				016F80830FC14E06006DC45D /* IPAddress.h */,
+				016F80840FC14E06006DC45D /* IPAddress.m */,
+				016F80850FC14E06006DC45D /* TCPConnection.h */,
+				016F80860FC14E06006DC45D /* TCPConnection.m */,
+				016F80870FC14E06006DC45D /* TCPEndpoint.h */,
+				016F80880FC14E06006DC45D /* TCPEndpoint.m */,
+				016F80890FC14E06006DC45D /* TCPListener.h */,
+				016F808A0FC14E06006DC45D /* TCPListener.m */,
+				016F808B0FC14E06006DC45D /* TCPStream.h */,
+				016F808C0FC14E06006DC45D /* TCPStream.m */,
+				016F808D0FC14E06006DC45D /* TCPWriter.h */,
+				016F808E0FC14E06006DC45D /* TCPWriter.m */,
+				016F808F0FC14E06006DC45D /* TCP_Internal.h */,
+			);
+			name = MYNetwork;
+			path = ../BLIP/MYNetwork;
+			sourceTree = SOURCE_ROOT;
+		};
+		016F80900FC14E06006DC45D /* MYUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				016F80910FC14E06006DC45D /* CollectionUtils.h */,
+				016F80920FC14E06006DC45D /* CollectionUtils.m */,
+				016F80930FC14E06006DC45D /* ExceptionUtils.h */,
+				016F80940FC14E06006DC45D /* ExceptionUtils.m */,
+				016F80950FC14E06006DC45D /* GoogleToolboxSubset */,
+				016F80990FC14E06006DC45D /* Logging.h */,
+				016F809A0FC14E06006DC45D /* Logging.m */,
+				016F809C0FC14E06006DC45D /* MYUtilities_Prefix.pch */,
+				016F809D0FC14E06006DC45D /* Target.h */,
+				016F809E0FC14E06006DC45D /* Target.m */,
+				016F809F0FC14E06006DC45D /* Test.h */,
+				016F80A00FC14E06006DC45D /* Test.m */,
+			);
+			name = MYUtilities;
+			path = ../BLIP/MYUtilities;
+			sourceTree = SOURCE_ROOT;
+		};
+		016F80950FC14E06006DC45D /* GoogleToolboxSubset */ = {
+			isa = PBXGroup;
+			children = (
+				016F80960FC14E06006DC45D /* GTMDefines.h */,
+				016F80970FC14E06006DC45D /* GTMNSData+zlib.h */,
+				016F80980FC14E06006DC45D /* GTMNSData+zlib.m */,
+			);
+			name = GoogleToolboxSubset;
+			path = ../BLIP/MYUtilities/GoogleToolboxSubset;
+			sourceTree = SOURCE_ROOT;
+		};
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* AppDelegate.h */,
+				1D3623250D0F684500981E51 /* AppDelegate.m */,
+				01B4D9A70FC2EFE000B224CA /* UserListViewController.h */,
+				01B4D9A80FC2EFE000B224CA /* UserListViewController.m */,
+				01B4D9A50FC2EFE000B224CA /* ChatViewController.h */,
+				01B4D9A60FC2EFE000B224CA /* ChatViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* p2pChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				016F806D0FC14E06006DC45D /* BLIP */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* p2pChat_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				016F806E0FC14E06006DC45D /* BLIP_57X57.png */,
+				8D1107310486CEB800E47090 /* p2pChat-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				016F80530FC14DD3006DC45D /* CFNetwork.framework */,
+				016F800A0FC14DBC006DC45D /* libz.dylib */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* p2pChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "p2pChat" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = p2pChat;
+			productName = p2pChat;
+			productReference = 1D6058910D05DD3D006BFB54 /* p2pChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "p2pChat" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* p2pChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				016F80A10FC14E06006DC45D /* BLIP_57X57.png in Resources */,
+				016F80A20FC14E06006DC45D /* BLIP Overview.txt in Resources */,
+				016F80A30FC14E06006DC45D /* BLIP.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				016F80A40FC14E06006DC45D /* BLIPConnection.m in Sources */,
+				016F80A50FC14E06006DC45D /* BLIPDispatcher.m in Sources */,
+				016F80A60FC14E06006DC45D /* BLIPMessage.m in Sources */,
+				016F80A70FC14E06006DC45D /* BLIPProperties.m in Sources */,
+				016F80A80FC14E06006DC45D /* BLIPReader.m in Sources */,
+				016F80A90FC14E06006DC45D /* BLIPRequest.m in Sources */,
+				016F80AA0FC14E06006DC45D /* BLIPTest.m in Sources */,
+				016F80AB0FC14E06006DC45D /* BLIPWriter.m in Sources */,
+				016F80AC0FC14E06006DC45D /* IPAddress.m in Sources */,
+				016F80AD0FC14E06006DC45D /* TCPConnection.m in Sources */,
+				016F80AE0FC14E06006DC45D /* TCPEndpoint.m in Sources */,
+				016F80AF0FC14E06006DC45D /* TCPListener.m in Sources */,
+				016F80B00FC14E06006DC45D /* TCPStream.m in Sources */,
+				016F80B10FC14E06006DC45D /* TCPWriter.m in Sources */,
+				016F80B20FC14E06006DC45D /* CollectionUtils.m in Sources */,
+				016F80B30FC14E06006DC45D /* ExceptionUtils.m in Sources */,
+				016F80B40FC14E06006DC45D /* GTMNSData+zlib.m in Sources */,
+				016F80B50FC14E06006DC45D /* Logging.m in Sources */,
+				016F80B70FC14E06006DC45D /* Target.m in Sources */,
+				016F80B80FC14E06006DC45D /* Test.m in Sources */,
+				01B4D9A90FC2EFE000B224CA /* ChatViewController.m in Sources */,
+				01B4D9AA0FC2EFE000B224CA /* UserListViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = p2pChat_Prefix.pch;
+				INFOPLIST_FILE = "p2pChat-Info.plist";
+				PRODUCT_NAME = p2pChat;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = p2pChat_Prefix.pch;
+				INFOPLIST_FILE = "p2pChat-Info.plist";
+				PRODUCT_NAME = p2pChat;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.0;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "p2pChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "p2pChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
