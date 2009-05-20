@@ -67,13 +67,7 @@
 	//[self.view addSubview:_label];
 	UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:_label];
 	self.toolbarItems = [NSArray arrayWithObject:item];
-}
 
-
-- (void)viewWillAppear:(BOOL)animated 
-{
-    [super viewWillAppear:animated];
-	
     self.label.text = @"Opening listener socket...";
 	
     _listener = [[BLIPListener alloc] initWithPort: 12345];
@@ -82,8 +76,7 @@
     _listener.bonjourServiceType = @"_blipecho._tcp";
 	//_listener.bonjourServiceName = [UIDevice currentDevice].name;
     [_listener open];
-	
-	
+
     _serviceBrowser = [[NSNetServiceBrowser alloc] init];
     _serviceList	= [[NSMutableArray alloc] init];
     [_serviceBrowser setDelegate:self];
@@ -91,16 +84,14 @@
     [_serviceBrowser searchForServicesOfType:@"_blipecho._tcp." inDomain:@""];
 }
 
+
+- (void)viewWillAppear:(BOOL)animated 
+{
+    [super viewWillAppear:animated];	
+}
+
 #pragma mark -
 #pragma mark NSNetServiceBrowser delegate methods
-
-// We broadcast the willChangeValueForKey: and didChangeValueForKey: for the NSTableView binding to work.
-- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing 
-{
-	[aNetService retain];
-	[aNetService setDelegate:self];
-	[aNetService resolve];
-}
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didRemoveService:(NSNetService *)aNetService moreComing:(BOOL)moreComing 
 {
@@ -109,6 +100,13 @@
 		[_serviceList removeObject:aNetService];
 		[self.tableView reloadData];
 	}
+}
+
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing 
+{
+	[aNetService retain];
+	[aNetService setDelegate:self];
+	[aNetService resolve];
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)aNetService;
@@ -253,7 +251,12 @@
 {
     NSString *message = [[NSString alloc] initWithData: request.body encoding: NSUTF8StringEncoding];
     self.label.text = [NSString stringWithFormat: @"Received:\n“%@”",message];
-    //[request respondWithData: request.body contentType: request.contentType];
+    [request respondWithData:request.body contentType: request.contentType];
+}
+
+- (void) connection: (BLIPConnection*)connection receivedResponse: (BLIPResponse*)response;
+{
+	[connection close];
 }
 
 - (void) connectionDidClose: (TCPConnection*)connection;
