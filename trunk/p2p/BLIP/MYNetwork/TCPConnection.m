@@ -144,9 +144,20 @@ static NSMutableArray *sAllConnections;
 }
 
 
-@synthesize address=_address, isIncoming=_isIncoming, status=_status, delegate=_delegate,
+@synthesize address=_address, isIncoming=_isIncoming, status=_status, 
             reader=_reader, writer=_writer, server=_server, openTimeout=_openTimeout;
 
+- (void)setDelegate:(id)o
+{
+	[o retain];
+	[_delegate release];
+	_delegate = o;
+}
+
+- (id)delegate
+{
+	return _delegate;
+}
 
 - (NSError*) error
 {
