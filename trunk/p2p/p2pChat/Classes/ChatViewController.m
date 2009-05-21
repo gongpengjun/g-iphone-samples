@@ -14,12 +14,12 @@
 
 @synthesize netService;
 
-ChatViewController * _sharedInteractViewController = nil;
-+ (ChatViewController*)sharedInteractViewController
+ChatViewController * _sharedChatViewController = nil;
++ (ChatViewController*)sharedChatViewController
 {
-	if(!_sharedInteractViewController)
-		_sharedInteractViewController = [[ChatViewController alloc] init];
-	return _sharedInteractViewController;
+	if(!_sharedChatViewController)
+		_sharedChatViewController = [[ChatViewController alloc] init];
+	return _sharedChatViewController;
 }
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
