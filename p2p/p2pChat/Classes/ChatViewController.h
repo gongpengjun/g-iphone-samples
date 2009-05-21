@@ -19,6 +19,6 @@
 
 @property (nonatomic, retain) NSNetService *netService;
 
-+ (ChatViewController*)sharedInteractViewController;
++ (ChatViewController*)sharedChatViewController;
 
 @end

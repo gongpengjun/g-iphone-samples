@@ -216,7 +216,7 @@
 	if(indexPath.row >= _serviceList.count)
 		return;
 	
-	ChatViewController *interactViewController = [ChatViewController sharedInteractViewController];
+	ChatViewController *interactViewController = [ChatViewController sharedChatViewController];
 	interactViewController.netService = [_serviceList objectAtIndex:indexPath.row];
 	[self.navigationController pushViewController:interactViewController animated:YES];
 }
