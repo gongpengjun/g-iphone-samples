@@ -7,6 +7,29 @@
 //
 
 #import "ChatViewController.h"
+#import "TextFieldCell.h"
+
+#define kStdButtonWidth			60.0
+#define kStdButtonHeight		30.0
+@interface F1TextField : UITextField
+@end
+
+@implementation F1TextField
+- (CGRect)textRectForBounds:(CGRect)bounds
+{
+	CGRect rect = bounds;
+	rect.size.width -= kStdButtonWidth;
+	return rect;
+}
+
+- (CGRect)rightViewRectForBounds:(CGRect)bounds
+{
+	CGRect rect = bounds;
+	rect.origin.x = rect.size.width - kStdButtonWidth;
+	rect.size = CGSizeMake(kStdButtonWidth,kStdButtonHeight);
+	return rect;
+}
+@end
 
 @implementation ChatViewController
 
@@ -33,6 +56,7 @@ static ChatViewController * _sharedChatViewController = nil;
 {
 	if(self = [super init])
 	{
+		self.title = @"unknown peer";
 	}
 	return self;
 }
@@ -56,25 +80,47 @@ static ChatViewController * _sharedChatViewController = nil;
 	
 	_messages = [[NSMutableArray alloc] initWithCapacity:10];
 	
-	_requestTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(10,120,300,25)];
-	_requestTextFiled.backgroundColor = [UIColor greenColor];
+	_requestTextFiled = [[F1TextField alloc] initWithFrame:CGRectZero];
+	_requestTextFiled.font = [UIFont systemFontOfSize:22];
+	_requestTextFiled.borderStyle = UITextBorderStyleRoundedRect;
 	_requestTextFiled.returnKeyType = UIReturnKeySend;
 	_requestTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
 	_requestTextFiled.placeholder = @"enter text here";
 	_requestTextFiled.delegate = self;
-	[self.view addSubview:_requestTextFiled];
+	
+	UIButton *sendButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+	sendButton.frame = CGRectMake(0.0, 0.0, kStdButtonWidth, kStdButtonHeight);
+	[sendButton setTitle:@"Send" forState:UIControlStateNormal];
+	sendButton.backgroundColor = [UIColor clearColor];
+	[sendButton addTarget:self action:@selector(sendAction) forControlEvents:UIControlEventTouchUpInside];
+	
+	_requestTextFiled.rightView = sendButton;
+	_requestTextFiled.rightViewMode = UITextFieldViewModeAlways;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (void)sendText:(NSString*)msg
 {
-	F1MessageItem * msgItem = [[F1MessageItem alloc] initWithMessage:textField.text];
+	if(msg.length == 0) return;
+	F1MessageItem * msgItem = [[F1MessageItem alloc] initWithMessage:msg];
 	msgItem.direction = F1MessageItemDirectionSent;
 	[_peer sendItem:msgItem toPeer:_peer];
 	[_messages addObject:msgItem];
 	[self.tableView reloadData];
 	[msgItem release];
-	
+}
+
+- (void)sendAction
+{
+	[self sendText:_requestTextFiled.text];
+	[_requestTextFiled resignFirstResponder];
+	_requestTextFiled.text = nil;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	[self sendText:textField.text];
 	[textField resignFirstResponder];
+	textField.text = nil;
 	return YES;
 }
 
@@ -110,22 +156,39 @@ static ChatViewController * _sharedChatViewController = nil;
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return _messages.count ? _messages.count : 1;
+    return _messages.count + 1;
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) 
+	UITableViewCell *cell = nil;
+	NSInteger row = [indexPath row];
+	
+	if (row == _messages.count) 
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-	// Configure the cell.
-	if(_messages.count)
+		cell = [self.tableView dequeueReusableCellWithIdentifier:kCellTextField_ID];
+		if (cell == nil) 
+			cell = [[[TextFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellTextField_ID] autorelease];
+	}
+	else 
+	{
+		static NSString *kGenericCell_ID = @"GenericCell";
+		cell = [self.tableView dequeueReusableCellWithIdentifier:kGenericCell_ID];
+		if (cell == nil) 
+		{
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kGenericCell_ID] autorelease];			
+			// turn off selection use
+			cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		}
+	}
+
+	// Configure the cell.		
+	if(row == _messages.count)
+	{
+		((TextFieldCell *)cell).textField = _requestTextFiled;
+	}
+	else
 	{
 		F1MessageItem* msgItem = [_messages objectAtIndex:indexPath.row];
 		cell.textLabel.text = [msgItem message];

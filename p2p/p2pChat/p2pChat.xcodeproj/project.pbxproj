@@ -37,6 +37,7 @@
 		016F80B50FC14E06006DC45D /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F809A0FC14E06006DC45D /* Logging.m */; };
 		016F80B70FC14E06006DC45D /* Target.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F809E0FC14E06006DC45D /* Target.m */; };
 		016F80B80FC14E06006DC45D /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80A00FC14E06006DC45D /* Test.m */; };
+		0178A6F60FC7B85100ED3238 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0178A6F10FC7B85100ED3238 /* TextFieldCell.m */; };
 		01B3631B0FC55479000E6311 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B3631A0FC55479000E6311 /* MobileCoreServices.framework */; };
 		01B4D9A90FC2EFE000B224CA /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B4D9A60FC2EFE000B224CA /* ChatViewController.m */; };
 		01B4D9AA0FC2EFE000B224CA /* PeerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B4D9A80FC2EFE000B224CA /* PeerListViewController.m */; };
@@ -108,6 +109,8 @@
 		016F809E0FC14E06006DC45D /* Target.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target.m; path = ../BLIP/MYUtilities/Target.m; sourceTree = SOURCE_ROOT; };
 		016F809F0FC14E06006DC45D /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test.h; path = ../BLIP/MYUtilities/Test.h; sourceTree = SOURCE_ROOT; };
 		016F80A00FC14E06006DC45D /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = ../BLIP/MYUtilities/Test.m; sourceTree = SOURCE_ROOT; };
+		0178A6F00FC7B85100ED3238 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
+		0178A6F10FC7B85100ED3238 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
 		01B3631A0FC55479000E6311 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		01B4D9A50FC2EFE000B224CA /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		01B4D9A60FC2EFE000B224CA /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
@@ -240,6 +243,15 @@
 			path = ../BLIP/MYUtilities/GoogleToolboxSubset;
 			sourceTree = SOURCE_ROOT;
 		};
+		0178A6EF0FC7B85100ED3238 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				0178A6F00FC7B85100ED3238 /* TextFieldCell.h */,
+				0178A6F10FC7B85100ED3238 /* TextFieldCell.m */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +279,7 @@
 				016F806D0FC14E06006DC45D /* BLIP */,
 				015229880FC78AA4009DDE5A /* PeeringService */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				0178A6EF0FC7B85100ED3238 /* TableCells */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -397,6 +410,7 @@
 				015229960FC78AA4009DDE5A /* F1Item.m in Sources */,
 				015229970FC78AA4009DDE5A /* F1MessageItem.m in Sources */,
 				015229980FC78AA4009DDE5A /* F1Peer.m in Sources */,
+				0178A6F60FC7B85100ED3238 /* TextFieldCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
