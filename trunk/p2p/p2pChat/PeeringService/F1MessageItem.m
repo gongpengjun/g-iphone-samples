@@ -11,7 +11,7 @@
 
 @implementation F1MessageItem
 
-@synthesize message;
+@synthesize message,direction;
 
 - (void) dealloc
 {

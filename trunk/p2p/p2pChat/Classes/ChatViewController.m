@@ -67,11 +67,12 @@ static ChatViewController * _sharedChatViewController = nil;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	F1MessageItem * item = [[F1MessageItem alloc] initWithMessage:textField.text];
-	[_peer sendItem:item toPeer:_peer];
-	[_messages addObject:item];
+	F1MessageItem * msgItem = [[F1MessageItem alloc] initWithMessage:textField.text];
+	msgItem.direction = F1MessageItemDirectionSent;
+	[_peer sendItem:msgItem toPeer:_peer];
+	[_messages addObject:msgItem];
 	[self.tableView reloadData];
-	[item release];
+	[msgItem release];
 	
 	[textField resignFirstResponder];
 	return YES;
@@ -79,6 +80,8 @@ static ChatViewController * _sharedChatViewController = nil;
 
 - (void)didReceiveItem:(F1Item*)item fromPeer:(F1Peer*)peer
 {
+	F1MessageItem * msgItem = (F1MessageItem *)item;
+	msgItem.direction = F1MessageItemDirectionReceived;
 	[_messages addObject:item];
 	[self.tableView reloadData];
 }
@@ -124,12 +127,18 @@ static ChatViewController * _sharedChatViewController = nil;
 	// Configure the cell.
 	if(_messages.count)
 	{
-		F1MessageItem* item = [_messages objectAtIndex:indexPath.row];
-		cell.textLabel.text = [item message];
-	}
-	else
-	{
-		cell.textLabel.text = @"no message";
+		F1MessageItem* msgItem = [_messages objectAtIndex:indexPath.row];
+		cell.textLabel.text = [msgItem message];
+		if(msgItem.direction == F1MessageItemDirectionReceived)
+		{
+			cell.textLabel.textAlignment = UITextAlignmentLeft;
+			cell.textLabel.textColor = [UIColor redColor];
+		}
+		else
+		{
+			cell.textLabel.textAlignment = UITextAlignmentRight;
+			cell.textLabel.textColor = [UIColor blueColor];
+		}
 	}
 	
     return cell;
