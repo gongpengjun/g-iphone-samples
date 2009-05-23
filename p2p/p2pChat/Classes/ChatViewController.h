@@ -6,19 +6,22 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-@class BLIPConnection;
+#import "F1BonjourPeer.h"
+#import "F1MessageItem.h"
 
-@interface ChatViewController : UIViewController <UITextFieldDelegate> 
-{	
-	NSNetService		* netService;
-    BLIPConnection		* _connection;
-	
+@interface ChatViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate> 
+{
+	F1BonjourPeer		* _peer;
 	UITextField			* _requestTextFiled;
-	UILabel				* _reponseLabel;
+	NSMutableArray      * _messages;
+	UITableView			* _tableView;
 }
 
-@property (nonatomic, retain) NSNetService *netService;
+@property (nonatomic, retain) F1BonjourPeer	* peer;
+@property (nonatomic, retain) UITableView	* tableView;
 
 + (ChatViewController*)sharedChatViewController;
+
+- (void)didReceiveItem:(F1Item*)item fromPeer:(F1Peer*)peer;
 
 @end
