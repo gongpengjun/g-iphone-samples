@@ -7,14 +7,12 @@
 //
 
 #import "ChatViewController.h"
-#import "BLIP.h"
-#import "Target.h"
 
 @implementation ChatViewController
 
-@synthesize netService;
+@synthesize peer = _peer, tableView = _tableView;
 
-ChatViewController * _sharedChatViewController = nil;
+static ChatViewController * _sharedChatViewController = nil;
 + (ChatViewController*)sharedChatViewController
 {
 	if(!_sharedChatViewController)
@@ -22,83 +20,119 @@ ChatViewController * _sharedChatViewController = nil;
 	return _sharedChatViewController;
 }
 
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
+- (void)dealloc 
+{
+	[_peer release];
+	[_requestTextFiled release];
+	[_messages release];
+	[_tableView release];
+    [super dealloc];
+}
+
+- (id)init
+{
+	if(self = [super init])
+	{
+	}
+	return self;
+}
+
 - (void)loadView 
 {
 	[super loadView];
 	
 	UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
 	[contentView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+	contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 	self.view = contentView;
 	[contentView release];
 	
-	_reponseLabel                   = [[UILabel alloc] initWithFrame:CGRectMake(10,0,300,30)];
-	_reponseLabel.textAlignment		= UITextAlignmentCenter;
-	_reponseLabel.opaque            = NO;
-	_reponseLabel.backgroundColor   = [UIColor whiteColor];
-	_reponseLabel.text				= @"reponse";
-	[self.view addSubview:_reponseLabel];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+	_tableView.delegate = self;
+	_tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+	[_tableView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+	[self.view addSubview:_tableView];
 	
-	_requestTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(10,35,300,25)];
-	_requestTextFiled.backgroundColor = [UIColor whiteColor];
+	_messages = [[NSMutableArray alloc] initWithCapacity:10];
+	
+	_requestTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(10,120,300,25)];
+	_requestTextFiled.backgroundColor = [UIColor greenColor];
 	_requestTextFiled.returnKeyType = UIReturnKeySend;
 	_requestTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
-	_requestTextFiled.placeholder = @"enter BLIP request here";
+	_requestTextFiled.placeholder = @"enter text here";
 	_requestTextFiled.delegate = self;
 	[self.view addSubview:_requestTextFiled];
 }
 
-- (void)viewDidLoad 
-{
-    [super viewDidLoad];
-	self.title = [NSString stringWithFormat:@"Interact with %@",[netService name]];
-	self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-}
-
-/* Opens a BLIP connection to the given address. */
-- (void)viewWillAppear:(BOOL)animated 
-{
-    [super viewWillAppear:animated];
-    _connection = [[BLIPConnection alloc] initToNetService: netService];
-    if( _connection )
-        [_connection open];
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	/* Send a BLIP request containing the string in the textfield */
-    BLIPRequest *r = [_connection request];
-    r.bodyString = textField.text;
-    BLIPResponse *response = [r send];
-    response.onComplete = $target(self,gotResponse:);
+	F1MessageItem * item = [[F1MessageItem alloc] initWithMessage:textField.text];
+	[_peer sendItem:item toPeer:_peer];
+	[_messages addObject:item];
+	[self.tableView reloadData];
+	[item release];
 	
 	[textField resignFirstResponder];
 	return YES;
 }
 
-/* Receive the response to the BLIP request, and put its contents into the response field */
-- (void) gotResponse: (BLIPResponse*)response
+- (void)didReceiveItem:(F1Item*)item fromPeer:(F1Peer*)peer
 {
-	_reponseLabel.text = response.bodyString;
-}    
-
-- (void)viewWillDisappear:(BOOL)animated 
-{
-	 [super viewWillDisappear:animated];
-	 
-	 /* Closes the currently open BLIP connection. */
-	 [_connection close];
-	 [_connection release];
-	 _connection = nil;
+	[_messages addObject:item];
+	[self.tableView reloadData];
 }
 
-- (void)dealloc 
+- (void)setPeer:(F1BonjourPeer*)p
 {
-	[netService release]; 
-	[_connection release];
-	[_requestTextFiled release];
-	[_reponseLabel release];
-    [super dealloc];
+	//save all messages for the current peer
+	
+	[p retain];
+	[_peer release];
+	_peer = p;
+
+	self.title = _peer ? [_peer name] : @"unknown peer";
+	
+	[_messages removeAllObjects];
+}
+
+#pragma mark Table view methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
+{
+    return 1;
+}
+
+
+// Customize the number of rows in the table view.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+    return _messages.count ? _messages.count : 1;
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) 
+	{
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+	// Configure the cell.
+	if(_messages.count)
+	{
+		F1MessageItem* item = [_messages objectAtIndex:indexPath.row];
+		cell.textLabel.text = [item message];
+	}
+	else
+	{
+		cell.textLabel.text = @"no message";
+	}
+	
+    return cell;
 }
 
 @end

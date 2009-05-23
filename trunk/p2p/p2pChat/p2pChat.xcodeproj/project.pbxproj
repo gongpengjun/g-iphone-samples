@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015229940FC78AA4009DDE5A /* F1BonjourPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0152298A0FC78AA4009DDE5A /* F1BonjourPeer.m */; };
+		015229950FC78AA4009DDE5A /* F1BonjourPeeringService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0152298C0FC78AA4009DDE5A /* F1BonjourPeeringService.m */; };
+		015229960FC78AA4009DDE5A /* F1Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 0152298E0FC78AA4009DDE5A /* F1Item.m */; };
+		015229970FC78AA4009DDE5A /* F1MessageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 015229900FC78AA4009DDE5A /* F1MessageItem.m */; };
+		015229980FC78AA4009DDE5A /* F1Peer.m in Sources */ = {isa = PBXBuildFile; fileRef = 015229920FC78AA4009DDE5A /* F1Peer.m */; };
 		016F800B0FC14DBC006DC45D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 016F800A0FC14DBC006DC45D /* libz.dylib */; };
 		016F80540FC14DD3006DC45D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016F80530FC14DD3006DC45D /* CFNetwork.framework */; };
 		016F80A10FC14E06006DC45D /* BLIP_57X57.png in Resources */ = {isa = PBXBuildFile; fileRef = 016F806E0FC14E06006DC45D /* BLIP_57X57.png */; };
@@ -32,8 +37,9 @@
 		016F80B50FC14E06006DC45D /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F809A0FC14E06006DC45D /* Logging.m */; };
 		016F80B70FC14E06006DC45D /* Target.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F809E0FC14E06006DC45D /* Target.m */; };
 		016F80B80FC14E06006DC45D /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 016F80A00FC14E06006DC45D /* Test.m */; };
+		01B3631B0FC55479000E6311 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B3631A0FC55479000E6311 /* MobileCoreServices.framework */; };
 		01B4D9A90FC2EFE000B224CA /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B4D9A60FC2EFE000B224CA /* ChatViewController.m */; };
-		01B4D9AA0FC2EFE000B224CA /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B4D9A80FC2EFE000B224CA /* UserListViewController.m */; };
+		01B4D9AA0FC2EFE000B224CA /* PeerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B4D9A80FC2EFE000B224CA /* PeerListViewController.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -42,6 +48,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		015229890FC78AA4009DDE5A /* F1BonjourPeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F1BonjourPeer.h; sourceTree = "<group>"; };
+		0152298A0FC78AA4009DDE5A /* F1BonjourPeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F1BonjourPeer.m; sourceTree = "<group>"; };
+		0152298B0FC78AA4009DDE5A /* F1BonjourPeeringService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F1BonjourPeeringService.h; sourceTree = "<group>"; };
+		0152298C0FC78AA4009DDE5A /* F1BonjourPeeringService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F1BonjourPeeringService.m; sourceTree = "<group>"; };
+		0152298D0FC78AA4009DDE5A /* F1Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F1Item.h; sourceTree = "<group>"; };
+		0152298E0FC78AA4009DDE5A /* F1Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F1Item.m; sourceTree = "<group>"; };
+		0152298F0FC78AA4009DDE5A /* F1MessageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F1MessageItem.h; sourceTree = "<group>"; };
+		015229900FC78AA4009DDE5A /* F1MessageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F1MessageItem.m; sourceTree = "<group>"; };
+		015229910FC78AA4009DDE5A /* F1Peer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F1Peer.h; sourceTree = "<group>"; };
+		015229920FC78AA4009DDE5A /* F1Peer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F1Peer.m; sourceTree = "<group>"; };
+		015229930FC78AA4009DDE5A /* F1PeerDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F1PeerDiscovery.h; sourceTree = "<group>"; };
 		016F800A0FC14DBC006DC45D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		016F80530FC14DD3006DC45D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		016F806E0FC14E06006DC45D /* BLIP_57X57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BLIP_57X57.png; path = ../BLIP/BLIP_57X57.png; sourceTree = SOURCE_ROOT; };
@@ -91,10 +108,11 @@
 		016F809E0FC14E06006DC45D /* Target.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target.m; path = ../BLIP/MYUtilities/Target.m; sourceTree = SOURCE_ROOT; };
 		016F809F0FC14E06006DC45D /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test.h; path = ../BLIP/MYUtilities/Test.h; sourceTree = SOURCE_ROOT; };
 		016F80A00FC14E06006DC45D /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = ../BLIP/MYUtilities/Test.m; sourceTree = SOURCE_ROOT; };
+		01B3631A0FC55479000E6311 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		01B4D9A50FC2EFE000B224CA /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		01B4D9A60FC2EFE000B224CA /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
-		01B4D9A70FC2EFE000B224CA /* UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
-		01B4D9A80FC2EFE000B224CA /* UserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
+		01B4D9A70FC2EFE000B224CA /* PeerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeerListViewController.h; sourceTree = "<group>"; };
+		01B4D9A80FC2EFE000B224CA /* PeerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeerListViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,12 +134,31 @@
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				016F800B0FC14DBC006DC45D /* libz.dylib in Frameworks */,
 				016F80540FC14DD3006DC45D /* CFNetwork.framework in Frameworks */,
+				01B3631B0FC55479000E6311 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015229880FC78AA4009DDE5A /* PeeringService */ = {
+			isa = PBXGroup;
+			children = (
+				015229910FC78AA4009DDE5A /* F1Peer.h */,
+				015229920FC78AA4009DDE5A /* F1Peer.m */,
+				015229890FC78AA4009DDE5A /* F1BonjourPeer.h */,
+				0152298A0FC78AA4009DDE5A /* F1BonjourPeer.m */,
+				015229930FC78AA4009DDE5A /* F1PeerDiscovery.h */,
+				0152298B0FC78AA4009DDE5A /* F1BonjourPeeringService.h */,
+				0152298C0FC78AA4009DDE5A /* F1BonjourPeeringService.m */,
+				0152298D0FC78AA4009DDE5A /* F1Item.h */,
+				0152298E0FC78AA4009DDE5A /* F1Item.m */,
+				0152298F0FC78AA4009DDE5A /* F1MessageItem.h */,
+				015229900FC78AA4009DDE5A /* F1MessageItem.m */,
+			);
+			path = PeeringService;
+			sourceTree = "<group>";
+		};
 		016F806D0FC14E06006DC45D /* BLIP */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,8 +245,8 @@
 			children = (
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
-				01B4D9A70FC2EFE000B224CA /* UserListViewController.h */,
-				01B4D9A80FC2EFE000B224CA /* UserListViewController.m */,
+				01B4D9A70FC2EFE000B224CA /* PeerListViewController.h */,
+				01B4D9A80FC2EFE000B224CA /* PeerListViewController.m */,
 				01B4D9A50FC2EFE000B224CA /* ChatViewController.h */,
 				01B4D9A60FC2EFE000B224CA /* ChatViewController.m */,
 			);
@@ -228,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				016F806D0FC14E06006DC45D /* BLIP */,
+				015229880FC78AA4009DDE5A /* PeeringService */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -258,6 +296,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01B3631A0FC55479000E6311 /* MobileCoreServices.framework */,
 				016F80530FC14DD3006DC45D /* CFNetwork.framework */,
 				016F800A0FC14DBC006DC45D /* libz.dylib */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -352,7 +391,12 @@
 				016F80B70FC14E06006DC45D /* Target.m in Sources */,
 				016F80B80FC14E06006DC45D /* Test.m in Sources */,
 				01B4D9A90FC2EFE000B224CA /* ChatViewController.m in Sources */,
-				01B4D9AA0FC2EFE000B224CA /* UserListViewController.m in Sources */,
+				01B4D9AA0FC2EFE000B224CA /* PeerListViewController.m in Sources */,
+				015229940FC78AA4009DDE5A /* F1BonjourPeer.m in Sources */,
+				015229950FC78AA4009DDE5A /* F1BonjourPeeringService.m in Sources */,
+				015229960FC78AA4009DDE5A /* F1Item.m in Sources */,
+				015229970FC78AA4009DDE5A /* F1MessageItem.m in Sources */,
+				015229980FC78AA4009DDE5A /* F1Peer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
