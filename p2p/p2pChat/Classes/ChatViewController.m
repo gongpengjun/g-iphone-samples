@@ -7,33 +7,11 @@
 //
 
 #import "ChatViewController.h"
-#import "TextFieldCell.h"
-
-#define kStdButtonWidth			60.0
-#define kStdButtonHeight		30.0
-@interface F1TextField : UITextField
-@end
-
-@implementation F1TextField
-- (CGRect)textRectForBounds:(CGRect)bounds
-{
-	CGRect rect = bounds;
-	rect.size.width -= kStdButtonWidth;
-	return rect;
-}
-
-- (CGRect)rightViewRectForBounds:(CGRect)bounds
-{
-	CGRect rect = bounds;
-	rect.origin.x = rect.size.width - kStdButtonWidth;
-	rect.size = CGSizeMake(kStdButtonWidth,kStdButtonHeight);
-	return rect;
-}
-@end
+#import "ChatContentView.h"
 
 @implementation ChatViewController
 
-@synthesize peer = _peer, tableView = _tableView;
+@synthesize peer = _peer, tableView = _tableView, msgEntryView = _msgEntryView;
 
 static ChatViewController * _sharedChatViewController = nil;
 + (ChatViewController*)sharedChatViewController
@@ -46,7 +24,7 @@ static ChatViewController * _sharedChatViewController = nil;
 - (void)dealloc 
 {
 	[_peer release];
-	[_requestTextFiled release];
+	[_msgEntryView release];
 	[_messages release];
 	[_tableView release];
     [super dealloc];
@@ -57,6 +35,7 @@ static ChatViewController * _sharedChatViewController = nil;
 	if(self = [super init])
 	{
 		self.title = @"unknown peer";
+		_messages = [[NSMutableArray alloc] initWithCapacity:10];
 	}
 	return self;
 }
@@ -65,37 +44,33 @@ static ChatViewController * _sharedChatViewController = nil;
 {
 	[super loadView];
 	
-	UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+	CGRect frame = [[UIScreen mainScreen] applicationFrame];
+	
+	ChatContentView *contentView = [[ChatContentView alloc] initWithFrame:frame];
 	[contentView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
 	contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+	contentView.chatViewController = self;
 	self.view = contentView;
 	[contentView release];
 	
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+	frame = self.view.bounds;
+	frame.size.height = 416;
+    _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
 	_tableView.delegate = self;
 	_tableView.dataSource = self;
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+	_tableView.backgroundColor = [UIColor lightGrayColor];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	[_tableView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
 	[self.view addSubview:_tableView];
 	
-	_messages = [[NSMutableArray alloc] initWithCapacity:10];
-	
-	_requestTextFiled = [[F1TextField alloc] initWithFrame:CGRectZero];
-	_requestTextFiled.font = [UIFont systemFontOfSize:22];
-	_requestTextFiled.borderStyle = UITextBorderStyleRoundedRect;
-	_requestTextFiled.returnKeyType = UIReturnKeySend;
-	_requestTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
-	_requestTextFiled.placeholder = @"enter text here";
-	_requestTextFiled.delegate = self;
-	
-	UIButton *sendButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-	sendButton.frame = CGRectMake(0.0, 0.0, kStdButtonWidth, kStdButtonHeight);
-	[sendButton setTitle:@"Send" forState:UIControlStateNormal];
-	sendButton.backgroundColor = [UIColor clearColor];
-	[sendButton addTarget:self action:@selector(sendAction) forControlEvents:UIControlEventTouchUpInside];
-	
-	_requestTextFiled.rightView = sendButton;
-	_requestTextFiled.rightViewMode = UITextFieldViewModeAlways;
+	_msgEntryView = [[MessageEntryView alloc] init];
+	frame = _msgEntryView.frame;
+	//frame.origin.y = self.view.bounds.size.height - _msgEntryView.bounds.size.height;
+	frame.origin.y = 375;
+	_msgEntryView.frame = frame;
+	_msgEntryView.textField.delegate = self;
+	[_msgEntryView.sendButton addTarget:self action:@selector(sendAction) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:_msgEntryView];
 }
 
 - (void)sendText:(NSString*)msg
@@ -106,20 +81,22 @@ static ChatViewController * _sharedChatViewController = nil;
 	[_peer sendItem:msgItem toPeer:_peer];
 	[_messages addObject:msgItem];
 	[self.tableView reloadData];
+	[_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_messages.count-1 inSection:0]
+					  atScrollPosition:UITableViewScrollPositionBottom animated:NO];
 	[msgItem release];
 }
 
 - (void)sendAction
 {
-	[self sendText:_requestTextFiled.text];
-	[_requestTextFiled resignFirstResponder];
-	_requestTextFiled.text = nil;
+	[self sendText:_msgEntryView.textField.text];
+	//[_msgEntryView.textField resignFirstResponder];
+	_msgEntryView.textField.text = nil;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	[self sendText:textField.text];
-	[textField resignFirstResponder];
+	//[textField resignFirstResponder];
 	textField.text = nil;
 	return YES;
 }
@@ -130,6 +107,8 @@ static ChatViewController * _sharedChatViewController = nil;
 	msgItem.direction = F1MessageItemDirectionReceived;
 	[_messages addObject:item];
 	[self.tableView reloadData];
+	[_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_messages.count-1 inSection:0]
+					  atScrollPosition:UITableViewScrollPositionBottom animated:NO];
 }
 
 - (void)setPeer:(F1BonjourPeer*)p
@@ -156,55 +135,90 @@ static ChatViewController * _sharedChatViewController = nil;
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return _messages.count + 1;
+    return _messages.count;
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	UITableViewCell *cell = nil;
-	NSInteger row = [indexPath row];
-	
-	if (row == _messages.count) 
+	static NSString *kGenericCell_ID = @"GenericCell";
+	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kGenericCell_ID];
+	if (cell == nil) 
 	{
-		cell = [self.tableView dequeueReusableCellWithIdentifier:kCellTextField_ID];
-		if (cell == nil) 
-			cell = [[[TextFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellTextField_ID] autorelease];
-	}
-	else 
-	{
-		static NSString *kGenericCell_ID = @"GenericCell";
-		cell = [self.tableView dequeueReusableCellWithIdentifier:kGenericCell_ID];
-		if (cell == nil) 
-		{
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kGenericCell_ID] autorelease];			
-			// turn off selection use
-			cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		}
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kGenericCell_ID] autorelease];			
+		// turn off selection use
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
 
-	// Configure the cell.		
-	if(row == _messages.count)
+	F1MessageItem* msgItem = [_messages objectAtIndex:indexPath.row];
+	cell.textLabel.text = [msgItem message];
+	if(msgItem.direction == F1MessageItemDirectionReceived)
 	{
-		((TextFieldCell *)cell).textField = _requestTextFiled;
+		cell.textLabel.textAlignment = UITextAlignmentLeft;
+		cell.textLabel.textColor = [UIColor redColor];
 	}
 	else
 	{
-		F1MessageItem* msgItem = [_messages objectAtIndex:indexPath.row];
-		cell.textLabel.text = [msgItem message];
-		if(msgItem.direction == F1MessageItemDirectionReceived)
-		{
-			cell.textLabel.textAlignment = UITextAlignmentLeft;
-			cell.textLabel.textColor = [UIColor redColor];
-		}
-		else
-		{
-			cell.textLabel.textAlignment = UITextAlignmentRight;
-			cell.textLabel.textColor = [UIColor blueColor];
-		}
+		cell.textLabel.textAlignment = UITextAlignmentRight;
+		cell.textLabel.textColor = [UIColor blueColor];
 	}
 	
     return cell;
+}
+
+#pragma mark Adjust view when keyboard show/hide
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:)
+												 name:UIKeyboardWillShowNotification object:self.view.window];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:)
+												 name:UIKeyboardWillHideNotification object:self.view.window];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)setViewWhileKeyboardMoveUp:(BOOL)up withKeyboardInfo:(NSDictionary *)kbInfo
+{
+	NSTimeInterval kbDuration = 1.0;
+	[[kbInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&kbDuration];
+	
+	CGRect kbBounds = CGRectZero;
+	[[kbInfo valueForKey:UIKeyboardBoundsUserInfoKey] getValue:&kbBounds];
+	
+	UIViewAnimationCurve kbCurve = UIViewAnimationCurveEaseIn;
+	[[kbInfo valueForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&kbCurve];
+	
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration:kbDuration];
+	[UIView setAnimationCurve:kbCurve];
+	[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view.window cache:YES];
+	CGRect rect = self.view.frame;
+	if(up)
+		rect.size.height -= kbBounds.size.height;
+	else
+		rect.size.height += kbBounds.size.height;
+	self.view.frame = rect;
+	if(_messages.count)
+		[_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_messages.count-1 inSection:0]
+						  atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+	[UIView commitAnimations];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notif
+{
+	NSDictionary * kbInfo = notif.userInfo;
+	[self setViewWhileKeyboardMoveUp:YES withKeyboardInfo:kbInfo];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notif
+{
+	NSDictionary * kbInfo = notif.userInfo;
+	[self setViewWhileKeyboardMoveUp:NO withKeyboardInfo:kbInfo];
 }
 
 @end

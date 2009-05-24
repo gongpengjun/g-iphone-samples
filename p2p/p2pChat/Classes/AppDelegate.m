@@ -49,7 +49,7 @@
 	
 	_chatViewController = [ChatViewController sharedChatViewController];
 	
-	[_navigationController pushViewController:_chatViewController animated:NO];
+	//[_navigationController pushViewController:_chatViewController animated:NO];
 	
 	[_window addSubview:[_navigationController view]];
     [_window makeKeyAndVisible];
