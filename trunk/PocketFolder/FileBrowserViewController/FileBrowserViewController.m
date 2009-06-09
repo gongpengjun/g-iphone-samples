@@ -14,6 +14,8 @@
 #import "UIAlertView+textField.h"
 #import "PasswordKeeper.h"
 
+#import "Configuration.h"
+
 @interface FileBrowserViewController (Private)
 - (void)doShare;
 - (void)doNewFolder;
@@ -61,6 +63,7 @@
 														  style:UIBarButtonItemStyleBordered
 														 target:self
 														 action:@selector(doNewFolder)];
+		self.toolbarItems = [NSArray arrayWithObject:newFolderButton];
     }
     return self;
 }
@@ -69,6 +72,7 @@
 {
     [super viewDidLoad];
 	self.tableView.allowsSelectionDuringEditing = YES;
+#if !GENERATE_SPLASH_SCREEN	
 	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 	if([self isEqual:appDelegate.rootViewController])
 	{
@@ -79,8 +83,7 @@
 	{
 		self.navigationItem.rightBarButtonItem = self.editButtonItem;		
 	}
-	
-	self.toolbarItems = [NSArray arrayWithObject:newFolderButton];
+#endif
 }
 
 - (void)viewWillAppear:(BOOL)animated 
@@ -91,7 +94,9 @@
 		self.navigationController.toolbarHidden = NO;
 		self.navigationController.toolbar.barStyle = UIBarStyleBlack;
 	}
+#if !GENERATE_SPLASH_SCREEN
 	[self reloadFiles];
+#endif
 	[self.tableView reloadData];
 }
 
@@ -181,7 +186,8 @@
 	cell.imageView.image = [aFile fileImage];
 	#endif
 	
-	UIImage *image = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
+	//UIImage *image = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
+	UIImage *image = (aFile.locked) ? [UIImage imageNamed:@"locked-blue-32x32.png"] : [UIImage imageNamed:@"unlocked-blue-32x32.png"];
 	
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
@@ -479,7 +485,7 @@ ERROR:
 		else
 		{		
 			pwdTarget = FGPasswordTargetUnlock;
-			pwdAlertTitle = @"MyBooks Password";
+			pwdAlertTitle = @"PocketFolder Password";
 			pwdAlertMessage = nil;
 			self.curIndexPath = indexPath;
 			[self showPasswordDialog];
@@ -514,7 +520,7 @@ ERROR:
 		else
 		{		
 			pwdTarget = FGPasswordTargetOpen;
-			pwdAlertTitle = @"MyBooks Password";
+			pwdAlertTitle = @"PocketFolder Password";
 			pwdAlertMessage = nil;
 			self.curIndexPath = indexPath;
 			[self showPasswordDialog];
@@ -532,7 +538,7 @@ ERROR:
 	if(aFile.locked)
 	{
 		pwdTarget = FGPasswordTargetDelete;
-		pwdAlertTitle = @"MyBooks Password";
+		pwdAlertTitle = @"PocketFolder Password";
 		pwdAlertMessage = nil;
 		self.curIndexPath = indexPath;
 		[self showPasswordDialog];
@@ -550,7 +556,9 @@ ERROR:
 	[curPath release];
 	curPath = newPath;
 	self.title = [curPath lastPathComponent];
+#if !GENERATE_SPLASH_SCREEN
 	[self reloadFiles];
+#endif
 }
 
 - (void)reloadFiles
@@ -643,7 +651,8 @@ ERROR:
 	
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	UIButton *button = (UIButton *) (self.editing ? cell.editingAccessoryView : cell.accessoryView);
-	UIImage *newImage = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
+	//UIImage *newImage = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
+	UIImage *newImage = (aFile.locked) ? [UIImage imageNamed:@"locked-blue-32x32.png"] : [UIImage imageNamed:@"unlocked-blue-32x32.png"];	
 	[button setBackgroundImage:newImage forState:UIControlStateNormal];
 	if(aFile.locked)
 		cell.accessoryView = button;
