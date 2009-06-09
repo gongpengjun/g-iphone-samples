@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011D4C9F0FDE39F4003115A7 /* locked-blue-32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4C950FDE39F4003115A7 /* locked-blue-32x32.png */; };
+		011D4CA30FDE39F4003115A7 /* unlocked-blue-32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4C990FDE39F4003115A7 /* unlocked-blue-32x32.png */; };
 		013B11FF0FA97A5600625F62 /* PasswordKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 013B11FE0FA97A5600625F62 /* PasswordKeeper.m */; };
 		013B12030FA97A7200625F62 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 013B12010FA97A7200625F62 /* locked.png */; };
 		013B12040FA97A7200625F62 /* unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = 013B12020FA97A7200625F62 /* unlocked.png */; };
@@ -59,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011D4C950FDE39F4003115A7 /* locked-blue-32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locked-blue-32x32.png"; sourceTree = "<group>"; };
+		011D4C990FDE39F4003115A7 /* unlocked-blue-32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unlocked-blue-32x32.png"; sourceTree = "<group>"; };
 		013B11FD0FA97A5600625F62 /* PasswordKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordKeeper.h; sourceTree = "<group>"; };
 		013B11FE0FA97A5600625F62 /* PasswordKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordKeeper.m; sourceTree = "<group>"; };
 		013B12010FA97A7200625F62 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 		013B12000FA97A7200625F62 /* password_images */ = {
 			isa = PBXGroup;
 			children = (
+				011D4C950FDE39F4003115A7 /* locked-blue-32x32.png */,
+				011D4C990FDE39F4003115A7 /* unlocked-blue-32x32.png */,
 				013B12010FA97A7200625F62 /* locked.png */,
 				013B12020FA97A7200625F62 /* unlocked.png */,
 			);
@@ -431,6 +437,8 @@
 				01F407A50FB55954009E06D6 /* txt_32_X_32.png in Resources */,
 				01EA20620FB966F6007F7380 /* pocket_folder.png in Resources */,
 				01EA20870FB96965007F7380 /* Default.png in Resources */,
+				011D4C9F0FDE39F4003115A7 /* locked-blue-32x32.png in Resources */,
+				011D4CA30FDE39F4003115A7 /* unlocked-blue-32x32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

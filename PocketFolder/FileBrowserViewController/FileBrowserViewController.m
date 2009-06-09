@@ -262,7 +262,8 @@ static CGRect s_footerBarFrame = { 0.0, 372.0,  320.0,  44.0 };
 	cell.imageView.image = [aFile fileImage];
 	#endif
 	
-	UIImage *image = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
+	//UIImage *image = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
+	UIImage *image = (aFile.locked) ? [UIImage imageNamed:@"locked-blue-32x32.png"] : [UIImage imageNamed:@"unlocked-blue-32x32.png"];
 	
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
@@ -771,7 +772,8 @@ ERROR:
 #else
 	UIButton *button = (UIButton *) (cell.accessoryView);
 #endif
-	UIImage *newImage = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
+	//UIImage *newImage = (aFile.locked) ? [UIImage imageNamed:@"locked.png"] : [UIImage imageNamed:@"unlocked.png"];
+	UIImage *newImage = (aFile.locked) ? [UIImage imageNamed:@"locked-blue-32x32.png"] : [UIImage imageNamed:@"unlocked-blue-32x32.png"];	
 	[button setBackgroundImage:newImage forState:UIControlStateNormal];
 	if(aFile.locked)
 		cell.accessoryView = button;
