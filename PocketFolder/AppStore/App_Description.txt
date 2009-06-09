@@ -1,0 +1,8 @@
+
+A simple file sharing and reading application used by myself everyday and want to share with you now.
+
+Feature list:
+◦ File share: upload and download files between your iPhone/iPod touch and desktop.
+◦ File reading: supported book format: txt, pdf, image and web page.
+◦ File management: folder/file create, delete,edit,move.
+◦ File lock: lock individual file or folder and all files and folders share one password.
