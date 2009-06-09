@@ -10,7 +10,7 @@
 		011D4D7C0FDE4F64003115A7 /* pocket_folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4D7B0FDE4F64003115A7 /* pocket_folder.png */; };
 		011D4DC60FDE5980003115A7 /* locked-blue-32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4DC40FDE5980003115A7 /* locked-blue-32x32.png */; };
 		011D4DC70FDE5980003115A7 /* unlocked-blue-32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4DC50FDE5980003115A7 /* unlocked-blue-32x32.png */; };
-		011D53C30F8F31CB008B2839 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D53C20F8F31CB008B2839 /* Default.png */; };
+		011D4DE40FDE5A67003115A7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4DE30FDE5A67003115A7 /* Default.png */; };
 		013B11FF0FA97A5600625F62 /* PasswordKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 013B11FE0FA97A5600625F62 /* PasswordKeeper.m */; };
 		013B985D0FA2BFD9002A8D26 /* FolderPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 013B985C0FA2BFD9002A8D26 /* FolderPickerViewController.m */; };
 		01861EDB0F943338006CC61E /* MyWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01861EDA0F943338006CC61E /* MyWebView.m */; };
@@ -63,7 +63,7 @@
 		011D4DB10FDE587A003115A7 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		011D4DC40FDE5980003115A7 /* locked-blue-32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locked-blue-32x32.png"; sourceTree = "<group>"; };
 		011D4DC50FDE5980003115A7 /* unlocked-blue-32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unlocked-blue-32x32.png"; sourceTree = "<group>"; };
-		011D53C20F8F31CB008B2839 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		011D4DE30FDE5A67003115A7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		013B11FD0FA97A5600625F62 /* PasswordKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordKeeper.h; sourceTree = "<group>"; };
 		013B11FE0FA97A5600625F62 /* PasswordKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordKeeper.m; sourceTree = "<group>"; };
 		013B985B0FA2BFD9002A8D26 /* FolderPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderPickerViewController.h; sourceTree = "<group>"; };
@@ -351,8 +351,8 @@
 				01E6B5D60FB194F5008D47E7 /* Folder.png */,
 				01E6B5D70FB194F5008D47E7 /* SmallFolder.png */,
 				013B12000FA97A7200625F62 /* password_images */,
-				011D53C20F8F31CB008B2839 /* Default.png */,
 				011D4D7B0FDE4F64003115A7 /* pocket_folder.png */,
+				011D4DE30FDE5A67003115A7 /* Default.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -412,7 +412,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				011D53C30F8F31CB008B2839 /* Default.png in Resources */,
 				01F204FC0F9B6EF500393603 /* Settings.bundle in Resources */,
 				01E6B5D80FB194F5008D47E7 /* Folder.png in Resources */,
 				01E6B5D90FB194F5008D47E7 /* SmallFolder.png in Resources */,
@@ -431,6 +430,7 @@
 				011D4D7C0FDE4F64003115A7 /* pocket_folder.png in Resources */,
 				011D4DC60FDE5980003115A7 /* locked-blue-32x32.png in Resources */,
 				011D4DC70FDE5980003115A7 /* unlocked-blue-32x32.png in Resources */,
+				011D4DE40FDE5A67003115A7 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
