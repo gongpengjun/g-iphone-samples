@@ -952,11 +952,11 @@ static NSMutableArray *recentNonces;
 			[indexedString appendString:@"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n"];
 			[indexedString appendString:@"<html><head>"];
 			[indexedString appendString:@"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />"];
-			[indexedString appendString:@"<title>Basic Matrix File Sharing</title>"];
+			[indexedString appendString:@"<title>Pocket Folder File Sharing</title>"];
 			[indexedString appendString:@"<link href='/__style.css' rel='stylesheet' type='text/css' />"];
 			[indexedString appendString:@"</head><body>"];
-			//[indexedString appendFormat:@"<div style='font-size:20px;color:#36acff;font-weight:normal;'><img src='__webicon.jpg' border='0'  align='absmiddle' /> Basic Matrix File Sharing</div>"];
-			[indexedString appendFormat:@"<div style='font-size:20px;color:#36acff;font-weight:normal;'> Basic Matrix File Sharing</div>"];
+			//[indexedString appendFormat:@"<div style='font-size:20px;color:#36acff;font-weight:normal;'><img src='__webicon.jpg' border='0'  align='absmiddle' /> Pocket Folder File Sharing</div>"];
+			[indexedString appendFormat:@"<div style='font-size:20px;color:#36acff;font-weight:normal;'> Pocket Folder File Sharing</div>"];
 			//[indexedString appendString:@"<img src='__line.jpg' border='0' /><br />"];
 			[indexedString appendString:@"<ul class='filelist'>"];
 			for(NSString* f in files){
