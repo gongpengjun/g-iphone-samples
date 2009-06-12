@@ -29,7 +29,7 @@
 {
     if (self = [super initWithStyle:UITableViewStyleGrouped]) 
 	{
-		self.title = @"Books Share";
+		self.title = @"Files Share";
 		startButton  = [[UIBarButtonItem alloc] initWithTitle:@"Start"
 														style:UIBarButtonItemStyleDone
 													   target:self
