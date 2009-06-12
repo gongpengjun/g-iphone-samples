@@ -947,8 +947,9 @@ static NSMutableArray *recentNonces;
 			[indexedString appendString:@"<title>Basic Matrix File Sharing</title>"];
 			[indexedString appendString:@"<link href='/__style.css' rel='stylesheet' type='text/css' />"];
 			[indexedString appendString:@"</head><body>"];
-			[indexedString appendFormat:@"<div style='font-size:20px;color:#36acff;font-weight:normal;'><img src='__webicon.jpg' border='0'  align='absmiddle' /> Basic Matrix File Sharing</div>"];
-			[indexedString appendString:@"<img src='__line.jpg' border='0' /><br />"];
+			//[indexedString appendFormat:@"<div style='font-size:20px;color:#36acff;font-weight:normal;'><img src='__webicon.jpg' border='0'  align='absmiddle' /> Basic Matrix File Sharing</div>"];
+			[indexedString appendFormat:@"<div style='font-size:20px;color:#36acff;font-weight:normal;'> Basic Matrix File Sharing</div>"];
+			//[indexedString appendString:@"<img src='__line.jpg' border='0' /><br />"];
 			[indexedString appendString:@"<ul class='filelist'>"];
 			for(NSString* f in files){
 				BOOL d;
@@ -959,7 +960,7 @@ static NSMutableArray *recentNonces;
 				else [indexedString appendFormat:@"<li><a href='%@'>%@</a></li>",f,f];
 			}
 			[indexedString appendString:@"</ul>"];
-			[indexedString appendString:@"<img src='__line.jpg' border='0' /><br /><br />"];
+			//[indexedString appendString:@"<img src='__line.jpg' border='0' /><br /><br />"];
 			[indexedString appendString:@"<form name='form1' enctype='multipart/form-data' method='post' action=''>FILE UPLOAD: <input type='file' name='upload_file' id='upload_file' /> <input value='Upload' type='submit' /></form>"];
 			return [[[HTTPDataResponse alloc] initWithData:[indexedString dataUsingEncoding:NSUTF8StringEncoding]] autorelease];
 		}
