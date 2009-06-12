@@ -652,7 +652,15 @@ static NSMutableArray *recentNonces;
 		NSLog(@"fcend = %d, clen = %d", fcend, fcend - fcstart);
 		
 		NSData* fileData = [[[NSData alloc] initWithBytes:fcstart length: fcend - fcstart] autorelease];
-
+		
+		/* Fix IE 7's stupid fileName issue */
+		if([fileName characterAtIndex:1] == ':')
+		{
+			//fileName: C:\\Documents and Settings\\Administrator\\Desktop\\New.txt
+			//path: /.../Pocket Folder/C:\\Documents and Settings\\Administrator\\Desktop\\New.txt
+			NSString *tempStr = [fileName stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
+			fileName = [tempStr lastPathComponent];
+		}
 		NSString* path = [[self filePathForURI:[uri relativeString]] stringByAppendingFormat:@"/%@", fileName];
 		[fileData writeToFile:path atomically:YES];
 	}
