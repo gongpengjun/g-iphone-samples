@@ -106,6 +106,17 @@
 		01A2326F0F91ECC800EBB67E /* BookShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookShareViewController.h; sourceTree = "<group>"; };
 		01A232700F91ECC800EBB67E /* BookShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookShareViewController.m; sourceTree = "<group>"; };
 		01A232B40F91F2F700EBB67E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		01A8B53410078A8600D9BD42 /* DON'T.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "DON'T.txt"; sourceTree = "<group>"; };
+		01A8B53610078A8600D9BD42 /* China-flag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "China-flag.jpg"; sourceTree = "<group>"; };
+		01A8B53710078A8600D9BD42 /* xx-map.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "xx-map.gif"; sourceTree = "<group>"; };
+		01A8B53910078A8600D9BD42 /* Persuasive Writing.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Persuasive Writing.pdf"; sourceTree = "<group>"; };
+		01A8B53A10078A8600D9BD42 /* Socrates.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Socrates.pdf; sourceTree = "<group>"; };
+		01A8B53B10078A8600D9BD42 /* mymentorsrole.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = mymentorsrole.pdf; sourceTree = "<group>"; };
+		01A8B53D10078A8600D9BD42 /* 4 Ways to Recharge Your Motivation Batteries.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "4 Ways to Recharge Your Motivation Batteries.html"; sourceTree = "<group>"; };
+		01A8B53E10078A8600D9BD42 /* China.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = China.webarchive; sourceTree = "<group>"; };
+		01A8B53F10078A8600D9BD42 /* Hong Kong.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Hong Kong.webarchive"; sourceTree = "<group>"; };
+		01A8B54010078A8600D9BD42 /* Macau.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Macau.webarchive; sourceTree = "<group>"; };
+		01A8B54110078A8600D9BD42 /* Top 10 Motivators.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Top 10 Motivators.webarchive"; sourceTree = "<group>"; };
 		01C2894A0FA34A0700D5D04A /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
 		01C2894B0FA34A0700D5D04A /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
 		01C28B3B0FA4754000D5D04A /* NewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewViewController.h; sourceTree = "<group>"; };
@@ -270,6 +281,48 @@
 			path = BookShareViewController;
 			sourceTree = "<group>";
 		};
+		01A8B53310078A8600D9BD42 /* SampleFiles */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B53410078A8600D9BD42 /* DON'T.txt */,
+				01A8B53510078A8600D9BD42 /* images */,
+				01A8B53810078A8600D9BD42 /* pdf */,
+				01A8B53C10078A8600D9BD42 /* web page */,
+			);
+			path = SampleFiles;
+			sourceTree = "<group>";
+		};
+		01A8B53510078A8600D9BD42 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B53610078A8600D9BD42 /* China-flag.jpg */,
+				01A8B53710078A8600D9BD42 /* xx-map.gif */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		01A8B53810078A8600D9BD42 /* pdf */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B53910078A8600D9BD42 /* Persuasive Writing.pdf */,
+				01A8B53A10078A8600D9BD42 /* Socrates.pdf */,
+				01A8B53B10078A8600D9BD42 /* mymentorsrole.pdf */,
+			);
+			path = pdf;
+			sourceTree = "<group>";
+		};
+		01A8B53C10078A8600D9BD42 /* web page */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B53D10078A8600D9BD42 /* 4 Ways to Recharge Your Motivation Batteries.html */,
+				01A8B53E10078A8600D9BD42 /* China.webarchive */,
+				01A8B53F10078A8600D9BD42 /* Hong Kong.webarchive */,
+				01A8B54010078A8600D9BD42 /* Macau.webarchive */,
+				01A8B54110078A8600D9BD42 /* Top 10 Motivators.webarchive */,
+			);
+			path = "web page";
+			sourceTree = "<group>";
+		};
 		01F2037D0F9B4D0000393603 /* EditViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +390,7 @@
 				013B985A0FA2BFBC002A8D26 /* FolderPickerViewController */,
 				01A2316F0F91C44700EBB67E /* BookReaderViewController */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				01A8B53310078A8600D9BD42 /* SampleFiles */,
 				01F204FB0F9B6EF500393603 /* Settings.bundle */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -449,7 +503,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -rf \"Pocket Folder\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/\"\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Folder\" -name \".svn\" -exec rm -r {} \\;\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Folder\" -name \".*\" -exec rm -r {} \\;";
+			shellScript = "cp -rf \"SampleFiles\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/\"\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/SampleFiles\" -name \".svn\" -exec rm -r {} \\;\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/SampleFiles\" -name \".*\" -exec rm -r {} \\;\nmv \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/SampleFiles\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Folder\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
