@@ -549,7 +549,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -rf \"SampleFiles\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/\"\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/SampleFiles\" -name \".svn\" -exec rm -r {} \\;\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/SampleFiles\" -name \".*\" -exec rm -r {} \\;\nmv \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/SampleFiles\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Folder\"";
+			shellScript = "rm -rf \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Folder\"\ncp -rf \"SampleFiles\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/\"\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/SampleFiles\" -name \".svn\" -exec rm -r {} \\;\nfind -d \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/SampleFiles\" -name \".*\" -exec rm -r {} \\;\nmv \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/SampleFiles\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Pocket Folder\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
