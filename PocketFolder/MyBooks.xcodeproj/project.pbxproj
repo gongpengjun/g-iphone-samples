@@ -10,7 +10,6 @@
 		011D4D7C0FDE4F64003115A7 /* pocket_folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4D7B0FDE4F64003115A7 /* pocket_folder.png */; };
 		011D4DC60FDE5980003115A7 /* locked-blue-32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4DC40FDE5980003115A7 /* locked-blue-32x32.png */; };
 		011D4DC70FDE5980003115A7 /* unlocked-blue-32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4DC50FDE5980003115A7 /* unlocked-blue-32x32.png */; };
-		011D4DE40FDE5A67003115A7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4DE30FDE5A67003115A7 /* Default.png */; };
 		013B11FF0FA97A5600625F62 /* PasswordKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 013B11FE0FA97A5600625F62 /* PasswordKeeper.m */; };
 		013B985D0FA2BFD9002A8D26 /* FolderPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 013B985C0FA2BFD9002A8D26 /* FolderPickerViewController.m */; };
 		01861EDB0F943338006CC61E /* MyWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01861EDA0F943338006CC61E /* MyWebView.m */; };
@@ -53,6 +52,7 @@
 		01F407A20FB55954009E06D6 /* html_32_X_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 01F4078E0FB55954009E06D6 /* html_32_X_32.png */; };
 		01F407A40FB55954009E06D6 /* rtf_32_X_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 01F407900FB55954009E06D6 /* rtf_32_X_32.png */; };
 		01F407A50FB55954009E06D6 /* txt_32_X_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 01F407910FB55954009E06D6 /* txt_32_X_32.png */; };
+		01F7872E100EC1BB004B4C63 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 01F7872D100EC1BB004B4C63 /* Default.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -63,7 +63,6 @@
 		011D4DB10FDE587A003115A7 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		011D4DC40FDE5980003115A7 /* locked-blue-32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locked-blue-32x32.png"; sourceTree = "<group>"; };
 		011D4DC50FDE5980003115A7 /* unlocked-blue-32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unlocked-blue-32x32.png"; sourceTree = "<group>"; };
-		011D4DE30FDE5A67003115A7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		013B11FD0FA97A5600625F62 /* PasswordKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordKeeper.h; sourceTree = "<group>"; };
 		013B11FE0FA97A5600625F62 /* PasswordKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordKeeper.m; sourceTree = "<group>"; };
 		013B985B0FA2BFD9002A8D26 /* FolderPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderPickerViewController.h; sourceTree = "<group>"; };
@@ -144,6 +143,18 @@
 		01F4078E0FB55954009E06D6 /* html_32_X_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = html_32_X_32.png; sourceTree = "<group>"; };
 		01F407900FB55954009E06D6 /* rtf_32_X_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rtf_32_X_32.png; sourceTree = "<group>"; };
 		01F407910FB55954009E06D6 /* txt_32_X_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = txt_32_X_32.png; sourceTree = "<group>"; };
+		01F786EF100EBEF2004B4C63 /* PocketFolder.app.dSYM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = PocketFolder.app.dSYM.zip; sourceTree = "<group>"; };
+		01F786F0100EBEF2004B4C63 /* PocketFolder.app.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = PocketFolder.app.zip; sourceTree = "<group>"; };
+		01F786F1100EBEF2004B4C63 /* iTunes Connect App Details.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iTunes Connect App Details.webarchive"; sourceTree = "<group>"; };
+		01F786F2100EBEF2004B4C63 /* iTunes Connect Review.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iTunes Connect Review.webarchive"; sourceTree = "<group>"; };
+		01F786F3100EBEF2004B4C63 /* App_Description.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = App_Description.txt; sourceTree = "<group>"; };
+		01F786F4100EBEF2004B4C63 /* PocketFolder_512x512.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PocketFolder_512x512.jpg; sourceTree = "<group>"; };
+		01F786F6100EBEF2004B4C63 /* PocketFolder_ScreenShot_1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PocketFolder_ScreenShot_1.PNG; sourceTree = "<group>"; };
+		01F786F7100EBEF2004B4C63 /* PocketFolder_ScreenShot_2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PocketFolder_ScreenShot_2.PNG; sourceTree = "<group>"; };
+		01F786F8100EBEF2004B4C63 /* PocketFolder_ScreenShot_3.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PocketFolder_ScreenShot_3.PNG; sourceTree = "<group>"; };
+		01F786F9100EBEF2004B4C63 /* PocketFolder_ScreenShot_4.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PocketFolder_ScreenShot_4.PNG; sourceTree = "<group>"; };
+		01F786FA100EBEF2004B4C63 /* PocketFolder_ScreenShot_Primary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PocketFolder_ScreenShot_Primary.png; sourceTree = "<group>"; };
+		01F7872D100EC1BB004B4C63 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* PocketFolder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketFolder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -366,6 +377,40 @@
 			path = file_images;
 			sourceTree = "<group>";
 		};
+		01F786ED100EBEF2004B4C63 /* AppStore */ = {
+			isa = PBXGroup;
+			children = (
+				01F786EE100EBEF2004B4C63 /* 1.0 */,
+				01F786F3100EBEF2004B4C63 /* App_Description.txt */,
+				01F786F4100EBEF2004B4C63 /* PocketFolder_512x512.jpg */,
+				01F786F5100EBEF2004B4C63 /* ScreenShot */,
+			);
+			path = AppStore;
+			sourceTree = "<group>";
+		};
+		01F786EE100EBEF2004B4C63 /* 1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				01F786EF100EBEF2004B4C63 /* PocketFolder.app.dSYM.zip */,
+				01F786F0100EBEF2004B4C63 /* PocketFolder.app.zip */,
+				01F786F1100EBEF2004B4C63 /* iTunes Connect App Details.webarchive */,
+				01F786F2100EBEF2004B4C63 /* iTunes Connect Review.webarchive */,
+			);
+			path = 1.0;
+			sourceTree = "<group>";
+		};
+		01F786F5100EBEF2004B4C63 /* ScreenShot */ = {
+			isa = PBXGroup;
+			children = (
+				01F786F6100EBEF2004B4C63 /* PocketFolder_ScreenShot_1.PNG */,
+				01F786F7100EBEF2004B4C63 /* PocketFolder_ScreenShot_2.PNG */,
+				01F786F8100EBEF2004B4C63 /* PocketFolder_ScreenShot_3.PNG */,
+				01F786F9100EBEF2004B4C63 /* PocketFolder_ScreenShot_4.PNG */,
+				01F786FA100EBEF2004B4C63 /* PocketFolder_ScreenShot_Primary.png */,
+			);
+			path = ScreenShot;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +436,7 @@
 				01A2316F0F91C44700EBB67E /* BookReaderViewController */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				01A8B53310078A8600D9BD42 /* SampleFiles */,
+				01F786ED100EBEF2004B4C63 /* AppStore */,
 				01F204FB0F9B6EF500393603 /* Settings.bundle */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -406,7 +452,7 @@
 				01E6B5D70FB194F5008D47E7 /* SmallFolder.png */,
 				013B12000FA97A7200625F62 /* password_images */,
 				011D4D7B0FDE4F64003115A7 /* pocket_folder.png */,
-				011D4DE30FDE5A67003115A7 /* Default.png */,
+				01F7872D100EC1BB004B4C63 /* Default.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -484,7 +530,7 @@
 				011D4D7C0FDE4F64003115A7 /* pocket_folder.png in Resources */,
 				011D4DC60FDE5980003115A7 /* locked-blue-32x32.png in Resources */,
 				011D4DC70FDE5980003115A7 /* unlocked-blue-32x32.png in Resources */,
-				011D4DE40FDE5A67003115A7 /* Default.png in Resources */,
+				01F7872E100EC1BB004B4C63 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
